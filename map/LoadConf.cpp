@@ -49,8 +49,8 @@ bool		Map::LoadConf(ef::Bconf		&conf)
   for (int i = 0; i < size.x * size.y; ++i)
     {
       tiles[i].SetTile(((unsigned int*)material->pixels)[i],
-		       ((unsigned int*)height->pixels)[i]);
-      waters[i].SetTile(BLUE, ((unsigned int*)water->pixels)[i]);
+		       ((unsigned int*)height->pixels)[i] & ~BLACK);
+      waters[i].SetTile(BLUE, ((unsigned int*)water->pixels)[i] & ~BLACK);
     }
 
   ret = true;
@@ -68,6 +68,8 @@ bool		Map::LoadConf(const std::string	&conf)
 {
   ef::Bconf	cnf(conf);
 
+  if (!cnf.Get())
+    return (false);
   return (LoadConf(cnf));
 }
 

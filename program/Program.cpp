@@ -11,9 +11,12 @@
 #include		<assert.h>
 #include		"Program.hpp"
 #include		"MainMenu.hpp"
+#include		"Warfield.hpp"
+#include		"StrategicBoard.hpp"
 
 Program::Program(void)
-  : current_context(INITIAL_CONTEXT)
+  : current_context(INITIAL_CONTEXT),
+    ingame("./lvl/00/conf.dab")
 {
   t_bunny_position	pos;
 
@@ -21,7 +24,11 @@ Program::Program(void)
   assert((conf = bunny_open_configuration("./res/program.dab", NULL)));
   assert(bunny_position_configuration("Screen", &pos, conf) == BD_OK);
   assert((screen = bunny_new_picture(pos.x, pos.y)));
-  contexts[INITIAL_CONTEXT] = new MainMenu(*this);
+
+  contexts[MAIN_MENU] = new MainMenu(*this);
+  contexts[WARFIELD] = new Warfield(*this, ingame);
+  contexts[STRATEGIC_BOARD] = new StrategicBoard(*this, ingame);
+
   if (!bunny_configuration_getf_int(conf, &freq, "Frequency"))
     freq = 50;
 }

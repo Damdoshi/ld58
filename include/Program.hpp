@@ -12,6 +12,7 @@
 # define		__PROGRAM_HPP__
 # include		<lapin.h>
 # include		<map>
+# include		"inGame.hh"
 
 class			Program
 {
@@ -26,7 +27,7 @@ public:
       GAME_OVER,
       CREDITS,
       LAST_CONTEXT,
-      INITIAL_CONTEXT	= MAIN_MENU
+      INITIAL_CONTEXT	= WARFIELD
     };
 protected:
   t_bunny_window	**win;
@@ -36,6 +37,8 @@ protected:
 
   Ctx			current_context;
   std::map<Ctx, hbs::Context*> contexts;
+
+  ef::InGame		ingame;
 
 public:
   t_bunny_position	GetMouseRealPosition(t_bunny_position	p) const;

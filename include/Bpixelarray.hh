@@ -73,6 +73,7 @@ namespace ef
   class Bpixelarray
   {
   public:
+    Bpixelarray(t_bunny_picture &pic) : px(&pic) {}
     Bpixelarray(const Bpixelarray &) = delete;
     Bpixelarray();
     ~Bpixelarray();
@@ -109,9 +110,9 @@ namespace ef
 		  std::string str,
 		  AcuPos &pos);
 
-    VertexArray<45000> recVec;
+    VertexArray<5000> recVec;
     VertexArray<1000> textVec;
-    VertexArray<5000> lineVec;
+    VertexArray<5000000> lineVec;
     VertexArray<20000> pixVec;
 
   private:

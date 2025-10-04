@@ -32,7 +32,7 @@ protected:
   Unit			*over = NULL;
 
 public:
-  static constexpr double MaxHeight = 100;
+  static constexpr double MaxHeight = 255;
 
   double		Height(void) const;
 
