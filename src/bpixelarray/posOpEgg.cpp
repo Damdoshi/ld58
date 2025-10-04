@@ -3,19 +3,16 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:52 ******************************************************
-// damdoshi <damdoshi@terechkova.efrits.fr>
-// -  -
+// 23/04/2024 12:23:51 ******************************************************
+// romain.piccoche <romain.picoche@laika.efrits.fr>
+// - rts -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#ifndef			__PROGRAM_HPP__
-# define		__PROGRAM_HPP__
+#include "Bpixelarray.hh"
 
-class			Program
+ef::Pos &ef::Pos::operator=(Pos const& other)
 {
-public:
-  Program(void);
-  ~Program(void);
-};
-
-#endif	//		__PROGRAM_HPP__
+    x = other.x;
+    y = other.y;
+    return *this;
+}
