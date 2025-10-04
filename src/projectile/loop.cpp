@@ -24,12 +24,20 @@ void ef::Projectile::loop()
 	{
 	  AcuPos oldPos = pos;
 	  //std::cout << "projectile::loop : posx " << pos.x + tempPos3.x << " posy " << pos.y + tempPos3.y << " targetx " << lockTarget->getPos().x << " targety " << lockTarget->getPos().y << std::endl;
+	  double maxDivergeance = 0.2;
+	  t_bunny_area tempArea;
+	  tempArea.x = pos.x + tempPos3.x - scale / 2;
+	  tempArea.y = pos.y + tempPos3.y - scale / 2;
+	  tempArea.w = scale;
+	  temparea.h = scale;
+	  bool canMove = IsStableEnough(tempArea, maxDivergeance);
+
 	  if (pos.x + tempPos3.x < lockTarget->getPos().x + lockTarget->getScale().x / 2 &&
 	      pos.x + tempPos3.x > lockTarget->getPos().x - lockTarget->getScale().x / 2 &&
 	      pos.y + tempPos3.y < lockTarget->getPos().y + lockTarget->getScale().y / 2 &&
 	      pos.y + tempPos3.y > lockTarget->getPos().y - lockTarget->getScale().y / 2)
 	    pos = lockTarget->getPos();
-	  else
+	  else if (canMove)
 	    {
 	      pos.x += tempPos3.x;
 	      pos.y += tempPos3.y;

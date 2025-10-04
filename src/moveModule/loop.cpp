@@ -1,7 +1,11 @@
 #include "moveModule.hh"
+#include "Map.hpp"
 //#include <iostream>
 
-void ef::MoveModule::loop(AcuPos &pos, double &rota)
+void ef::MoveModule::loop(AcuPos &pos,
+			  double &rota,
+			  Map &map,
+			  double unitSize)
 {
   if (nextPosition.x == -1 && nextPosition.y == -1 && nextPosition.z == -1)
     {
@@ -47,15 +51,23 @@ void ef::MoveModule::loop(AcuPos &pos, double &rota)
   //std::cout << "movemodule::loop : dist " << dist << " angle " << angle << std::endl;
   if (angle < rotaSpeed * dist && angle > -rotaSpeed * dist)
     {
+      // test map
+      t_bunny_area tempArea;
+      tempArea.x = pos.x + tempPos3.x - unitSize / 2;
+      tempArea.y = pos.y + tempPos3.y - unitSize / 2;
+      tempArea.w = unitSize;
+      temparea.h = unitSize;
+      bool canMove = IsStableEnough(tempArea, maxDivergeance);
+
       if ((tempPos3.x > 0 && nextPosition.x > pos.x && pos.x + tempPos3.x > nextPosition.x) ||
 	  (tempPos3.x < 0 && nextPosition.x < pos.x && pos.x + tempPos3.x < nextPosition.x))
 	pos.x = nextPosition.x;
-      else
+      else if (canMove)
 	pos.x += tempPos3.x;
       if ((tempPos3.y > 0 && nextPosition.y > pos.y && pos.y + tempPos3.y > nextPosition.y) ||
 	  (tempPos3.y < 0 && nextPosition.y < pos.y && pos.y + tempPos3.y < nextPosition.y))
 	pos.y = nextPosition.y;
-      else
+      else if (canMove)
 	pos.y += tempPos3.y;
       if (pos.x == nextPosition.x && pos.y == nextPosition.y)
 	{

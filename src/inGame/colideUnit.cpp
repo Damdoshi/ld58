@@ -1,4 +1,4 @@
-//#include "inGame.hh"
+#include "inGame.hh"
 
 /*void ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit)
 {
@@ -61,7 +61,7 @@
     if (unit[i]->getId() != currUnit->getId())
       colideUnit(currUnit, unit[i]);
   colideUnit(currUnit, enemy);
-}
+  }*/
 
 void ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit,
 			    std::shared_ptr<Unit> otherUnit)
@@ -83,4 +83,4 @@ void ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit,
       unitPos.y = otherUnitPos.y + vect.y * ratio;
       currUnit->setPos(unitPos);
     }
-    }*/
+}

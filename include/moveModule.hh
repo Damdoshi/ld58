@@ -5,6 +5,8 @@
 #include "Bpixelarray.hh"
 #include <vector>
 
+class Map;
+
 namespace ef
 {
     struct MoveModuleConf
@@ -15,6 +17,7 @@ namespace ef
 
     double speed;
     double rotaSpeed;
+    double maxDivergeance;
   };
 
   class MoveModule
@@ -22,10 +25,11 @@ namespace ef
   public:
     MoveModule() = default;
     MoveModule(std::shared_ptr<MoveModuleConf> conf);
-    void loop(AcuPos &pos, double &rota);
+    void loop(AcuPos &pos, double &rota, Map &map, double UnitSize);
     void display(AcuPos pos, std::shared_ptr<Bpixelarray> screen);
     void setNewPath(std::vector<AcuPos> newPath)
     { path = newPath; nextPosition = path[path.size() - 1]; };
+    void addPosToPath(AcuPos newPos)
 
     double getSpeed()
     { return speed; };
@@ -41,6 +45,7 @@ namespace ef
     double speed;
     double rotaSpeed;
     AcuPos nextPosition;
+    double maxDivergeance;
     std::vector<AcuPos> path;
   };
 };

@@ -35,11 +35,15 @@ namespace ef
     Unit(void) = default;
     Unit(std::shared_ptr<UnitConf> conf);
     ~Unit(void);
-    void damageUnit(double damageValue);
+
+    void damageUnit(double damageValue,
+		    double penetration);
     void loop();
-    virtual void display(std::shared_ptr<Bpixelarray> screen);
+    virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
 
   private:
+    std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
+
     double maxHp;
     double hp;
     double armor;

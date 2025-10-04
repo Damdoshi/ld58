@@ -26,5 +26,10 @@ int ef::MoveModuleConf::LoadConf(Bconf &conf)
       perror("MoveModuleConf::LoadConf : failed to get rotaSpeed");
       return -1;
     }
+  if(!bunny_configuration_getf_double(conf.Get(), &maxDivergeance, "MoveModule.rotaSpeed"))
+    {
+      perror("MoveModuleConf::LoadConf : failed to get maxDivergeance");
+      return -1;
+    }
   return 1;
 }

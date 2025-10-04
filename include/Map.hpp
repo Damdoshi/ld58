@@ -34,7 +34,6 @@ public:
     ~MapDim(void);
     friend ::Map;
   };
-  std::vector<Unit>	units;
   std::vector<Tile>	tiles;
   t_bunny_size		size;
 

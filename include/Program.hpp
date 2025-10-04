@@ -22,7 +22,7 @@ public:
       SPLASH2,
       MAIN_MENU,
       WARFIELD,
-      STRAGEGIC_BOARD,
+      STRATEGIC_BOARD,
       GAME_OVER,
       CREDITS,
       LAST_CONTEXT,
