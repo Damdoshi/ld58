@@ -56,8 +56,8 @@ void ef::MoveModule::loop(AcuPos &pos,
       tempArea.x = pos.x + tempPos3.x - unitSize / 2;
       tempArea.y = pos.y + tempPos3.y - unitSize / 2;
       tempArea.w = unitSize;
-      temparea.h = unitSize;
-      bool canMove = IsStableEnough(tempArea, maxDivergeance);
+      tempArea.h = unitSize;
+      bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
 
       if ((tempPos3.x > 0 && nextPosition.x > pos.x && pos.x + tempPos3.x > nextPosition.x) ||
 	  (tempPos3.x < 0 && nextPosition.x < pos.x && pos.x + tempPos3.x < nextPosition.x))

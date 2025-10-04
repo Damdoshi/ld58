@@ -3,6 +3,8 @@
 
 #include "object.hh"
 
+class Map;
+
 namespace ef
 {
   enum ProjectileType
@@ -33,7 +35,7 @@ namespace ef
   public:
     Projectile() = default;
     Projectile(std::shared_ptr<ProjectileConf> conf);
-    void loop();
+    void loop(Map &map);
 
     ProjectileType getProjType()
     { return projType; };

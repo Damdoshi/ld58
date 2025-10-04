@@ -40,9 +40,9 @@ namespace ef
 		    double penetration);
     void loop();
     virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
+    std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
 
   private:
-    std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
 
     double maxHp;
     double hp;

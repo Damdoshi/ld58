@@ -44,10 +44,10 @@ public:
 				       double			max_divergeance);
   double		AverageHeight(t_bunny_area		area);
 
-  bool			LoadLevel(const std::string		&lvl);
+  bool			LoadLevel(const std::string		&lvl) {}
 
-  Map(void);
-  ~Map(void);
+  Map(void) = default;
+  ~Map(void) {}
 };
 
 #endif	//		__MAP_HPP__

@@ -1,6 +1,6 @@
 #include "Unit.hpp"
 
-std::shared_ptr<ProjectileConf> ef::Unit::makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit)
+std::shared_ptr<ef::ProjectileConf> ef::Unit::makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit)
 {
   AcuPos enemyPos;
   double bestDist = 999999999;
@@ -13,15 +13,11 @@ std::shared_ptr<ProjectileConf> ef::Unit::makeTargeting(std::vector<std::shared_
       if (dist <= weapon->getRange() && dist < bestDist)
 	{
 	  bestDist = dist;
-	  bestTarget = enemy[i];
+	  bestTarget = otherUnit[i];
 	}
     }
-  AcuPos nonePos(-1, -1, -1);
   if (bestTarget.get() != nullptr)
-    {
-      weapon->setTarget(bestTarget);
-      weapon->setTarget(nonePos);
-    }
+    weapon->setTarget(bestTarget);
   return weapon->shoot();
 }
 

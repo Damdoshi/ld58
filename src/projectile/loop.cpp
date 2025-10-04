@@ -1,6 +1,7 @@
 #include "projectile.hh"
+#include "Map.hpp"
 
-void ef::Projectile::loop()
+void ef::Projectile::loop(Map &map)
 {
   if (lockTarget.get() != nullptr)
     {
@@ -26,11 +27,11 @@ void ef::Projectile::loop()
 	  //std::cout << "projectile::loop : posx " << pos.x + tempPos3.x << " posy " << pos.y + tempPos3.y << " targetx " << lockTarget->getPos().x << " targety " << lockTarget->getPos().y << std::endl;
 	  double maxDivergeance = 0.2;
 	  t_bunny_area tempArea;
-	  tempArea.x = pos.x + tempPos3.x - scale / 2;
-	  tempArea.y = pos.y + tempPos3.y - scale / 2;
-	  tempArea.w = scale;
-	  temparea.h = scale;
-	  bool canMove = IsStableEnough(tempArea, maxDivergeance);
+	  tempArea.x = pos.x + tempPos3.x - scale.x / 2;
+	  tempArea.y = pos.y + tempPos3.y - scale.y / 2;
+	  tempArea.w = scale.x;
+	  tempArea.h = scale.y;
+	  bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
 
 	  if (pos.x + tempPos3.x < lockTarget->getPos().x + lockTarget->getScale().x / 2 &&
 	      pos.x + tempPos3.x > lockTarget->getPos().x - lockTarget->getScale().x / 2 &&

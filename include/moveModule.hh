@@ -29,7 +29,7 @@ namespace ef
     void display(AcuPos pos, std::shared_ptr<Bpixelarray> screen);
     void setNewPath(std::vector<AcuPos> newPath)
     { path = newPath; nextPosition = path[path.size() - 1]; };
-    void addPosToPath(AcuPos newPos)
+    void addPosToPath(AcuPos newPos);
 
     double getSpeed()
     { return speed; };
