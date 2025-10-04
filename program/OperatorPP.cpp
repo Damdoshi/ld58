@@ -19,7 +19,7 @@ int			Program::operator()(void)
   do
     {
       bunny_set_context(contexts[current_context]);
-      ret = bunny_loop_mw(win, nbr, freq, (void*)&contexts[current_context]);
+      ret = bunny_loop_mw(win, nbr, freq, (void*)contexts[current_context]);
     }
   while (ret == GO_ON || ret == SWITCH_CONTEXT);
   return (ret);

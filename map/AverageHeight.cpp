@@ -3,17 +3,22 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:40 ******************************************************
+// 04/10/2025 15:46:56 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Program.hpp"
+#include		"Map.hpp"
 
-int			main(void)
+double			Map::AverageHeight(t_bunny_area	area)
 {
-  static Program	program;
+  double		avgh = 0;
+  int			x;
+  int			y;
 
-  return (program());
+  for (y = area.y; y < area.h + area.y; ++y)
+    for (x = area.x; x < area.w + area.x; ++x)
+      avgh += (*this)[y][x].Height();
+  avgh /= area.h * area.w;
+  return (avgh);
 }
-

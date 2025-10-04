@@ -43,6 +43,7 @@ public:
 
   bool			IsStableEnough(t_bunny_area		area,
 				       double			max_divergeance);
+  double		AverageHeight(t_bunny_area		area);
 
   bool			LoadLevel(const std::string		&lvl);
 

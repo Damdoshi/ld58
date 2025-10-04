@@ -11,7 +11,7 @@
   BIN		=	game.exe
   FLAG		=	-W -Wall -std=gnu++20 -g -g3 -ggdb
 
-  INCLUDE	=	-I$(HOME)/.froot/include/ -I./ -I./include/
+  INCLUDE	=	-I./ -I./include/
   SRC		=	$(wildcard */*.cpp) $(wildcard */*/*.cpp)
   OBJ		=	$(SRC:.cpp=.o)
   LIBPATH	=	-L${HOME}/.froot/lib/
