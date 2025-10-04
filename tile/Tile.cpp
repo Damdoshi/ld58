@@ -15,7 +15,12 @@ Tile::Tile(double	h,
   : height(h),
     hp_per_height(hpph),
     hp(hpph)
-{}
+{
+  random_col.argb[ALPHA_CMP] = 255;
+  random_col.argb[RED_CMP] = rand() % 32;
+  random_col.argb[GREEN_CMP] = rand() % 32;
+  random_col.argb[BLUE_CMP] = rand() % 32;
+}
 
 Tile::~Tile(void)
 {}

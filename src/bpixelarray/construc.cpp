@@ -2,7 +2,7 @@
 
 ef::Bpixelarray::Bpixelarray()
   :
-  isOutside(false);
+  isOutside(false)
 {
     px = NULL;
     recVec.length = 0;

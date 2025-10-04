@@ -65,7 +65,8 @@ public:
   bool			LoadConf(const std::string		&conf);
 
   void			Display(ef::Bpixelarray			&bpix,
-				t_bunny_area			area);
+				t_bunny_area			area,
+				bool				water);
 
   Map(void) = default;
   ~Map(void) {}

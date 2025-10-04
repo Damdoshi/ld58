@@ -8,7 +8,10 @@
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
+#include	"Border.hpp"
 #include	"Map.hpp"
+
+extern Border	border;
 
 Tile		&get_tile(std::vector<Tile>	&tiles,
 			  int			tw,
@@ -18,13 +21,16 @@ Tile		&get_tile(std::vector<Tile>	&tiles,
 {
   t_bunny_position pos;
 
-  pos.x = xcoef * area.w;
-  pos.y = ycoef * area.h;
-  return (tiles[(pos.x + area.x) * tw + pos.y + area.y]);
+  pos.x = xcoef * area.w + area.x;
+  pos.y = ycoef * area.h + area.y;
+  if (pos.x < 0 || pos.y < 0 || pos.x >= tw || pos.y >= (int)tiles.size() / tw)
+    return (border);
+  return (tiles[pos.x + pos.y * tw]);
 }
 
 void		Map::Display(ef::Bpixelarray	&screen,
-			     t_bunny_area	area)
+			     t_bunny_area	area,
+			     bool		bwater)
 {
   double	hs;
   double	hw;
@@ -51,7 +57,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	area.h = size.y;
       }
 
-  for (y = 0; y < screen.GetSize().y; ++y)
+  for (y = 0; y < screen.GetSize().y + -tilt * 255; ++y)
     for (x = 0; x < screen.GetSize().x; ++x)
       {
 	Tile	&sand = get_tile(tiles, size.x, area, (double)x / screen.GetSize().x, (double)y / screen.GetSize().y);
@@ -62,6 +68,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	  {(double)x, y + hs, 0},
 	  {(double)x, (double)y, 0}
 	};
+	// if (!bwater)
 	screen.setLine(line[0], line[1], sand.GetDisplayColor());
 
 	if (water.Height() != 0)
@@ -74,6 +81,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	      {(double)x, y + hs + hw, 0},
 	      {(double)x, (double)y, 0}
 	    };
+	    // if (bwater)
 	    screen.setLine(line[0], line[1], water.GetDisplayColor());
 	  }
       }

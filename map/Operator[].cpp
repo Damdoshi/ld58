@@ -12,7 +12,7 @@
 #include	"Map.hpp"
 #include	"Border.hpp"
 
-static Border	border;
+Border		border;
 
 Tile		&Map::MapDim::operator[](int	x)
 {

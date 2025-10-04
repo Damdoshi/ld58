@@ -30,6 +30,7 @@ protected:
   double		hp_per_height;
   double		hp;
   Unit			*over = NULL;
+  t_bunny_color		random_col;
 
 public:
   static constexpr double MaxHeight = 255;

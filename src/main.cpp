@@ -14,6 +14,7 @@ int			main(void)
 {
   static Program	program;
 
+  bunny_enable_full_blit(true);
   return (program());
 }
 
