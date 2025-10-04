@@ -5,6 +5,8 @@
 #include "projectile.hh"
 #include "Unit.hpp"
 
+class Warfield;
+class StrategicBoard;
 namespace ef
 {
   class InGame
@@ -17,6 +19,9 @@ namespace ef
 
     bool loadLevel(const std::string &lvl);
 
+    friend Warfield;
+    friend StrategicBoard;
+
   private:
     void colideUnit(std::shared_ptr<Unit> currUnit,
 		    std::shared_ptr<Unit> otherUnit);
@@ -26,7 +31,7 @@ namespace ef
 		    bool isMine);
 
     Map map;
-    AcuPos cameraPos;
+    t_bunny_area cameraPos;
     std::vector<std::shared_ptr<Unit>>	myUnits;
     std::vector<std::shared_ptr<Unit>>	enemyUnits;
     std::vector<std::shared_ptr<Projectile>>	myProj;

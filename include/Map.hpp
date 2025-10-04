@@ -41,6 +41,8 @@ public:
   t_bunny_size		size;
   double		tilt; // Coefficient de hauteur - 0 de base
 
+  double		Tilt(double				tilt);
+
   MapDim		operator[](int				y);
   MapDim		operator[](double			y);
 
