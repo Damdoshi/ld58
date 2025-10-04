@@ -18,8 +18,6 @@ t_bunny_response	MainMenu::Click(t_bunny_event_state	state,
   t_bunny_response	ret;
   t_bunny_configuration	*nod;
 
-  std::cout << "Clicking " << mpos.x << " " << mpos.y << std::endl;
-
   if (but != BMB_LEFT || state != GO_UP)
     return (GO_ON);
   for (int i = 0; bunny_configuration_getf_node(conf, &nod, "Buttons[%d]", i); ++i)
