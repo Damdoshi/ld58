@@ -6,6 +6,7 @@ void ef::InGame::display(std::shared_ptr<Bpixelarray> screen,
   if (!isInStrategicBoard)
     {
       // make map display
+      bunny_set_geometry(&screen->GetClip()->buffer, BGY_LINES, (t_bunny_vertex_array *)&screen->lineVec, NULL);
       for (int i = 0; i < (int)myUnits.size(); i++)
 	myUnits[i]->display(screen, cameraPos);
       for (int i = 0; i < (int)enemyUnits.size(); i++)
