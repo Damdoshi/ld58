@@ -36,4 +36,4 @@
 
   .PHONY: all clean fclean re
 
-  .SUFFIXES: .cpppp .o
+  .SUFFIXES: .cpp .o

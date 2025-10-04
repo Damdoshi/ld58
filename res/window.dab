@@ -1,0 +1,11 @@
+
+@include "program.dab"
+
+'Mode="MonoFullscreen"
+
+{Windows
+  [
+    Name = "TheGame"
+    Size = [].Screen[0], [].Screen[1]
+  ]
+}
