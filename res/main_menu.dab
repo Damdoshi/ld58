@@ -1,0 +1,15 @@
+
+{Buttons
+  [
+    Action = "Exit"
+    Text = "Exit the game"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 10, 10
+    Size = 100, 50
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ]
+}
+

@@ -21,15 +21,18 @@ Program::Program(void)
   assert((conf = bunny_open_configuration("./res/program.dab", NULL)));
   assert(bunny_position_configuration("Screen", &pos, conf) == BD_OK);
   assert((screen = bunny_new_picture(pos.x, pos.y)));
-  contexts[INITIAL_CONTEXT] = new MainMenu;
+  contexts[INITIAL_CONTEXT] = new MainMenu(*this);
   if (!bunny_configuration_getf_int(conf, &freq, "Frequency"))
     freq = 50;
 }
 
 Program::~Program(void)
 {
-  bunny_delete_clipable(screen);
-  bunny_delete_configuration(conf);
-  bunny_end(win);
+  if (screen)
+    bunny_delete_clipable(screen);
+  if (conf)
+    bunny_delete_configuration(conf);
+  if (win)
+    bunny_end(win);
 }
 
