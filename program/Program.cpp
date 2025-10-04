@@ -1,0 +1,35 @@
+// *****     ***     ***     ***       **       ***      ********************
+// ****  ******  ******  **  *****  *******  *****  *************************
+// ***     ***     ***     ******  *******  *****      **********************
+// **  ******  ******  *** *****  *******  *********  ***********************
+// *     ***  ******  *** ***       ****  *****      ************************
+// 04/10/2025 12:48:42 ******************************************************
+// damdoshi <damdoshi@terechkova.efrits.fr>
+// -  -
+// * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
+
+#include		<assert.h>
+#include		"Program.hpp"
+#include		"MainMenu.hpp"
+
+Program::Program(void)
+  : current_context(INITIAL_CONTEXT)
+{
+  t_bunny_position	pos;
+
+  assert((win = bunny_begin("./res/window.dab")));
+  assert((conf = bunny_open_configuration("./res/program.dab", NULL)));
+  assert(bunny_position_configuration("Screen", &pos, conf) == BD_OK);
+  assert((screen = bunny_new_picture(pos.x, pos.y)));
+  contexts[INITIAL_CONTEXT] = new MainMenu;
+  if (!bunny_configuration_getf_int(conf, &freq, "Frequency"))
+    freq = 50;
+}
+
+Program::~Program(void)
+{
+  bunny_delete_clipable(screen);
+  bunny_delete_configuration(conf);
+  bunny_end(win);
+}
+

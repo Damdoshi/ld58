@@ -3,17 +3,20 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:40 ******************************************************
+// 04/10/2025 13:17:17 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Program.hpp"
+#ifndef			__MAIN_MENU_HPP__
+# define		__MAIN_MENU_HPP__
+# include		<lapin.h>
 
-int			main(void)
+class			MainMenu : public hbs::ContextBridge<MainMenu>
 {
-  static Program	program;
+public:
+  MainMenu(void);
+  ~MainMenu(void);
+};
 
-  return (program());
-}
-
+#endif	//		__MAIN_MENU_HPP__

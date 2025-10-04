@@ -3,17 +3,31 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:40 ******************************************************
+// 04/10/2025 13:39:18 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Program.hpp"
+#ifndef			__BORDER_HPP__
+# define		__BORDER_HPP__
+# include		"Tile.hpp"
 
-int			main(void)
+class			Border : public Tile
 {
-  static Program	program;
+public:
+  bool			CanGoOver(void) const
+  {
+    return (false);
+  }
 
-  return (program());
-}
+  Border(void)
+  {
+    height = MaxHeight;
+    hp_per_height = -1;
+    hp = 0;
+  }
+  ~Border(void)
+  {}
+};
 
+#endif	//		__BORDER_HPP__

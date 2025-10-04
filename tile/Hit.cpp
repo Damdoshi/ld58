@@ -3,17 +3,28 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:40 ******************************************************
+// 04/10/2025 13:51:39 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Program.hpp"
+#include	"Tile.hpp"
 
-int			main(void)
+void		Tile::Hit(int		power)
 {
-  static Program	program;
-
-  return (program());
+  // Ca pourrait etre mathématiquement fait en O(1)
+  // Mais mon cerveau est tout mou.
+  while (hp < power)
+    {
+      power -= hp;
+      hp = hp_per_height;
+      if ((height -= 1) <= 0)
+	{
+	  height = 0;
+	  return ;
+	}
+    }
+  if (hp > power)
+    hp -= power;
 }
 
