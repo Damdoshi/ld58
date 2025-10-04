@@ -36,7 +36,7 @@ namespace ef
     Object() = default;
     Object(std::shared_ptr<ObjectConf> conf);
 
-    virtual void display(std::shared_ptr<Bpixelarray> screen);
+    virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
     void destruct();
 
     std::string getName()
