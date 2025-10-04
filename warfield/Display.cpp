@@ -12,7 +12,9 @@
 
 t_bunny_response	Warfield::Display(void)
 {
-  ingame.display(std::make_shared<ef::Bpixelarray>(prog.GetScreen()), false);
+  std::shared_ptr<ef::Bpixelarray> tempPtr;
+  tempPtr.reset(new ef::Bpixelarray(prog.GetScreen()));
+  ingame.display(/*std::make_shared<ef::Bpixelarray>(prog.GetScreen())*/ tempPtr, false);
   prog.Display();
   return (GO_ON);
 }

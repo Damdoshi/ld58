@@ -12,7 +12,7 @@
 
 void			Program::Display(void)
 {
-  bunny_clear(&screen->buffer, RED);
+  //bunny_clear(&screen->buffer, RED);
 
   for (size_t i = 0; win[i]; ++i)
     {
