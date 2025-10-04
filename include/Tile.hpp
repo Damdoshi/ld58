@@ -22,7 +22,7 @@ public:
       WATER		= BLUE,
       SAND		= YELLOW,
       MINERAL		= RED,
-      ROCK		= BLACK
+      ROCK		= GRAY(128)
     };
 protected:
   Type			type;
@@ -42,6 +42,8 @@ public:
   virtual Unit		*UnitOver(void);
   virtual void		SetUnitOver(Unit		&unit);
   virtual void		NoUnitOver(void);
+
+  unsigned int		GetDisplayColor(void) const;
 
   void			SetTile(unsigned int		mat,
 				unsigned int		hei);

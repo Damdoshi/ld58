@@ -15,6 +15,7 @@ void ef::Bpixelarray::rectangle(ef::AcuPos &start,
 				unsigned int background,
 				unsigned int outline)
 {
+  (void)outline;
   t_bunny_accurate_position pos[4];
   pos[0].x = start.x;
   pos[0].y = start.y;

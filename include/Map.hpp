@@ -39,6 +39,7 @@ public:
   std::vector<Tile>	tiles;
   std::vector<Tile>	waters;
   t_bunny_size		size;
+  double		tilt; // Coefficient de hauteur - 0 de base
 
   MapDim		operator[](int				y);
   MapDim		operator[](double			y);
@@ -47,11 +48,21 @@ public:
 				       double			max_divergeance);
   double		AverageHeight(t_bunny_area		area);
 
+  bool			OnFloor(int				x,
+				int				y,
+				int				z_feet);
+  bool			Buried(int				x,
+			       int				y,
+			       int				z_head);
+
+  bool			Underwater(int				x,
+				   int				y,
+				   int				z_head);
 
   bool			LoadConf(ef::Bconf			&conf);
   bool			LoadConf(const std::string		&conf);
 
-  void			Display(std::shared_ptr<ef::Bpixelarray> screen,
+  void			Display(ef::Bpixelarray			&bpix,
 				t_bunny_area			area);
 
   Map(void) = default;

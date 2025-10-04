@@ -14,6 +14,7 @@ void ef::Bpixelarray::print_char(std::shared_ptr<ef::Bpixelarray> &font,
 				 char c,
 				 ef::AcuPos &pos)
 {
+  (void)font;
   AcuPos size(10, 14, 0);
   t_bunny_accurate_position carPos[4];
   t_bunny_position texPos[4];
