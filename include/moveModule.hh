@@ -25,7 +25,7 @@ namespace ef
   public:
     MoveModule() = default;
     MoveModule(std::shared_ptr<MoveModuleConf> conf);
-    void loop(AcuPos &pos, double &rota, Map &map, double UnitSize);
+    void loop(AcuPos &pos, double &rota, Map &map, AcuPos UnitSize);
     void display(AcuPos pos, std::shared_ptr<Bpixelarray> screen);
     void setNewPath(std::vector<AcuPos> newPath)
     { path = newPath; nextPosition = path[path.size() - 1]; };

@@ -14,6 +14,8 @@
 #include "moveModule.hh"
 #include "weapons.hh"
 
+class Map;
+
 namespace ef
 {
 
@@ -38,7 +40,7 @@ namespace ef
 
     void damageUnit(double damageValue,
 		    double penetration);
-    void loop();
+    void loop(Map &map);
     virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
     std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
 
