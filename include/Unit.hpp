@@ -11,14 +11,40 @@
 #ifndef			__UNIT_HPP__
 # define		__UNIT_HPP__
 
-class			Unit
+#include "moveModule.hh"
+#include "weapons.hh"
+
+namespace ef
 {
-public:
-  //
 
+  struct UnitConf : public ObjectConf, public MoveModuleConf
+  {
+    UnitConf() = default;
+    virtual int LoadConf(Bconf &conf);
 
-  Unit(void);
-  ~Unit(void);
+    std::string weapon;
+    double maxHp;
+    double hp;
+    double armor;
+  };
+
+  class Unit : public Object, public MoveModule
+  {
+  public:
+    //
+    Unit(void) = default;
+    Unit(std::shared_ptr<UnitConf> conf);
+    ~Unit(void);
+    void damageUnit(double damageValue);
+    void loop();
+    virtual void display(std::shared_ptr<Bpixelarray> screen);
+
+  private:
+    double maxHp;
+    double hp;
+    double armor;
+    std::shared_ptr<Weapon> weapon;
+  };
 };
 
 #endif	//		__UNIT_HPP__

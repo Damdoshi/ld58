@@ -9,7 +9,7 @@
 
   MOD		=	game.exe
   BIN		=	game.exe
-  FLAG		=	-W -Wall -std=gnu++20 -g -g3 -ggdb
+  FLAG		=	-W -Wall -std=gnu++2a -g -g3 -ggdb
 
   INCLUDE	=	-I./ -I./include/
   SRC		=	$(wildcard */*.cpp) $(wildcard */*/*.cpp)
@@ -27,6 +27,7 @@
 		@echo "[BUNNYCC]" $<
   clean:
 		@rm -f $(OBJ)
+		@rm -f $(shell find ./ -name "*~")
   fclean:	clean
 		@rm -f $(BIN)
   re:		fclean all
