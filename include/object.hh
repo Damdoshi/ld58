@@ -35,9 +35,10 @@ namespace ef
   public:
     Object() = default;
     Object(std::shared_ptr<ObjectConf> conf);
+    ~Object(void) { destruct(); }
 
     virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
-    void destruct();
+    void destruct() { if (sprite) bunny_delete_clipable(&sprite->clipable); sprite = NULL; }
 
     std::string getName()
     { return name; };
@@ -66,6 +67,7 @@ namespace ef
     AcuPos pos;
     AcuPos scale;
     double rota;
+    t_bunny_sprite *sprite;
     std::shared_ptr<Bpixelarray> img;
   };
 }

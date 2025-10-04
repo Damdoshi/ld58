@@ -6,9 +6,11 @@ ef::Object::Object(std::shared_ptr<ObjectConf>	conf)
   objType(conf->objType),
   pos(300, 350, 0),
   scale(conf->scale),
-  rota(0)
+  rota(0),
+  sprite(bunny_load_sprite(conf->img.c_str())),
+  img(std::make_shared<Bpixelarray>(sprite->clipable))
 {
-  img.reset(new Bpixelarray());
-  img->Init(conf->img);
+  // img.reset(sprite);
+  // img->Init(conf->img);
 }
 

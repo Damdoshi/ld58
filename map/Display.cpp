@@ -37,26 +37,6 @@ void		Map::Display(ef::Bpixelarray	&screen,
   int		y;
   int		x;
 
-  // Ceci n'est pas une gestion du zoom
-  // mais un filet de sécurité qui peut entrainer une déformation
-  // l'objectif est simplement d'eviter le plantage
-  if (area.x < 0)
-    area.x = 0;
-  if (area.y < 0)
-    area.y = 0;
-  if (area.x + area.w >= size.x)
-    if ((area.x = size.x - area.w) < 0)
-      {
-	area.x = 0;
-	area.w = size.x;
-      }
-  if (area.y + area.h >= size.y)
-    if ((area.y = size.y - area.h) < 0)
-      {
-	area.y = 0;
-	area.h = size.y;
-      }
-
   for (y = 0; y < screen.GetSize().y + -tilt * 255; ++y)
     for (x = 0; x < screen.GetSize().x; ++x)
       {
