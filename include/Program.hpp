@@ -38,6 +38,10 @@ protected:
   std::map<Ctx, hbs::Context*> contexts;
 
 public:
+  t_bunny_position	GetMouseRealPosition(t_bunny_position	p) const;
+  t_bunny_position	GetMouseRealPosition(void) const;
+  void			SetContext(Ctx				ctx);
+  t_bunny_clipable	&GetScreen(void);
   int			operator()(void);
   void			Display(void);
 

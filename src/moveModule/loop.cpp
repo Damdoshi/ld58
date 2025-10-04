@@ -5,7 +5,7 @@
 void ef::MoveModule::loop(AcuPos &pos,
 			  double &rota,
 			  Map &map,
-			  double unitSize)
+			  AcuPos unitSize)
 {
   if (nextPosition.x == -1 && nextPosition.y == -1 && nextPosition.z == -1)
     {
@@ -53,11 +53,11 @@ void ef::MoveModule::loop(AcuPos &pos,
     {
       // test map
       t_bunny_area tempArea;
-      tempArea.x = pos.x + tempPos3.x - unitSize / 2;
-      tempArea.y = pos.y + tempPos3.y - unitSize / 2;
-      tempArea.w = unitSize;
-      temparea.h = unitSize;
-      bool canMove = IsStableEnough(tempArea, maxDivergeance);
+      tempArea.x = pos.x + tempPos3.x - unitSize.x / 2;
+      tempArea.y = pos.y + tempPos3.y - unitSize.y / 2;
+      tempArea.w = unitSize.x;
+      tempArea.h = unitSize.y;
+      bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
 
       if ((tempPos3.x > 0 && nextPosition.x > pos.x && pos.x + tempPos3.x > nextPosition.x) ||
 	  (tempPos3.x < 0 && nextPosition.x < pos.x && pos.x + tempPos3.x < nextPosition.x))
