@@ -12,6 +12,8 @@
 
 void			Program::Display(void)
 {
+  bunny_clear(&screen->buffer, RED);
+
   for (size_t i = 0; win[i]; ++i)
     {
       bunny_clear(&win[i]->buffer, ALPHA(64, BLACK));

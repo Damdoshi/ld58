@@ -73,7 +73,7 @@ namespace ef
   class Bpixelarray
   {
   public:
-    Bpixelarray(t_bunny_picture &pic) : px(&pic) {}
+    Bpixelarray(t_bunny_picture &pic);
     Bpixelarray(const Bpixelarray &) = delete;
     Bpixelarray();
     ~Bpixelarray();

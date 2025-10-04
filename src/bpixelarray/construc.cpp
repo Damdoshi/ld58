@@ -10,3 +10,11 @@ ef::Bpixelarray::Bpixelarray()
     pixVec.length = 0;
     //pixVec.vertex = new Vertex[100000]();
 }
+ef::Bpixelarray::Bpixelarray(t_bunny_picture &pic)
+ : px(&pic)
+{
+  recVec.length = 0;
+  lineVec.length = 0;
+  pixVec.length = 0;
+}
+
