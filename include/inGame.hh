@@ -15,6 +15,8 @@ namespace ef
 		 bool isInStrategicBoard);
     void loop();
 
+    bool loadLevel(const std::string &lvl);
+
   private:
     void colideUnit(std::shared_ptr<Unit> currUnit,
 		    std::shared_ptr<Unit> otherUnit);

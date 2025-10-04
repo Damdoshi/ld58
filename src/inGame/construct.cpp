@@ -4,5 +4,5 @@ ef::InGame::InGame(const std::string &lvl)
   :
   map()
 {
-  map.LoadLevel(lvl);
+  map.LoadConf(lvl);
 }

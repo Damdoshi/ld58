@@ -16,7 +16,7 @@ MainMenu::MainMenu(Program	&program)
 {
   t_bunny_configuration *nod;
   int		i;
-  
+
   assert((conf = bunny_open_configuration("./res/main_menu.dab", NULL)));
   for (i = 0; bunny_configuration_getf(conf, &nod, "Buttons[%d]", i); ++i)
     {

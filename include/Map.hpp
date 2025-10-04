@@ -12,6 +12,8 @@
 # define		__MAP_HPP__
 # include		<lapin.h>
 # include		<vector>
+# include		"Bconf.hh"
+# include		"Bpixelarray.hh"
 # include		"Tile.hpp"
 # include		"Unit.hpp"
 
@@ -35,6 +37,7 @@ public:
     friend ::Map;
   };
   std::vector<Tile>	tiles;
+  std::vector<Tile>	waters;
   t_bunny_size		size;
 
   MapDim		operator[](int				y);
@@ -44,7 +47,12 @@ public:
 				       double			max_divergeance);
   double		AverageHeight(t_bunny_area		area);
 
-  bool			LoadLevel(const std::string		&lvl) {}
+
+  bool			LoadConf(ef::Bconf			&conf);
+  bool			LoadConf(const std::string		&conf);
+
+  void			Display(std::shared_ptr<ef::Bpixelarray> screen,
+				t_bunny_area			area);
 
   Map(void) = default;
   ~Map(void) {}

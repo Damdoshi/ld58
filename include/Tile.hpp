@@ -11,11 +11,21 @@
 #ifndef			__TILE_HPP__
 # define		__TILE_HPP__
 # include		<stdlib.h>
+# include		<lapin.h>
 
 class			Unit;
 class			Tile
 {
+public:
+  enum			Type
+    {
+      WATER		= BLUE,
+      SAND		= YELLOW,
+      MINERAL		= RED,
+      ROCK		= BLACK
+    };
 protected:
+  Type			type;
   double		height;
   double		hp_per_height;
   double		hp;
@@ -32,6 +42,9 @@ public:
   virtual Unit		*UnitOver(void);
   virtual void		SetUnitOver(Unit		&unit);
   virtual void		NoUnitOver(void);
+
+  void			SetTile(unsigned int		mat,
+				unsigned int		hei);
 
   Tile(double		h = 0,
        double		hpph = 1);

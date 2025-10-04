@@ -2,6 +2,7 @@
 {Buttons
   [
     Action = "Exit"
+
     Text = "Exit the game"
     GlyphSize = 5, 7
     RessourceFile = "./res/font.png"
