@@ -16,7 +16,7 @@
 
 Program::Program(void)
   : current_context(INITIAL_CONTEXT),
-    ingame("./lvl/00/conf.dab")
+    ingame("./lvl/00/lvl1.dab")
 {
   t_bunny_position	pos;
 

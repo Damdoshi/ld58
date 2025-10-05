@@ -1,0 +1,57 @@
+
+[LvlConf
+  map = "lvl/00/conf.dab"
+  [hero
+    unit = "res/spider.dab"
+    [startPos
+      x = 50
+      y = 50
+    ]
+  ]
+  {startingUnit
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 50
+        y = 50
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 60
+        y = 50
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 50
+        y = 60
+      ]
+    ]
+  }
+  {startingEnemy
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 120
+        y = 100
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 130
+        y = 110
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 140
+        y = 120
+      ]
+    ]
+  }
+]
