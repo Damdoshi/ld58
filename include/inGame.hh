@@ -19,6 +19,9 @@ namespace ef
 
     bool loadLevel(const std::string &lvl);
 
+    bool spawn(t_bunny_position		pos,
+	       const std::string	&type);
+
     friend Warfield;
     friend StrategicBoard;
 

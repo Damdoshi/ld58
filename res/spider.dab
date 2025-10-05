@@ -1,3 +1,24 @@
+[Object
+  name = "Spider"
+  objType = 1
+  [scale
+    x = 1
+    y = 1
+  ]
+  img = @"spider.dab"
+]
+
+[Unit
+  projectile = @"egg.dab"
+  maxHp = 20
+  armor = 2.5
+  mass = 5
+]
+
+'SPRITE
+
+RessourceFile = @"spider.png"
+
 Origin=16,32
 Frequency=8
 

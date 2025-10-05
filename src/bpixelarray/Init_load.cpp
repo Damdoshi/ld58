@@ -17,5 +17,6 @@ bool ef::Bpixelarray::Init(std::string file)
     recVec.length = 0;
     lineVec.length = 0;
     pixVec.length = 0;
+    imgfile = file;
     return false;
 }

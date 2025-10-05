@@ -1,0 +1,16 @@
+[Object
+  name = "Egg"
+  objType = 1
+  [scale
+    x = 1
+    y = 1
+  ]
+  img = @"spider.dab"
+]
+
+[Weapon
+  range = 5
+  reloadTime = 5
+  rotaSpeed = 1
+  projectile = @"stuff.dab"
+]
