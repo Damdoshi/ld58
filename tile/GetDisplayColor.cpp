@@ -19,6 +19,7 @@ unsigned int		Tile::GetDisplayColor(void) const
   if (type == WATER)
     {
       col.argb[ALPHA_CMP] = 255 * (appreciation * 0.5 + 0.5);
+      col.argb[GREEN_CMP] = rand() % 64;
     }
   else
     {

@@ -56,7 +56,7 @@ bool		Map::LoadConf(ef::Bconf		&conf)
     }
   if (mappx)
     bunny_delete_clipable(mappx);
-  if ((mappx = bunny_new_picture(size.x, size.y + Tile::MaxHeight + 5)) == NULL)
+  if ((mappx = bunny_new_picture(size.x, size.y + 5 * (Tile::MaxHeight + 5))) == NULL)
     goto Delete_Water;
 
   ret = true;

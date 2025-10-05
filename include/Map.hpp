@@ -55,16 +55,23 @@ public:
 				       double			max_divergeance);
   double		AverageHeight(t_bunny_area		area);
 
+  int			SandTop(int				x,
+				int				y);
+  int			WaterTop(int				x,
+				 int				y);
+
   bool			OnFloor(int				x,
 				int				y,
 				int				z_feet);
   bool			Buried(int				x,
 			       int				y,
 			       int				z_head);
-
   bool			Underwater(int				x,
 				   int				y,
 				   int				z_head);
+
+  void			Sand(void);
+  void			Water(void);
 
   bool			LoadConf(ef::Bconf			&conf);
   bool			LoadConf(const std::string		&conf);

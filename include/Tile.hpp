@@ -22,9 +22,9 @@ public:
       WATER		= BLUE,
       SAND		= YELLOW,
       MINERAL		= RED,
-      ROCK		= GRAY(128)
+      ROCK		= WHITE
     };
-protected:
+  //protected:
   Type			type;
   double		height;
   double		hp_per_height;

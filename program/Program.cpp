@@ -30,7 +30,7 @@ Program::Program(void)
   contexts[STRATEGIC_BOARD] = new StrategicBoard(*this, ingame);
 
   if (!bunny_configuration_getf_int(conf, &freq, "Frequency"))
-    freq = 50;
+    freq = 25;
 }
 
 Program::~Program(void)
