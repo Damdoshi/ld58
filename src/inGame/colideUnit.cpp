@@ -63,24 +63,30 @@
   colideUnit(currUnit, enemy);
   }*/
 
-void ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit,
-			    std::shared_ptr<Unit> otherUnit)
+ef::AcuPos ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit,
+				  std::shared_ptr<Unit> otherUnit)
 {
   AcuPos unitPos = currUnit->getPos();
   AcuPos otherUnitPos = otherUnit->getPos();
   AcuPos vect(unitPos.x - otherUnitPos.x, unitPos.y - otherUnitPos.y, 0);
   double dist = sqrt(vect.x * vect.x + vect.y * vect.y);
+  AcuPos returnVec(0, 0, 0);
   if (dist == 0)
     {
-      unitPos.x += 10;
-      unitPos.y += 10;
-      currUnit->setPos(unitPos);
+      //unitPos.x += 10;
+      //unitPos.y += 10;
+      //currUnit->setPos(unitPos);
+      returnVec.x = 10;
+      returnVec.y = 10;
     }
   else if (dist < currUnit->getScale().x / 2 + otherUnit->getScale().x / 2)
     {
       double ratio = (currUnit->getScale().x / 2 + otherUnit->getScale().x / 2) / dist;
-      unitPos.x = otherUnitPos.x + vect.x * ratio;
-      unitPos.y = otherUnitPos.y + vect.y * ratio;
-      currUnit->setPos(unitPos);
+      //unitPos.x = otherUnitPos.x + vect.x * ratio;
+      //unitPos.y = otherUnitPos.y + vect.y * ratio;
+      returnVec.x = vect.x * ratio;
+      returnVec.y = vect.y * ratio;
+      //currUnit->setPos(unitPos);
     }
+  return returnVec;
 }

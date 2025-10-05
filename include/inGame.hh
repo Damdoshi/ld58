@@ -23,8 +23,8 @@ namespace ef
     friend StrategicBoard;
 
   private:
-    void colideUnit(std::shared_ptr<Unit> currUnit,
-		    std::shared_ptr<Unit> otherUnit);
+    AcuPos colideUnit(std::shared_ptr<Unit> currUnit,
+		      std::shared_ptr<Unit> otherUnit);
     bool doProjHit(std::shared_ptr<Projectile> proj,
 		   std::vector<std::shared_ptr<Unit>> otherUnit);
     void removeProj(int index,

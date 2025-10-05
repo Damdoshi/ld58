@@ -41,6 +41,16 @@ void ef::InGame::loop()
 
   //colision
   for (int i = 0; i < (int)myUnits.size(); i++)
-    for (int j = 0; j < (int)enemyUnits.size(); j++)
-      colideUnit(myUnits[i], enemyUnits[j]);
+      for (int j = 0; j < (int)enemyUnits.size(); j++)
+	{
+	  AcuPos vec(0, 0, 0);
+	  vec = colideUnit(myUnits[i], enemyUnits[j]);
+	  double totalMass = myUnits[i]->getMass() + enemyUnits[j]->getMass();
+	  double myRatio = myUnits[i]->getMass() / totalMass;
+	  double enemyRatio = enemyUnits[i]->getMass() / totalMass;
+	  AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
+	  myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
+	  AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
+	  enemyUnits[i]->setPos(enemyUnits[i]->getPos() + enemyVec);
+	}
 }
