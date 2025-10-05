@@ -28,6 +28,7 @@ namespace ef
     double maxHp;
     double hp;
     double armor;
+    double mass;
   };
 
   class Unit : public Object, public MoveModule
@@ -50,12 +51,15 @@ namespace ef
     { return hp; };
     double getArmor()
     { return armor; };
+    double getMass()
+    { return mass; };
 
   private:
 
     double maxHp;
     double hp;
     double armor;
+    double mass;
     std::shared_ptr<Weapon> weapon;
   };
 };
