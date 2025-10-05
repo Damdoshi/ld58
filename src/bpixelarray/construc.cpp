@@ -15,7 +15,7 @@ ef::Bpixelarray::Bpixelarray()
     textVec.length = 0;
 }
 ef::Bpixelarray::Bpixelarray(t_bunny_picture &pic)
-  : px(&pic), isOutside(false)
+  : px(&pic), isOutside(true)
 {
   recVec.length = 0;
   lineVec.length = 0;

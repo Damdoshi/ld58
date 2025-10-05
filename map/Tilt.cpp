@@ -14,8 +14,8 @@ double		Map::Tilt(double	t)
 {
   double	d = tilt + t;
 
-  if (d < -0.5)
-    d = -0.5;
+  if (d < -3)
+    d = -3;
   if (d > 0)
     d = 0;
   return (tilt = d);

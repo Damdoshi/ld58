@@ -37,7 +37,7 @@ protected:
   int			y;
 
 public:
-  static constexpr double MaxHeight = 255;
+  static constexpr double MaxHeight = 25;
 
   double		Height(void) const;
 

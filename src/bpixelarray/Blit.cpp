@@ -24,24 +24,24 @@ void ef::Bpixelarray::Blit(ef::Bpixelarray &other,
   tempV.vertex[2].pos.y = tempMidSize.y * cos(rotate) + tempMidSize.x * sin(rotate);
   tempV.vertex[3].pos.x = -tempMidSize.x * cos(rotate) - tempMidSize.y * sin(rotate);
   tempV.vertex[3].pos.y = tempMidSize.y * cos(rotate) + -tempMidSize.x * sin(rotate);
-  
-  tempV.vertex[0].pos.x += start.x + tempMidSize.x;
-  tempV.vertex[0].pos.y += start.y + tempMidSize.x;
-  tempV.vertex[1].pos.x += end.x - tempMidSize.x;
-  tempV.vertex[1].pos.y += start.y + tempMidSize.y;
-  tempV.vertex[2].pos.x += end.x - tempMidSize.x;
-  tempV.vertex[2].pos.y += end.y - tempMidSize.y;
-  tempV.vertex[3].pos.x += start.x + tempMidSize.x;
-  tempV.vertex[3].pos.y += end.y - tempMidSize.y;
-  
+
+  tempV.vertex[0].pos.x += start.x + tempMidSize.x - other.GetClip()->origin.x;
+  tempV.vertex[0].pos.y += start.y + tempMidSize.y - other.GetClip()->origin.y;
+  tempV.vertex[1].pos.x += end.x - tempMidSize.x - other.GetClip()->origin.x;
+  tempV.vertex[1].pos.y += start.y + tempMidSize.y - other.GetClip()->origin.y;
+  tempV.vertex[2].pos.x += end.x - tempMidSize.x - other.GetClip()->origin.x;
+  tempV.vertex[2].pos.y += end.y - tempMidSize.y - other.GetClip()->origin.y;
+  tempV.vertex[3].pos.x += start.x + tempMidSize.x - other.GetClip()->origin.x;
+  tempV.vertex[3].pos.y += end.y - tempMidSize.y - other.GetClip()->origin.y;
+
   tempV.vertex[0].tex.x = 0;
   tempV.vertex[0].tex.y = 0;
-  tempV.vertex[1].tex.x = other.GetSize().x;
+  tempV.vertex[1].tex.x = other.GetClipSize().x;
   tempV.vertex[1].tex.y = 0;
-  tempV.vertex[2].tex.x = other.GetSize().x;
-  tempV.vertex[2].tex.y = other.GetSize().y;
+  tempV.vertex[2].tex.x = other.GetClipSize().x;
+  tempV.vertex[2].tex.y = other.GetClipSize().y;
   tempV.vertex[3].tex.x = 0;
-  tempV.vertex[3].tex.y = other.GetSize().y;
+  tempV.vertex[3].tex.y = other.GetClipSize().y;
   bunny_set_geometry(&px->buffer, BGY_QUADS, (t_bunny_vertex_array *)&tempV, other.GetClip());
   //free(tempV.vertex);
   /*
@@ -91,7 +91,7 @@ void ef::Bpixelarray::Blit(ef::Bpixelarray &other,
   tempV.vertex[2].pos.y = end.y;// - tempMidSize.y;
   tempV.vertex[3].pos.x = start.x;// + tempMidSize.x;
   tempV.vertex[3].pos.y = end.y;// - tempMidSize.y;
-  
+
   tempV.vertex[0].tex.x = 0;
   tempV.vertex[0].tex.y = 0;
   tempV.vertex[1].tex.x = other.GetSize().x;
