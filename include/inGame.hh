@@ -3,7 +3,7 @@
 
 #include "Map.hpp"
 #include "projectile.hh"
-#include "productor.hh"
+#include "hero.hh"
 
 class Warfield;
 class StrategicBoard;
@@ -50,7 +50,7 @@ namespace ef
     std::vector<std::shared_ptr<Unit>>	enemyUnits;
     std::vector<std::shared_ptr<Projectile>>	myProj;
     std::vector<std::shared_ptr<Projectile>>	enemyProj;
-
+    std::shared_ptr<Hero> hero;
   };
 };
 

@@ -55,6 +55,8 @@ namespace ef
     { return armor; };
     double getMass()
     { return mass; };
+    std::shared_ptr<Weapon> getWeapon()
+    { return weapon; };
 
   private:
 
