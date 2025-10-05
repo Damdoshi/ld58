@@ -19,9 +19,9 @@ t_bunny_response	StrategicBoard::Display(void)
 
   ingame.map.tilt = 0;
   ingame.cameraPos.x = 0;
-  ingame.cameraPos.y = 0;
-  ingame.cameraPos.w = 400;//ingame.map.size.x;
-  ingame.cameraPos.h = 300;//ingame.map.size.y;
+  ingame.cameraPos.y = Tile::MaxHeight + 5;
+  ingame.cameraPos.w = ingame.map.size.x;
+  ingame.cameraPos.h = ingame.map.size.y;
   tempPtr.reset(new ef::Bpixelarray(*world_map));
   ingame.display(tempPtr, false);
   ingame.cameraPos = cp;

@@ -7,11 +7,12 @@ void ef::Object::display(std::shared_ptr<Bpixelarray> screen,
   AcuPos tempPos(pos);
   AcuPos siz{scale.x * img.get()->GetClipSize().x, scale.y * img.get()->GetClipSize().y};
 
+  rota = 0;
   tempPos.x -= siz.x / 2.0;
   tempPos.y -= siz.y / 2.0;
   tempPos.x += cameraPos.x;
   tempPos.y += cameraPos.y;
-  // std::cout << "Object::display : tempPosx " << tempPos.x << " tempPosy " << tempPos.y << " scalex " << scale.x << " scaley " << scale.y << " rota " << rota << std::endl;
+  std::cout << "Object::display : tempPosx " << tempPos.x << " tempPosy " << tempPos.y << " scalex " << scale.x << " scaley " << scale.y << " rota " << rota << std::endl;
   if (img.get())
     screen->Blit(*img.get(), tempPos, siz, rota);
 }

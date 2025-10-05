@@ -4,30 +4,30 @@
   [hero
     unit = "res/spider.dab"
     [startPos
-      x = 50
-      y = 50
+      x = 150
+      y = 150
     ]
   ]
   {startingUnit
     [
       unit = "res/spider.dab"
       [startPos
-        x = 50
-        y = 50
+        x = 150
+        y = 150
       ]
     ],
     [
       unit = "res/spider.dab"
       [startPos
-        x = 60
-        y = 50
+        x = 160
+        y = 150
       ]
     ],
     [
       unit = "res/spider.dab"
       [startPos
-        x = 50
-        y = 60
+        x = 150
+        y = 160
       ]
     ]
   }

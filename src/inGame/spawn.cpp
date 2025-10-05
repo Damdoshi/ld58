@@ -29,7 +29,6 @@ bool		ef::InGame::spawn(t_bunny_position	pos,
     }
   if (type[0] == 'p')
     {
-
       return (true);
     }
   return (false);

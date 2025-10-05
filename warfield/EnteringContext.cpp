@@ -12,7 +12,7 @@
 
 t_bunny_response	Warfield::EnteringContext(void)
 {
-  ingame.spawn({50, 50}, "u:./res/spider.dab");
+  // ingame.spawn({40, 50}, "u:./res/spider.dab");
   return (GO_ON);
 }
 

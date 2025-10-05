@@ -9,7 +9,7 @@
 
   MOD		=	game.exe
   BIN		=	game.exe
-  FLAG		=	-W -Wall -std=gnu++2a -g -g3 -ggdb
+  FLAG		=	-W -Wall -std=gnu++2a
 
   INCLUDE	=	-I./ -I./include/
   SRC		=	$(wildcard */*.cpp) $(wildcard */*/*.cpp)
@@ -23,7 +23,7 @@
 		@echo "[OUT] " $(BIN)
 		@echo $(BIN) | tr '[:lower:]' '[:upper:]'
   .cpp.o:
-		@b++ $(INCLUDE) $(FLAG) -c $< -o $@
+		@b++ $(INCLUDE) $(FLAG) -c $< -o $@ -ggdb -g -g3
 		@echo "[BUNNYCC]" $<
   clean:
 		@rm -f $(OBJ)

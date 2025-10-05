@@ -68,9 +68,9 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	  {
 	    // To avoid having the shared ptr deleting screen, make a bpixelarray view
 	    bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
-	    screen.lineVec.length = 0;
+	    lmap->lineVec.length = 0;
 
-	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*mappx), ef::AcuPos{0, -hs + 5 * (Tile::MaxHeight + 5), 0});
+	    objs[acc]->display(lmap, ef::AcuPos{0, hs + 5 * (Tile::MaxHeight + 5), 0});
 	    acc++;
 	  }
 
@@ -92,6 +92,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
   bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
   lmap->lineVec.length = 0;
 
+  /*
   if (area.x < 0)
     area.x = 0;
   if (area.x + area.w > mappx->buffer.width)
@@ -100,12 +101,13 @@ void		Map::Display(ef::Bpixelarray	&screen,
     area.y = 0;
   if (area.y + area.h > mappx->buffer.height)
     area.y = mappx->buffer.height - area.h;
+  */
 
   mappx->clip_x_position = area.x;
   mappx->clip_y_position = area.y;
   mappx->clip_width = area.w;
   mappx->clip_height = area.h;
-  mappx->scale.x = screen.GetClip()->buffer.width / mappx->clip_width;
-  mappx->scale.y = screen.GetClip()->buffer.height / mappx->clip_height;
+  mappx->scale.x = (double)screen.GetClip()->buffer.width / mappx->clip_width;
+  mappx->scale.y = (double)screen.GetClip()->buffer.height / mappx->clip_height;
   bunny_blit(&screen.GetClip()->buffer, mappx, NULL);
 }
