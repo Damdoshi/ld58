@@ -17,9 +17,20 @@
 class			Warfield : public hbs::ContextBridge<Warfield>
 {
 protected:
+  typedef t_bunny_response (Warfield::*Action)(void);
+  struct		ButtonProperties
+  {
+    t_bunny_font	*font;
+    Warfield::Action action;
+  };
+
   Program		&prog;
   ef::InGame		&ingame;
   void			KeyCamera(void);
+
+  t_bunny_configuration	*conf;
+  std::map<std::string, ButtonProperties> buttons;
+  t_bunny_response	GoStrategic(void);
 
 public:
   t_bunny_response	EnteringContext(void);

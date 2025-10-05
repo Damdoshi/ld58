@@ -17,11 +17,27 @@
 class			StrategicBoard : public hbs::ContextBridge<StrategicBoard>
 {
 protected:
+  typedef t_bunny_response (StrategicBoard::*Action)(void);
+  struct		ButtonProperties
+  {
+    t_bunny_font	*font;
+    StrategicBoard::Action action;
+  };
+
   Program		&prog;
   ef::InGame		&ingame;
-  
+  t_bunny_picture	*world_map;
+  t_bunny_picture	*board_decor;
+
+  t_bunny_configuration	*conf;
+  std::map<std::string, ButtonProperties> buttons;
+  t_bunny_response	GoWarfield(void);
+
 public:
-  // t_bunny_response	Loop(void);
+  t_bunny_response	EnteringContext(void);
+  t_bunny_response	Key(t_bunny_event_state		state,
+			    t_bunny_keysym		sym);
+  t_bunny_response	Loop(void);
   t_bunny_response	Display(void);
 
   StrategicBoard(Program	&prog,

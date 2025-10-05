@@ -1,0 +1,14 @@
+
+{Buttons
+  [
+    Action = "GoStrategic"
+    Text = "Strategy"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 1, 0
+    Size = 8 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ]
+}
