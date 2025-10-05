@@ -26,10 +26,10 @@ protected:
 
   Program		&prog;
   ef::InGame		&ingame;
-  t_bunny_picture	*world_map;
-  t_bunny_picture	*board_decor;
+  t_bunny_picture	*world_map = NULL;
+  t_bunny_picture	*board_decor = NULL;
 
-  t_bunny_configuration	*conf;
+  t_bunny_configuration	*conf = NULL;
   std::map<std::string, ButtonProperties> buttons;
   t_bunny_response	GoWarfield(void);
 
