@@ -13,6 +13,6 @@
 t_bunny_response	Warfield::Loop(void)
 {
   KeyCamera();
-  // ingame.loop();
+  ingame.loop();
   return (GO_ON);
 }
