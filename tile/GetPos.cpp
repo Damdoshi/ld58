@@ -3,25 +3,15 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 05/10/2025 11:40:34 ******************************************************
+// 05/10/2025 12:02:42 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Map.hpp"
+#include		"Tile.hpp"
 
-Map::Map(std::vector<std::shared_ptr<ef::Unit>> &mu,
-	 std::vector<std::shared_ptr<ef::Unit>> &eu,
-	 std::vector<std::shared_ptr<ef::Projectile>> &mp,
-	 std::vector<std::shared_ptr<ef::Projectile>> &ep)
+t_bunny_position	Tile::GetPos(void) const
 {
-  units[0] = &mu;
-  units[1] = &eu;
-  projs[0] = &mp;
-  projs[1] = &ep;
-  tilt = -0.5;
+  return (t_bunny_position{x, y});
 }
-
-Map::~Map(void)
-{}
 

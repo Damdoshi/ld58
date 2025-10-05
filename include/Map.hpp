@@ -39,6 +39,7 @@ public:
   };
   std::vector<std::shared_ptr<ef::Unit>> *units[2];
   std::vector<std::shared_ptr<ef::Projectile>> *projs[2];
+  std::vector<ef::Object*> objs; // sorted units and projs
   std::vector<Tile>	tiles;
   std::vector<Tile>	waters;
   t_bunny_size		size;
