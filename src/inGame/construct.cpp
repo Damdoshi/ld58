@@ -2,7 +2,7 @@
 
 ef::InGame::InGame(const std::string &lvl)
   :
-  map()
+  map(myUnits, enemyUnits, myProj, enemyProj)
 {
   map.LoadConf(lvl);
   cameraPos.x = 10;

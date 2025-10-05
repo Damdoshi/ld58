@@ -3,25 +3,24 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 13:49:36 ******************************************************
+// 05/10/2025 11:40:34 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Tile.hpp"
+#include		"Map.hpp"
 
-Tile::Tile(double	h,
-	   double	hpph)
-  : height(h),
-    hp_per_height(hpph),
-    hp(hpph)
+Map::Map(std::vector<std::shared_ptr<ef::Unit>> &mu,
+	 std::vector<std::shared_ptr<ef::Unit>> &eu,
+	 std::vector<std::shared_ptr<ef::Projectile>> &mp,
+	 std::vector<std::shared_ptr<ef::Projectile>> &ep)
 {
-  random_col.argb[ALPHA_CMP] = 255;
-  random_col.argb[RED_CMP] = rand() % 32;
-  random_col.argb[GREEN_CMP] = random_col.argb[RED_CMP];
-  random_col.argb[BLUE_CMP] = random_col.argb[RED_CMP];
+  units[0] = &mu;
+  units[1] = &eu;
+  projs[0] = &mp;
+  projs[1] = &ep;
 }
 
-Tile::~Tile(void)
+Map::~Map(void)
 {}
 

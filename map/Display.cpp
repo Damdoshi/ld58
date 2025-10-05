@@ -29,8 +29,7 @@ Tile		&get_tile(std::vector<Tile>	&tiles,
 }
 
 void		Map::Display(ef::Bpixelarray	&screen,
-			     t_bunny_area	area,
-			     bool		bwater)
+			     t_bunny_area	area)
 {
   double	hs;
   double	hw;
