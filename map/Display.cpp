@@ -61,12 +61,20 @@ void		Map::Display(ef::Bpixelarray	&screen,
     objs[acc++] = (*projs[1])[i].get();
   std::sort(objs.begin(), objs.end(), comp);
 
+  int		min = 255;
+  int		max = 0;
+
   acc = 0;
   for (y = 0; y < screen.GetSize().y + -tilt * 255; ++y)
     for (x = 0; x < screen.GetSize().x; ++x)
       {
 	Tile	&sand = get_tile(tiles, size.x, area, (double)x / screen.GetSize().x, (double)y / screen.GetSize().y);
 	Tile	&water = get_tile(waters, size.x, area, (double)x / screen.GetSize().x, (double)y / screen.GetSize().y);
+
+	if (min > sand.Height())
+	  min = sand.Height();
+	if (max < sand.Height())
+	  max = sand.Height();
 
 	hs = sand.Height() * tilt + 1;
 	ef::AcuPos line[2] = {
@@ -80,7 +88,9 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	if (acc < objs.size() && round(objs[acc]->getPos().x) == sand.GetPos().x && round(objs[acc]->getPos().y) == sand.GetPos().y)
 	  {
 	    // To avoid having the shared ptr deleting screen, make a bpixelarray view
-	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*screen.GetClip()), ef::AcuPos{(double)round(area.x), (double)round(area.y) + hs, 0});
+	    bunny_set_geometry(&screen.GetClip()->buffer, BGY_LINES, (t_bunny_vertex_array *)&screen.lineVec, NULL);
+	    screen.lineVec.length = 0;
+	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*screen.GetClip()), ef::AcuPos{(double)round(-area.x), (double)round(-area.y) + hs, 0});
 	    acc++;
 	  }
 

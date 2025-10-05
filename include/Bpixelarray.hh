@@ -38,7 +38,7 @@ namespace ef
   struct AcuPos
   {
     AcuPos() = default;
-    AcuPos(double newx, double newy, double newz) :
+    AcuPos(double newx, double newy, double newz = 0) :
       x(newx), y(newy), z(newz)
     {};
     AcuPos operator+(AcuPos const& other)
@@ -99,6 +99,7 @@ namespace ef
 	      int alegence);
     t_bunny_clipable *GetClip()const;
     Pos GetSize();
+    Pos GetClipSize();
     void rectangle(AcuPos &start,
 		   AcuPos &size,
 		   unsigned int background,

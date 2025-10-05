@@ -22,6 +22,7 @@ unsigned int		Tile::GetDisplayColor(void) const
     }
   else
     {
+      appreciation *= appreciation;
       col.argb[RED_CMP] *= appreciation * 0.8 + 0.1;
       col.argb[GREEN_CMP] *= appreciation * 0.8 + 0.1;
       col.argb[BLUE_CMP] *= appreciation * 0.8 + 0.1;

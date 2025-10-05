@@ -19,7 +19,7 @@ Map::Map(std::vector<std::shared_ptr<ef::Unit>> &mu,
   units[1] = &eu;
   projs[0] = &mp;
   projs[1] = &ep;
-  tilt = -0.5;
+  tilt = -3;
 }
 
 Map::~Map(void)

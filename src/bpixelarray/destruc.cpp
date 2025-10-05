@@ -4,7 +4,7 @@ ef::Bpixelarray::~Bpixelarray()
 {
     pixels.release();
     //bunny_delete_clipable(&px->clipable);
-    if (isOutside)
+    if (!isOutside)
       bunny_delete_clipable(px);
     //free(recVec.vertex);
     //free(lineVec.vertex);
