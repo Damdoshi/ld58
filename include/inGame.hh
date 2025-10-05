@@ -9,6 +9,23 @@ class Warfield;
 class StrategicBoard;
 namespace ef
 {
+  struct UnitSetUp
+  {
+    std::string unit;
+    AcuPos startPos;
+  };
+
+  struct LvlConf
+  {
+    int LoadConfFile(const std::string &file);
+    int LoadConf(Bconf &conf);
+
+    std::string map;
+    std::vector<UnitSetUp> startingUnit;
+    std::vector<UnitSetUp> startingEnemy;
+    UnitSetUp hero;
+  };
+
   class InGame
   {
   public:
@@ -25,9 +42,9 @@ namespace ef
     void produceUnit(std::shared_ptr<UnitConf> unitName);
     void resetUnitProd();
     void fireGun();
+    void moveHero();
     bool spawn(t_bunny_position		pos,
 	       const std::string	&type);
-
     friend Warfield;
     friend StrategicBoard;
 
@@ -42,6 +59,8 @@ namespace ef
 		    bool isMine);
     void fireProj(std::shared_ptr<ProjectileConf> conf,
 		  bool isMine);
+    void createUnit(std::shared_ptr<UnitConf> conf,
+		    bool isMine);
 
     Map map;
     t_bunny_area cameraPos;

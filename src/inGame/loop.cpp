@@ -2,13 +2,21 @@
 
 void ef::InGame::loop()
 {
-  // movement & targeting
+  // movement & targeting & produce
   for (int i = 0; i < (int)myUnits.size(); i++)
     {
       myUnits[i]->loop(map);
       std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(enemyUnits);
       if (tempProj.get() != nullptr)
 	fireProj(tempProj, true);
+      if (myUnits[i]->getobjType() == PRODUCTOR)
+	{
+	  std::shared_ptr<Productor> prod = std::static_pointer_cast<Productor>(myUnits[i]);
+	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
+	  if (tempNewUnit.get() != nullptr)
+	    createUnit(tempNewUnit, true);
+	}
+
     }
   for (int i = 0; i < (int)enemyUnits.size(); i++)
     {
@@ -16,6 +24,13 @@ void ef::InGame::loop()
       std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(myUnits);
       if (tempProj.get() != nullptr)
 	fireProj(tempProj, false);
+      if (enemyUnits[i]->getobjType() == PRODUCTOR)
+	{
+	  std::shared_ptr<Productor> prod = std::static_pointer_cast<Productor>(enemyUnits[i]);
+	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
+	  if (tempNewUnit.get() != nullptr)
+	    createUnit(tempNewUnit, true);
+	}
     }
   if (hero.get() != nullptr)
     {
