@@ -3,25 +3,17 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 13:49:36 ******************************************************
+// 05/10/2025 12:01:01 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
 #include		"Tile.hpp"
 
-Tile::Tile(double	h,
-	   double	hpph)
-  : height(h),
-    hp_per_height(hpph),
-    hp(hpph)
+void			Tile::SetPos(int		_x,
+				     int		_y)
 {
-  random_col.argb[ALPHA_CMP] = 255;
-  random_col.argb[RED_CMP] = rand() % 32;
-  random_col.argb[GREEN_CMP] = random_col.argb[RED_CMP];
-  random_col.argb[BLUE_CMP] = random_col.argb[RED_CMP];
+  x = _x;
+  y = _y;
 }
-
-Tile::~Tile(void)
-{}
 

@@ -39,7 +39,7 @@ namespace ef
     //
     Unit(void) = default;
     Unit(std::shared_ptr<UnitConf> conf);
-    ~Unit(void);
+    ~Unit(void) = default;
 
     void damageUnit(double damageValue,
 		    double penetration);

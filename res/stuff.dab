@@ -1,0 +1,20 @@
+[Object
+  name = "Stuff"
+  objType = 1
+  [scale
+    x = 1
+    y = 1
+  ]
+  img = @"spider.dab"
+]
+
+[Projectile
+  projType = 1
+  range = 5
+  speed = 10
+  rotaSpeed = 5
+  damage = 10
+  penetration = 2
+  radius = 5
+]
+

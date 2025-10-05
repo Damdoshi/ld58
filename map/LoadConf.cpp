@@ -50,7 +50,9 @@ bool		Map::LoadConf(ef::Bconf		&conf)
     {
       tiles[i].SetTile(((unsigned int*)material->pixels)[i],
 		       ((unsigned int*)height->pixels)[i] & ~BLACK);
+      tiles[i].SetPos(i % size.x, i / size.x);
       waters[i].SetTile(BLUE, ((unsigned int*)water->pixels)[i] & ~BLACK);
+      waters[i].SetPos(i % size.x, i / size.x);
     }
 
   ret = true;

@@ -32,6 +32,10 @@ protected:
   Unit			*over = NULL;
   t_bunny_color		random_col;
 
+  // Because of our quick and dirty architecture
+  int			x;
+  int			y;
+
 public:
   static constexpr double MaxHeight = 255;
 
@@ -48,6 +52,10 @@ public:
 
   void			SetTile(unsigned int		mat,
 				unsigned int		hei);
+
+  t_bunny_position	GetPos(void) const;
+  void			SetPos(int			x,
+			       int			y);
 
   Tile(double		h = 0,
        double		hpph = 1);

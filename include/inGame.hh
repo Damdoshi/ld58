@@ -25,6 +25,8 @@ namespace ef
     void produceUnit(std::shared_ptr<UnitConf> unitName);
     void resetUnitProd();
     void fireGun();
+    bool spawn(t_bunny_position		pos,
+	       const std::string	&type);
 
     friend Warfield;
     friend StrategicBoard;

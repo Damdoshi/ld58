@@ -121,6 +121,7 @@ namespace ef
 		    AcuPos &pos);
 
     //t_bunny_pixelarray *px;
+    std::string imgfile;
     t_bunny_picture *px; // for GPU compute
     std::unique_ptr<unsigned int[]> pixels;
     bool isOutside;
