@@ -70,7 +70,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	    bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
 	    screen.lineVec.length = 0;
 
-	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*mappx), ef::AcuPos{0, hs - 5 * (Tile::MaxHeight + 5), 0});
+	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*mappx), ef::AcuPos{0, -hs + 5 * (Tile::MaxHeight + 5), 0});
 	    acc++;
 	  }
 
