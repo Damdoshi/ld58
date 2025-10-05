@@ -29,6 +29,10 @@ namespace ef
 		   std::vector<std::shared_ptr<Unit>> otherUnit);
     void removeProj(int index,
 		    bool isMine);
+    void removeUnit(int index,
+		    bool isMine);
+    void fireProj(std::shared_ptr<ProjectileConf> conf,
+		  bool isMine);
 
     Map map;
     t_bunny_area cameraPos;

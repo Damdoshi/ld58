@@ -44,6 +44,13 @@ namespace ef
     virtual void display(std::shared_ptr<Bpixelarray> screen, AcuPos cameraPos);
     std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
 
+    double getMaxHp()
+    { return maxHp; };
+    double getHp()
+    { return hp; };
+    double getArmor()
+    { return armor; };
+
   private:
 
     double maxHp;

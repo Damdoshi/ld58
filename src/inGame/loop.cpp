@@ -6,12 +6,16 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)myUnits.size(); i++)
     {
       myUnits[i]->loop(map);
-      myUnits[i]->makeTargeting(enemyUnits);
+      std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(enemyUnits);
+      if (tempProj.get() != nullptr)
+	fireProj(tempProj, true);
     }
   for (int i = 0; i < (int)enemyUnits.size(); i++)
     {
       enemyUnits[i]->loop(map);
-      myUnits[i]->makeTargeting(myUnits);
+      std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(myUnits);
+      if (tempProj.get() != nullptr)
+	fireProj(tempProj, false);
     }
   // resolveProj
   for (int i = 0; i < (int)myProj.size(); i++)
@@ -26,6 +30,14 @@ void ef::InGame::loop()
       if (doProjHit(enemyProj[i], myUnits))
 	removeProj(i, false);
     }
+
+  // kill units
+  for (int i = 0; i < (int)myUnits.size(); i++)
+    if (myUnits[i]->getHp() <= 0)
+      removeUnit(i, true);
+  for (int i = 0; i < (int)enemyUnits.size(); i++)
+    if (enemyUnits[i]->getHp() <= 0)
+      removeUnit(i, false);
 
   //colision
   for (int i = 0; i < (int)myUnits.size(); i++)
