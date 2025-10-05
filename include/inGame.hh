@@ -3,7 +3,7 @@
 
 #include "Map.hpp"
 #include "projectile.hh"
-#include "Unit.hpp"
+#include "productor.hh"
 
 class Warfield;
 class StrategicBoard;
@@ -18,6 +18,13 @@ namespace ef
     void loop();
 
     bool loadLevel(const std::string &lvl);
+
+    void selectUnit(t_bunny_area area);
+    void moveUnit(t_bunny_position pos,
+		  bool isHoldShift);
+    void produceUnit(std::shared_ptr<UnitConf> unitName);
+    void resetUnitProd();
+    void fireGun();
 
     friend Warfield;
     friend StrategicBoard;
@@ -37,9 +44,11 @@ namespace ef
     Map map;
     t_bunny_area cameraPos;
     std::vector<std::shared_ptr<Unit>>	myUnits;
+    std::vector<std::shared_ptr<Unit>>	selectedUnits;
     std::vector<std::shared_ptr<Unit>>	enemyUnits;
     std::vector<std::shared_ptr<Projectile>>	myProj;
     std::vector<std::shared_ptr<Projectile>>	enemyProj;
+
   };
 };
 

@@ -29,6 +29,8 @@ namespace ef
     double hp;
     double armor;
     double mass;
+    double productionTime;
+    double cost;
   };
 
   class Unit : public Object, public MoveModule

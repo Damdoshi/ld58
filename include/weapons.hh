@@ -11,6 +11,7 @@ namespace ef
     //int LoadConf(std::string &file);
     virtual int LoadConf(Bconf &conf);
 
+    bool isManual;
     double range;
     double minRange;
     double reloadTime;
@@ -25,7 +26,13 @@ namespace ef
   public:
     Weapon() = default;
     Weapon(std::shared_ptr<WeaponConf> conf);
-    void loop(AcuPos weaponPos, AcuPos unitPos, double unitRota);
+    void loop(AcuPos weaponPos,
+	      AcuPos unitPos,
+	      double unitRota);
+    void manualAiming(AcuPos weaponPos,
+		      AcuPos unitPos,
+		      double unitRota,
+		      AcuPos targetPos);
     std::shared_ptr<ProjectileConf> shoot();
 
     double getRange()
@@ -44,6 +51,7 @@ namespace ef
 
   private:
     // gameplay
+    bool isManual;
     double range;
     double minRange;
     double cooldown;

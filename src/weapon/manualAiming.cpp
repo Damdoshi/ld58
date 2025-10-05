@@ -1,20 +1,14 @@
 #include "weapons.hh"
 
-void ef::Weapon::loop(AcuPos weaponPos, AcuPos unitPos, double unitRota)
+void ef::Weapon::manualAiming(AcuPos weaponPos,
+			      AcuPos unitPos,
+			      double unitRota,
+			      AcuPos targetPos)
 {
-  cooldown -= 1;
-  if (cooldown < 0)
-    cooldown = 0;
-
   //std::cout << "weapon::loop : target " << target << std::endl;
-  if (target.get() != nullptr && !isManual)
+  if (isManual)
     {
-      double dist = sqrt((unitPos.x - target->getPos().x) * (unitPos.x - target->getPos().x) + (unitPos.y - target->getPos().y) * (unitPos.y - target->getPos().y));
-      if (dist > range * rangeMul)
-	{
-	  target = nullptr;
-	  return;
-	}
+      double dist = sqrt((unitPos.x - targetPos.x) * (unitPos.x - targetPos.x) + (unitPos.y - targetPos.y) * (unitPos.y - targetPos.y));
 
       AcuPos posi;
       posi.x = weaponPos.x * cos(unitRota) - weaponPos.y * sin(unitRota);
@@ -23,7 +17,7 @@ void ef::Weapon::loop(AcuPos weaponPos, AcuPos unitPos, double unitRota)
       //std::cout << "weapon::loop : pos x " << getPos().x << " pos y " << getPos().y << " rota " << unitRota << std::endl;
       //std::cout << "weapon::loop : rota pass posi x " << posi.x << " posi y " << posi.y << std::endl;
       AcuPos tempPos(cos(getRota()) * 10, sin(getRota()) * 10, 0);
-      AcuPos tempPos2(target->getPos().x - posi.x, target->getPos().y - posi.y, 0);
+      AcuPos tempPos2(targetPos.x - posi.x, targetPos.y - posi.y, 0);
       double dist1 = tempPos.x * tempPos.x + tempPos.y * tempPos.y;
       double dist2 = tempPos2.x * tempPos2.x + tempPos2.y * tempPos2.y;
       double angle = (tempPos.x * tempPos2.x + tempPos.y * tempPos2.y) / sqrt(dist1 * dist2);

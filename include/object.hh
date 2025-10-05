@@ -13,7 +13,8 @@ namespace ef
     {
      OBJECT,
      WEAPON,
-     UNIT
+     UNIT,
+     PRODUCTOR
     };
 
   struct ObjectConf

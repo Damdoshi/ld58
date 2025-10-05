@@ -29,6 +29,16 @@ int ef::UnitConf::LoadConf(Bconf &conf)
       perror("WeaponConf::LoadConf : failed to get mass");
       return -1;
     }
+  if(!bunny_configuration_getf_double(conf.Get(), &productionTime, "Unit.productionTime"))
+    {
+      perror("WeaponConf::LoadConf : failed to get productionTime");
+      return -1;
+    }
+  if(!bunny_configuration_getf_double(conf.Get(), &cost, "Unit.cost"))
+    {
+      perror("WeaponConf::LoadConf : failed to get cost");
+      return -1;
+    }
   return 1;
 }
 

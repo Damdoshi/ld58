@@ -20,6 +20,11 @@ int ef::WeaponConf::LoadConf(Bconf &conf)
     return out;
   char *buf;
 
+  if(!bunny_configuration_getf_int(conf.Get(), (int *)&isManual, "Weapon.isManual"))
+    {
+      perror("WeaponConf::LoadConf : failed to get isManual");
+      return -1;
+    }
   if(!bunny_configuration_getf_double(conf.Get(), &range, "Weapon.range"))
     {
       perror("WeaponConf::LoadConf : failed to get range");

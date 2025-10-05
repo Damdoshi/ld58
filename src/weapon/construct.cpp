@@ -5,6 +5,7 @@ ef::Weapon::Weapon(std::shared_ptr<WeaponConf>	conf)
   :
   Object(conf),
   rangeMul(1),
+  isManual(conf->isManual),
   range(conf->range),
   minRange(conf->minRange),
   cooldown(conf->reloadTime),
