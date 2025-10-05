@@ -15,6 +15,7 @@ Map::Map(std::vector<std::shared_ptr<ef::Unit>> &mu,
 	 std::vector<std::shared_ptr<ef::Projectile>> &mp,
 	 std::vector<std::shared_ptr<ef::Projectile>> &ep)
 {
+  mappx = NULL;
   units[0] = &mu;
   units[1] = &eu;
   projs[0] = &mp;

@@ -13,4 +13,5 @@
   reloadTime = 5
   rotaSpeed = 1
   projectile = @"stuff.dab"
+  isManual = false
 ]

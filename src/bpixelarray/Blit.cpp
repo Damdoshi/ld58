@@ -42,6 +42,7 @@ void ef::Bpixelarray::Blit(ef::Bpixelarray &other,
   tempV.vertex[2].tex.y = other.GetClipSize().y;
   tempV.vertex[3].tex.x = 0;
   tempV.vertex[3].tex.y = other.GetClipSize().y;
+
   bunny_set_geometry(&px->buffer, BGY_QUADS, (t_bunny_vertex_array *)&tempV, other.GetClip());
   //free(tempV.vertex);
   /*

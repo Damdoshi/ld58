@@ -14,21 +14,6 @@
 
 extern Border	border;
 
-Tile		&get_tile(std::vector<Tile>	&tiles,
-			  int			tw,
-			  t_bunny_area		area,
-			  double		xcoef,
-			  double		ycoef)
-{
-  t_bunny_position pos;
-
-  pos.x = xcoef * area.w + area.x;
-  pos.y = ycoef * area.h + area.y;
-  if (pos.x < 0 || pos.y < 0 || pos.x >= tw || pos.y >= (int)tiles.size() / tw)
-    return (border);
-  return (tiles[pos.x + pos.y * tw]);
-}
-
 bool		comp(ef::Object			*a,
 		     ef::Object			*b)
 {
@@ -60,37 +45,32 @@ void		Map::Display(ef::Bpixelarray	&screen,
   for (size_t i = 0; i < projs[1]->size(); ++i)
     objs[acc++] = (*projs[1])[i].get();
   std::sort(objs.begin(), objs.end(), comp);
-
-  int		min = 255;
-  int		max = 0;
+  std::shared_ptr<ef::Bpixelarray> lmap(std::make_shared<ef::Bpixelarray>(*mappx));
 
   acc = 0;
-  for (y = 0; y < screen.GetSize().y + -tilt * 255; ++y)
-    for (x = 0; x < screen.GetSize().x; ++x)
+  bunny_clear(&screen.GetClip()->buffer, BLACK);
+  bunny_clear(&mappx->buffer, BLACK);
+  for (y = 0; y < size.y; ++y)
+    for (x = 0; x < size.x; ++x)
       {
-	Tile	&sand = get_tile(tiles, size.x, area, (double)x / screen.GetSize().x, (double)y / screen.GetSize().y);
-	Tile	&water = get_tile(waters, size.x, area, (double)x / screen.GetSize().x, (double)y / screen.GetSize().y);
-
-	if (min > sand.Height())
-	  min = sand.Height();
-	if (max < sand.Height())
-	  max = sand.Height();
+	Tile	&sand = y < size.y ? tiles[x + y * size.x] : border;
+	Tile	&water = y < size.y ? waters[x + y * size.x] : border;
 
 	hs = sand.Height() * tilt + 1;
 	ef::AcuPos line[2] = {
-	  {(double)x, y + hs, 0},
-	  {(double)x, (double)y, 0}
+	  {(double)x, y + hs    + 5 * (Tile::MaxHeight + 5), 0},
+	  {(double)x, (double)y + 5 * (Tile::MaxHeight + 5), 0}
 	};
-	// if (!bwater)
-	screen.setLine(line[0], line[1], sand.GetDisplayColor());
+	lmap->setLine(line[0], line[1], sand.GetDisplayColor());
 
 	// A unit is here
-	if (acc < objs.size() && round(objs[acc]->getPos().x) == sand.GetPos().x && round(objs[acc]->getPos().y) == sand.GetPos().y)
+	if (acc < objs.size() && round(objs[acc]->getPos().x) == x && round(objs[acc]->getPos().y) == y)
 	  {
 	    // To avoid having the shared ptr deleting screen, make a bpixelarray view
-	    bunny_set_geometry(&screen.GetClip()->buffer, BGY_LINES, (t_bunny_vertex_array *)&screen.lineVec, NULL);
+	    bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
 	    screen.lineVec.length = 0;
-	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*screen.GetClip()), ef::AcuPos{(double)round(-area.x), (double)round(-area.y) + hs, 0});
+
+	    objs[acc]->display(std::make_shared<ef::Bpixelarray>(*mappx), ef::AcuPos{0, hs - 5 * (Tile::MaxHeight + 5), 0});
 	    acc++;
 	  }
 
@@ -101,11 +81,31 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	    else
 	      hw = 0;
 	    ef::AcuPos line[2] = {
-	      {(double)x, y + hs + hw, 0},
-	      {(double)x, (double)y, 0}
+	      {(double)x, y + hs + hw + 5 * (Tile::MaxHeight + 5), 0},
+	      {(double)x, (double)y   + 5 * (Tile::MaxHeight + 5), 0}
 	    };
-	    // if (bwater)
-	    screen.setLine(line[0], line[1], water.GetDisplayColor());
+
+	    lmap->setLine(line[0], line[1], water.GetDisplayColor());
 	  }
       }
+
+  bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
+  lmap->lineVec.length = 0;
+
+  if (area.x < 0)
+    area.x = 0;
+  if (area.x + area.w > mappx->buffer.width)
+    area.x = mappx->buffer.width - area.w;
+  if (area.y < 0)
+    area.y = 0;
+  if (area.y + area.h > mappx->buffer.height)
+    area.y = mappx->buffer.height - area.h;
+
+  mappx->clip_x_position = area.x;
+  mappx->clip_y_position = area.y;
+  mappx->clip_width = area.w;
+  mappx->clip_height = area.h;
+  mappx->scale.x = screen.GetClip()->buffer.width / mappx->clip_width;
+  mappx->scale.y = screen.GetClip()->buffer.height / mappx->clip_height;
+  bunny_blit(&screen.GetClip()->buffer, mappx, NULL);
 }

@@ -54,6 +54,10 @@ bool		Map::LoadConf(ef::Bconf		&conf)
       waters[i].SetTile(BLUE, (((unsigned int*)water->pixels)[i] & ~BLACK) / 10);
       waters[i].SetPos(i % size.x, i / size.x);
     }
+  if (mappx)
+    bunny_delete_clipable(mappx);
+  if ((mappx = bunny_new_picture(size.x, size.y + Tile::MaxHeight + 5)) == NULL)
+    goto Delete_Water;
 
   ret = true;
 

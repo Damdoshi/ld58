@@ -42,6 +42,7 @@ public:
   std::vector<ef::Object*> objs; // sorted units and projs
   std::vector<Tile>	tiles;
   std::vector<Tile>	waters;
+  t_bunny_picture	*mappx;
   t_bunny_size		size;
   double		tilt; // Coefficient de hauteur - 0 de base
 

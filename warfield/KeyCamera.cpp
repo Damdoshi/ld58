@@ -30,7 +30,7 @@ void			Warfield::KeyCamera(void)
       bunny_get_keyboard()[BKS_DOWN])
     ingame.cameraPos.y += 1;
 
-  return ;
+  // return ;
   if (bunny_get_keyboard()[BKS_SUBTRACT])
     {
       ingame.cameraPos.x -= 1;

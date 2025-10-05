@@ -13,6 +13,8 @@
   maxHp = 20
   armor = 2.5
   mass = 5
+  productionTime = 5
+  cost = 2
 ]
 
 'SPRITE

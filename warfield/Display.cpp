@@ -14,7 +14,7 @@ t_bunny_response	Warfield::Display(void)
 {
   std::shared_ptr<ef::Bpixelarray> tempPtr;
   tempPtr.reset(new ef::Bpixelarray(prog.GetScreen()));
-  ingame.display(/*std::make_shared<ef::Bpixelarray>(prog.GetScreen())*/ tempPtr, false);
+  ingame.display(tempPtr, false);
   t_bunny_clipable	&screen = prog.GetScreen();
 
   for (auto it = buttons.begin(); it != buttons.end(); ++it)

@@ -14,9 +14,19 @@ t_bunny_response	StrategicBoard::Display(void)
 {
   std::shared_ptr<ef::Bpixelarray> tempPtr;
   t_bunny_clipable	&screen = prog.GetScreen();
+  auto cp = ingame.cameraPos;
+  auto tilt = ingame.map.tilt;
 
+  ingame.map.tilt = 0;
+  ingame.cameraPos.x = 0;
+  ingame.cameraPos.y = 0;
+  ingame.cameraPos.w = 400;//ingame.map.size.x;
+  ingame.cameraPos.h = 300;//ingame.map.size.y;
   tempPtr.reset(new ef::Bpixelarray(*world_map));
   ingame.display(tempPtr, false);
+  ingame.cameraPos = cp;
+  ingame.map.tilt = tilt;
+
   bunny_blit(&screen.buffer, board_decor, NULL);
   bunny_blit(&screen.buffer, world_map, NULL);
   for (auto it = buttons.begin(); it != buttons.end(); ++it)
