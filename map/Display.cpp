@@ -9,6 +9,7 @@
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
 #include	<algorithm>
+#include	"Program.hpp"
 #include	"Border.hpp"
 #include	"Map.hpp"
 
@@ -17,11 +18,9 @@ extern Border	border;
 bool		comp(ef::Object			*a,
 		     ef::Object			*b)
 {
-  if (a->getPos().y < b->getPos().y)
-    return (true);
-  if (a->getPos().x < b->getPos().x)
-    return (true);
-  return (false);
+  if ((int)a->getPos().y != (int)b->getPos().y)
+    return (a->getPos().y < b->getPos().y);
+  return (a->getPos().x < b->getPos().x);
 }
 
 void		Map::Display(ef::Bpixelarray	&screen,
@@ -36,17 +35,43 @@ void		Map::Display(ef::Bpixelarray	&screen,
   objs.clear();
   objs.resize(units[0]->size() + units[1]->size() + projs[0]->size() + projs[1]->size());
   size_t acc = 0;
+
   for (size_t i = 0; i < units[0]->size(); ++i)
     objs[acc++] = (*units[0])[i].get();
   for (size_t i = 0; i < units[1]->size(); ++i)
-    objs[acc++] = (*units[1])[i].get();
+  objs[acc++] = (*units[1])[i].get();
   for (size_t i = 0; i < projs[0]->size(); ++i)
     objs[acc++] = (*projs[0])[i].get();
   for (size_t i = 0; i < projs[1]->size(); ++i)
     objs[acc++] = (*projs[1])[i].get();
+  /*
+  for (acc = 0; acc < objs.size(); ++acc)
+    {
+      if (objs[acc]->getPos().x < 0 ||
+	  objs[acc]->getPos().y < 0 ||
+	  objs[acc]->getPos().x >= size.x ||
+	  objs[acc]->getPos().y >= size.y)
+	continue ;
+      std::cout << "VALID MOB " << acc << std::endl;
+      std::cout << objs[acc]->getPos().x << " " << objs[acc]->getPos().y << std::endl;
+    }
+  */
+  
   std::sort(objs.begin(), objs.end(), comp);
   std::shared_ptr<ef::Bpixelarray> lmap(std::make_shared<ef::Bpixelarray>(*mappx));
-
+  //std::cout << " size " << objs.size() << std::endl;
+  /*
+  for (acc = 0; acc < objs.size(); ++acc)
+    {
+      if (objs[acc]->getPos().x < 0 ||
+	  objs[acc]->getPos().y < 0 ||
+	  objs[acc]->getPos().x >= size.x ||
+	  objs[acc]->getPos().y >= size.y)
+	continue ;
+      std::cout << "VALID MOB " << acc << std::endl;
+      std::cout << objs[acc]->getPos().x << " " << objs[acc]->getPos().y << std::endl;
+    }
+  */
   acc = 0;
   bunny_clear(&screen.GetClip()->buffer, BLACK);
   bunny_clear(&mappx->buffer, BLACK);
@@ -69,11 +94,15 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	  color |= COLOR(0, 31, 31, 31);
 	lmap->setLine(line[0], line[1], color);
 
+	/*if (x == 160 && y == 150)
+	  puts("I'm shitting on all of this");*/
 	// A unit is here
-	if (acc < objs.size() && round(objs[acc]->getPos().x) == x && round(objs[acc]->getPos().y) == y)
+	while (acc < objs.size() && (int)objs[acc]->getPos().x == x && (int)objs[acc]->getPos().y == y)
 	  {
+	    //std::cout << "acc " << acc << std::endl;
 	    // To avoid having the shared ptr deleting screen, make a bpixelarray view
-	    bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
+	    if (lmap->lineVec.length)
+	      bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
 	    lmap->lineVec.length = 0;
 
 	    objs[acc]->display(lmap, ef::AcuPos{0, hs + 5 * (Tile::MaxHeight + 5), 0});
@@ -94,8 +123,16 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	    lmap->setLine(line[0], line[1], water.GetDisplayColor());
 	  }
       }
+  if (acc != objs.size())
+    std::cout << "NOT PRINTED SHIT ________________________________________________________________" << std::endl;
+  while (acc < objs.size())
+    {
+      std::cout << "acc " << acc << " OBJS X Y " << objs[acc]->getPos().x << " " << objs[acc]->getPos().y << std::endl;
+      acc += 1;
+    }
 
-  bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
+  if (lmap->lineVec.length)
+    bunny_set_geometry(&mappx->buffer, BGY_LINES, (t_bunny_vertex_array *)&lmap->lineVec, NULL);
   lmap->lineVec.length = 0;
 
   /*
@@ -115,5 +152,21 @@ void		Map::Display(ef::Bpixelarray	&screen,
   mappx->clip_height = area.h;
   mappx->scale.x = (double)screen.GetClip()->buffer.width / mappx->clip_width;
   mappx->scale.y = (double)screen.GetClip()->buffer.height / mappx->clip_height;
+
+  t_bunny_position	pos[2];
+  unsigned int		colx[2] = {RED, GREEN};
+  double		ang = (rand() % 2000) / 2000.0;
+  double		off[2];
+
+  off[0] = 5 * cos(2 * M_PI * ang);
+  off[1] = 5 * sin(2 * M_PI * ang);
+  pos[0].x = gprog->ingamemouse.x + off[0];
+  pos[0].y = gprog->ingamemouse.y + off[1];
+
+  off[0] = 5 * cos(3 * M_PI * ang);
+  off[1] = 5 * sin(3 * M_PI * ang);
+  pos[1].x = gprog->ingamemouse.x + off[0];
+  pos[1].y = gprog->ingamemouse.y + off[1];
+  bunny_set_line(&mappx->buffer, pos, colx);
   bunny_blit(&screen.GetClip()->buffer, mappx, NULL);
 }

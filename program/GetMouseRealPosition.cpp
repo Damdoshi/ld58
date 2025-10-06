@@ -33,5 +33,7 @@ t_bunny_position	Program::GetMouseRealPosition(t_bunny_position	p) const
 
 t_bunny_position	Program::GetMouseRealPosition(void) const
 {
-  return (GetMouseRealPosition(*bunny_get_mouse_position()));
+  auto			mp = *bunny_get_mouse_position();
+
+  return (GetMouseRealPosition(mp));
 }

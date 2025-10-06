@@ -58,6 +58,7 @@ namespace ef
     { destination = newDestination; };
 
     double rangeMul;
+    double lifeTime;
 
   private:
     double damage;

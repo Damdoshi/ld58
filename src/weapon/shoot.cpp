@@ -2,7 +2,7 @@
 
 std::shared_ptr<ef::ProjectileConf> ef::Weapon::shoot()
 {
-  if (cooldown == 0 && target.get() != nullptr)
+  if (cooldown == 0 && target.get() != nullptr && !isManual)
     {
       cooldown = reloadTime;
       return projectile;

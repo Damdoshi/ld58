@@ -30,6 +30,7 @@ public:
       INITIAL_CONTEXT	= WARFIELD
     };
 protected:
+public: // fuque
   t_bunny_window	**win;
   t_bunny_clipable	*screen;
   t_bunny_configuration	*conf;
@@ -39,6 +40,9 @@ protected:
   std::map<Ctx, hbs::Context*> contexts;
 
   ef::InGame		ingame;
+
+  t_bunny_position	realmouse;
+  t_bunny_position	ingamemouse;
 
 public:
   t_bunny_position	GetMouseRealPosition(t_bunny_position	p) const;
@@ -51,5 +55,7 @@ public:
   Program(void);
   ~Program(void);
 };
+
+extern Program		*gprog;
 
 #endif	//		__PROGRAM_HPP__

@@ -5,11 +5,14 @@ int ef::UnitConf::LoadConf(Bconf &conf)
   int out = ObjectConf::LoadConf(conf);
   if (out != 1)
     return out;
+  out = MoveModuleConf::LoadConf(conf);
+  if (out != 1)
+    return out;
   char *buf;
 
-  if(!bunny_configuration_getf_string(conf.Get(), (const char **)&buf, "Unit.projectile"))
+  if(!bunny_configuration_getf_string(conf.Get(), (const char **)&buf, "Unit.weapon"))
     {
-      perror("WeaponConf::LoadConf : failed to get name");
+      perror("WeaponConf::LoadConf : failed to get weapon");
       return -1;
     }
   weapon.clear();

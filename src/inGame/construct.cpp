@@ -1,7 +1,9 @@
 #include "inGame.hh"
 
-ef::InGame::InGame(const std::string &lvl)
+ef::InGame::InGame(const std::string &lvl,
+		   Program &program)
   :
+  prog(program),
   map(myUnits, enemyUnits, myProj, enemyProj)
 {
   LvlConf lvlconf;
@@ -33,6 +35,7 @@ ef::InGame::InGame(const std::string &lvl)
   std::shared_ptr<Hero> newUnit;
   hero.reset(new Hero(newUnitConf));
   hero->setPos(lvlconf.hero.startPos);
+  myUnits.push_back(hero);
 
   cameraPos.x = 0;
   cameraPos.y = 0;

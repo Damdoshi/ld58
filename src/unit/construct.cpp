@@ -3,6 +3,7 @@
 ef::Unit::Unit(std::shared_ptr<UnitConf> conf)
   :
   Object(conf),
+  MoveModule(conf),
   maxHp(conf->maxHp),
   hp(conf->maxHp),
   armor(conf->armor)

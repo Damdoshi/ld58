@@ -16,8 +16,7 @@ std::shared_ptr<ef::ProjectileConf> ef::Unit::makeTargeting(std::vector<std::sha
 	  bestTarget = otherUnit[i];
 	}
     }
-  if (bestTarget.get() != nullptr)
-    weapon->setTarget(bestTarget);
+  weapon->setTarget(bestTarget);
   return weapon->shoot();
 }
 

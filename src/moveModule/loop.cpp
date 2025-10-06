@@ -27,11 +27,15 @@ void ef::MoveModule::loop(AcuPos &pos,
   // check rotation
   AcuPos tempPos(cos(rota) * speed, sin(rota) * speed, 0);
   AcuPos tempPos3(cos(rota + M_PI / 2) * speed, sin(rota + M_PI / 2) * speed, 0);
+  //std::cout << "movemodule loop rota " << cos(rota) << std::endl;
+  //std::cout << "movemodule loop after inti tempPos3.x " << tempPos3.x << " y " << tempPos3.y << std::endl;
   AcuPos tempPos2(nextPosition.x - pos.x, nextPosition.y - pos.y, 0);
   double dist1 = tempPos.x * tempPos.x + tempPos.y * tempPos.y;
   double dist2 = tempPos2.x * tempPos2.x + tempPos2.y * tempPos2.y;
 
-  double angle = (tempPos.x * tempPos2.x + tempPos.y * tempPos2.y) / sqrt(dist1 * dist2);
+  double angle = 0;
+  if (sqrt(dist1 * dist2) != 0)
+    angle = (tempPos.x * tempPos2.x + tempPos.y * tempPos2.y) / sqrt(dist1 * dist2);
 
   //std::cout << "MoveModule::loop : angle " << angle << " rota " << rota << std::endl;
 
@@ -58,7 +62,9 @@ void ef::MoveModule::loop(AcuPos &pos,
       tempArea.w = unitSize.x;
       tempArea.h = unitSize.y;
       bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
-
+      //std::cout << "movemodule loop canMove" << canMove << std::endl;
+      //std::cout << "movemodule loop tempPos3.x " << tempPos3.x << " y " << tempPos3.y << std::endl;
+      //std::cout << "movemodule loop speed " << speed << std::endl;
       if ((tempPos3.x > 0 && nextPosition.x > pos.x && pos.x + tempPos3.x > nextPosition.x) ||
 	  (tempPos3.x < 0 && nextPosition.x < pos.x && pos.x + tempPos3.x < nextPosition.x))
 	pos.x = nextPosition.x;
@@ -83,6 +89,10 @@ void ef::MoveModule::loop(AcuPos &pos,
 	      nextPosition.z = -1;
 	    }
 	}
-    }
+      if (pos.x < 0)
+	pos.x = 0;
+      if (pos.y < 0)
+	pos.y = 0;
+     }
 }
 

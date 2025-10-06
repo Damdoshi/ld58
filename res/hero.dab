@@ -1,5 +1,5 @@
 [Object
-  name = "Spider"
+  name = "hero"
   objType = 2
   [scale
     x = 1
@@ -15,7 +15,7 @@
 ]
 
 [Unit
-  weapon = "res/egg.dab"
+  weapon = "res/manual.dab"
   maxHp = 20
   armor = 2.5
   mass = 5

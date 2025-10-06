@@ -3,6 +3,8 @@
 ef::Projectile::Projectile(std::shared_ptr<ProjectileConf> conf)
   :
   Object(conf),
+  rangeMul(1),
+  lifeTime(80),
   damage(conf->damage),
   penetration(conf->penetration),
   radius(conf->radius),

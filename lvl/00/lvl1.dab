@@ -2,18 +2,18 @@
 [LvlConf
   map = "lvl/00/conf.dab"
   [hero
-    unit = "res/spider.dab"
+    unit = "res/hero.dab"
     [startPos
-      x = 150
-      y = 150
+      x = 220
+      y = 220
     ]
   ]
   {startingUnit
     [
       unit = "res/spider.dab"
       [startPos
-        x = 150
-        y = 150
+        x = 40
+        y = 40
       ]
     ],
     [

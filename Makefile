@@ -9,7 +9,7 @@
 
   MOD		=	game.exe
   BIN		=	game.exe
-  FLAG		=	-W -Wall -std=gnu++2a -O3 -ffast-math
+  FLAG		=	-W -Wall -std=gnu++2a # -O3 #-ffast-math
 
   INCLUDE	=	-I./ -I./include/
   SRC		=	$(wildcard */*.cpp) $(wildcard */*/*.cpp)

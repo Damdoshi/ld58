@@ -7,6 +7,7 @@
 
 class Warfield;
 class StrategicBoard;
+class Program;
 namespace ef
 {
   struct UnitSetUp
@@ -29,7 +30,7 @@ namespace ef
   class InGame
   {
   public:
-    InGame(const std::string &lvl);
+    InGame(const std::string &lvl, Program &newProg);
     void display(std::shared_ptr<Bpixelarray> screen,
 		 bool isInStrategicBoard);
     void loop();
@@ -49,6 +50,7 @@ namespace ef
     friend StrategicBoard;
 
   private:
+  public:
     AcuPos colideUnit(std::shared_ptr<Unit> currUnit,
 		      std::shared_ptr<Unit> otherUnit);
     bool doProjHit(std::shared_ptr<Projectile> proj,
@@ -58,10 +60,12 @@ namespace ef
     void removeUnit(int index,
 		    bool isMine);
     void fireProj(std::shared_ptr<ProjectileConf> conf,
-		  bool isMine);
+		  bool isMine,
+		  std::shared_ptr<Unit> unit);
     void createUnit(std::shared_ptr<UnitConf> conf,
 		    bool isMine);
 
+    Program &prog;
     Map map;
     t_bunny_area cameraPos;
     std::vector<std::shared_ptr<Unit>>	myUnits;

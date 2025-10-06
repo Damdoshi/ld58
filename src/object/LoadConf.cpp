@@ -9,6 +9,7 @@ int ef::ObjectConf::LoadConfFile(std::string &file)
     for(unsigned int i = 0; i < 10 && conff.retry(file); i++);
   if(conff())
     {
+      std::cout << "LoadConfFile conf failed name " << file << std::endl;
       perror("Object::LoadConf : failed to open conf");
       return -1;
     }

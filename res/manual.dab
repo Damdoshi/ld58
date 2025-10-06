@@ -1,5 +1,5 @@
 [Object
-  name = "Egg"
+  name = "manual"
   objType = 1
   [scale
     x = 1
@@ -13,5 +13,5 @@
   reloadTime = 5
   rotaSpeed = 1
   projectile = "res/stuff.dab"
-  isManual = false
+  isManual = true
 ]

@@ -34,6 +34,7 @@ namespace ef
 		      double unitRota,
 		      AcuPos targetPos);
     std::shared_ptr<ProjectileConf> shoot();
+    std::shared_ptr<ProjectileConf> manualShoot();
 
     double getRange()
     { return range; };

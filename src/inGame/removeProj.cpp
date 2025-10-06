@@ -5,6 +5,7 @@ void ef::InGame::removeProj(int index,
 {
   std::vector<std::shared_ptr<Projectile>> tempProjList;
 
+  std::cout << "removeProj boom" << std::endl;
   if (isMine)
     {
       for (int i = 0; i < (int)myProj.size(); i++)

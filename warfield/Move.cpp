@@ -3,21 +3,18 @@
 // ***     ***     ***     ******  *******  *****      **********************
 // **  ******  ******  *** *****  *******  *********  ***********************
 // *     ***  ******  *** ***       ****  *****      ************************
-// 04/10/2025 12:10:40 ******************************************************
+// 04/10/2025 19:27:05 ******************************************************
 // damdoshi <damdoshi@terechkova.efrits.fr>
 // -  -
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
-#include		"Program.hpp"
+#include		"Warfield.hpp"
 
-Program			*gprog;
-
-int			main(void)
+t_bunny_response	Warfield::Move(const t_bunny_position &rel)
 {
-  static Program	program;
-
-  gprog = &program;
-  bunny_enable_full_blit(true);
-  return (program());
+  prog.realmouse = prog.GetMouseRealPosition();
+  prog.ingamemouse.x = prog.realmouse.x + prog.ingame.cameraPos.x;
+  prog.ingamemouse.y = prog.realmouse.y + prog.ingame.cameraPos.y;
+  return (GO_ON);
 }
 

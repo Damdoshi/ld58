@@ -14,7 +14,8 @@ namespace ef
      OBJECT,
      WEAPON,
      UNIT,
-     PRODUCTOR
+     PRODUCTOR,
+     PROJECTILE
     };
 
   struct ObjectConf

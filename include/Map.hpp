@@ -86,4 +86,5 @@ public:
   ~Map(void);
 };
 
+
 #endif	//		__MAP_HPP__

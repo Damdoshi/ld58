@@ -16,6 +16,7 @@ int ef::MoveModuleConf::LoadConf(std::string &file)
 */
 int ef::MoveModuleConf::LoadConf(Bconf &conf)
 {
+  std::cout << "movemoduleconf pass" << std::endl;
   if(!bunny_configuration_getf_double(conf.Get(), &speed, "MoveModule.speed"))
     {
       perror("MoveModuleConf::LoadConf : failed to get speed");
