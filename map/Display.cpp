@@ -61,7 +61,13 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	  {(double)x, y + hs    + 5 * (Tile::MaxHeight + 5), 0},
 	  {(double)x, (double)y + 5 * (Tile::MaxHeight + 5), 0}
 	};
-	lmap->setLine(line[0], line[1], sand.GetDisplayColor());
+	auto color = sand.GetDisplayColor();
+
+	if ((int)(x + y * 1.5) % 20 == 0 || (int)(x - y * 1.5) % 20 == 0)
+	  color |= COLOR(0, 127, 127, 127);
+	if (!((int)((x + y * 1.5) / 20) % 2 || ((int)(x - y * 1.5) / 20) % 2))
+	  color |= COLOR(0, 31, 31, 31);
+	lmap->setLine(line[0], line[1], color);
 
 	// A unit is here
 	if (acc < objs.size() && round(objs[acc]->getPos().x) == x && round(objs[acc]->getPos().y) == y)
