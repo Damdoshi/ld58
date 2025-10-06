@@ -27,16 +27,18 @@ t_bunny_response	Warfield::Key(t_bunny_event_state	state,
     }
   if (sym == BKS_M)
     {
-      const t_bunny_position *mousePos = bunny_get_mouse_position();
+      const t_bunny_position *mousePos = &prog.ingamemouse;
       t_bunny_position pos;
+
       pos.x = 80;
       pos.y = 80;
       ingame.moveUnit(pos, false);
     }
   if (sym == BKS_L)
     {
-      const t_bunny_position *mousePos = bunny_get_mouse_position();
+      const t_bunny_position *mousePos = &prog.ingamemouse;
       t_bunny_position pos;
+
       pos.x = 200;
       pos.y = 80;
       ingame.moveUnit(pos, false);

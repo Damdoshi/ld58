@@ -28,6 +28,7 @@ t_bunny_position	Program::GetMouseRealPosition(t_bunny_position	p) const
     pos.y = screen->buffer.height - 1;
   else
     pos.y = (p.y - screen->position.y) / screen->scale.y;
+
   return (pos);
 }
 
@@ -35,5 +36,7 @@ t_bunny_position	Program::GetMouseRealPosition(void) const
 {
   auto			mp = *bunny_get_mouse_position();
 
+  if (mp.x < 10 || mp.y < 10)
+    std::cout << " ############# " << mp.x << " " << mp.y << std::endl;
   return (GetMouseRealPosition(mp));
 }

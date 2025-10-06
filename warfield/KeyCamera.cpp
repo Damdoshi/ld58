@@ -33,6 +33,11 @@ void			Warfield::KeyCamera(void)
   if (bunny_get_keyboard()[BKS_SPACE])
     ingame.fireGun();
 
+  if (ingame.cameraPos.x < 0)
+    ingame.cameraPos.x = 0;
+  if (ingame.cameraPos.x + prog.screen->buffer.width >= ingame.map.size.x)
+    ingame.cameraPos.x = ingame.map.size.x - prog.screen->buffer.width;
+
   // return ;
   if (bunny_get_keyboard()[BKS_SUBTRACT])
     {
@@ -48,4 +53,6 @@ void			Warfield::KeyCamera(void)
       ingame.cameraPos.w -= 2;
       ingame.cameraPos.h -= 2;
     }
+
+  Move(t_bunny_position{});
 }

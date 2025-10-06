@@ -70,6 +70,14 @@ public:
 				   int				y,
 				   int				z_head);
 
+  void			Hit(t_bunny_area			area,
+			    int					power,
+			    bool				rock);
+  void			Hit(t_bunny_position			pos,
+			    double				rad,
+			    int					power,
+			    bool				rock);
+
   void			Sand(void);
   void			Water(void);
 

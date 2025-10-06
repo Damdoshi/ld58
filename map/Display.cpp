@@ -163,8 +163,8 @@ void		Map::Display(ef::Bpixelarray	&screen,
   pos[0].x = gprog->ingamemouse.x + off[0];
   pos[0].y = gprog->ingamemouse.y + off[1];
 
-  off[0] = 5 * cos(3 * M_PI * ang);
-  off[1] = 5 * sin(3 * M_PI * ang);
+  off[0] = 5 * cos(2 * M_PI * ang + M_PI);
+  off[1] = 5 * sin(2 * M_PI * ang + M_PI);
   pos[1].x = gprog->ingamemouse.x + off[0];
   pos[1].y = gprog->ingamemouse.y + off[1];
   bunny_set_line(&mappx->buffer, pos, colx);

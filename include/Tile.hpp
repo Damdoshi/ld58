@@ -41,7 +41,8 @@ public:
 
   double		Height(void) const;
 
-  virtual void		Hit(int				power);
+  virtual void		Hit(int				power,
+			    bool			rock = true);
 
   virtual bool		CanGoOver(void) const;
   virtual Unit		*UnitOver(void);
@@ -63,3 +64,4 @@ public:
 };
 
 #endif	//		__TILE_HPP__
+

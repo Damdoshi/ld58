@@ -19,7 +19,7 @@
   ## Rules ------------------------------------------------------------------
   all:		bin
   bin:		$(OBJ)
-		@b++ $(OBJ) -o $(BIN) $(LIBPATH) $(FLAG)
+		@b++ $(OBJ) -o $(BIN) $(LIBPATH) $(FLAG) -g
 		@echo "[OUT] " $(BIN)
 		@echo $(BIN) | tr '[:lower:]' '[:upper:]'
   .cpp.o:

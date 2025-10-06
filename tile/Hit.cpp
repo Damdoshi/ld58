@@ -10,8 +10,11 @@
 
 #include	"Tile.hpp"
 
-void		Tile::Hit(int		power)
+void		Tile::Hit(int		power,
+			  bool		rock)
 {
+  if (rock == false && type == ROCK)
+    return ;
   // Ca pourrait etre mathématiquement fait en O(1)
   // Mais mon cerveau est tout mou.
   while (hp < power)
