@@ -20,8 +20,8 @@ void			Map::Hit(t_bunny_area		area,
   for (j = 0; j < area.h; ++j)
     for (i = 0; i < area.w; ++i)
       {
-	int		x = i + area.w;
-	int		y = j + area.h;
+	int		x = i + area.x;
+	int		y = j + area.y;
 
 	tiles[x + y * size.x].Hit(power, rock);
       }
@@ -45,8 +45,9 @@ void			Map::Hit(t_bunny_position	area,
 	int		x = i + area.x;
 	int		y = j + area.y;
 
+	d = sqrt(d);
+	d = 1 - d / rad;
 	d *= power;
-	d *= d;
 	tiles[x + y * size.x].Hit(d, rock);
       }
 }

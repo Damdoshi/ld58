@@ -155,7 +155,8 @@ void		Map::Display(ef::Bpixelarray	&screen,
 
   t_bunny_position	pos[2];
   unsigned int		colx[2] = {RED, GREEN};
-  double		ang = (rand() % 2000) / 2000.0;
+  static double		ang;
+  ang += 0.1;
   double		off[2];
 
   off[0] = 5 * cos(2 * M_PI * ang);
