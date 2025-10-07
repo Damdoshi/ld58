@@ -1,0 +1,4 @@
+MaterialMap = @"material.png"
+HeightMap = @"height.png"
+WaterMap = @"water.png"
+

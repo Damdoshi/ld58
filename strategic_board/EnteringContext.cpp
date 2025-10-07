@@ -26,5 +26,9 @@ t_bunny_response	StrategicBoard::EnteringContext(void)
       board_decor->scale.y = (double)prog.GetScreen().buffer.height / board_decor->buffer.height;
     }
 
+  if (!ingame.music)
+    ingame.music = bunny_load_music("./res/theme.ogg");
+  if (!bunny_sound_is_playing(&ingame.music->sound))
+    bunny_sound_play(&ingame.music);
   return (GO_ON);
 }

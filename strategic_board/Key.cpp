@@ -18,6 +18,7 @@ t_bunny_response	StrategicBoard::Key(t_bunny_event_state	state,
     return (GO_ON);
   if (sym == BKS_ESCAPE)
     {
+      bunny_sound_stop(&ingame.music);
       prog.SetContext(Program::MAIN_MENU);
       return (SWITCH_CONTEXT);
     }

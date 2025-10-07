@@ -80,6 +80,7 @@ namespace ef
     std::vector<std::shared_ptr<Projectile>>	myProj;
     std::vector<std::shared_ptr<Projectile>>	enemyProj;
     std::shared_ptr<Hero> hero;
+    t_bunny_music *music;
   };
 };
 
