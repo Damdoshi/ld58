@@ -2,10 +2,10 @@
   name = "hero"
   objType = 2
   [scale
-    x = 1
-    y = 1
+    x = 0.1
+    y = 0.1
   ]
-  img = @"spider.dab"
+  img = @"hero.dab"
 ]
 
 [MoveModule
@@ -25,20 +25,20 @@
 
 'SPRITE
 
-RessourceFile = @"spider.png"
+RessourceFile = @"barbar.jpg"
 
-Origin=16,32
-Frequency=8
+Origin=0,100
+Frequency=1
 
-ColWidth=15
-ColHeight=9
+ColWidth=1
+ColHeight=1
 
 Stair=3
-SpeedX=3
-SpeedY=-4
+SpeedX=0
+SpeedY=0
 
 [Clip
-  Size = 32, 32
+  Size = 1923, 1643
 ]
 
 [Animations
