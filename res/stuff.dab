@@ -2,15 +2,15 @@
   name = "Stuff"
   objType = 4
   [scale
-    x = 1
-    y = 1
+    x = 0.01
+    y = 0.01
   ]
-  img = @"spider.dab"
+  img = @"hero.dab"
 ]
 
 [Projectile
   projType = 1
-  range = 500
+  range = 50
   speed = 3
   rotaSpeed = 0.5
   damage = 10

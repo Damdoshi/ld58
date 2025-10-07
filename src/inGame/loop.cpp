@@ -44,14 +44,14 @@ void ef::InGame::loop()
     {
       //std::cout << "ingame loop range " << myProj[i]->lifeTime << std::endl;
       myProj[i]->loop(map);
-      if (doProjHit(myProj[i], enemyUnits) || myProj[i]->lifeTime <= 0)
+      if (doProjHit(myProj[i], enemyUnits) || myProj[i]->lifeTime <= 0 || myProj[i]->getRange() <= 0)
 	removeProj(i, true);
     }
   for (int i = 0; i < (int)enemyProj.size(); i++)
     {
       //std::cout << "ingame loop range " << enemyProj[i]->lifeTime << std::endl;
       enemyProj[i]->loop(map);
-      if (doProjHit(enemyProj[i], myUnits) || enemyProj[i]->lifeTime <= 0)
+      if (doProjHit(enemyProj[i], myUnits) || enemyProj[i]->lifeTime <= 0 || enemyProj[i]->getRange() <= 0)
 	removeProj(i, false);
     }
 
@@ -64,7 +64,7 @@ void ef::InGame::loop()
       removeUnit(i, false);
 
   //colision
-  /*  for (int i = 0; i < (int)myUnits.size(); i++)
+  for (int i = 0; i < (int)myUnits.size(); i++)
       for (int j = 0; j < (int)enemyUnits.size(); j++)
 	{
 	  AcuPos vec(0, 0, 0);
@@ -89,5 +89,18 @@ void ef::InGame::loop()
 	hero->setPos(hero->getPos() + myVec);
 	AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
-	}*/
+      }
+  if (hero.get() != nullptr)
+    for (int j = 0; j < (int)myUnits.size(); j++)
+      {
+	AcuPos vec(0, 0, 0);
+	vec = colideUnit(hero, myUnits[j]);
+	double totalMass = hero->getMass() + myUnits[j]->getMass();
+	double myRatio = hero->getMass() / totalMass;
+	double enemyRatio = myUnits[j]->getMass() / totalMass;
+	AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
+	hero->setPos(hero->getPos() + myVec);
+	AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
+        myUnits[j]->setPos(myUnits[j]->getPos() + enemyVec);
+      }
 }

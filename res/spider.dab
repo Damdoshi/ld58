@@ -27,7 +27,7 @@
 
 RessourceFile = @"spider.png"
 
-Origin=16,32
+Origin=0,16
 Frequency=8
 
 ColWidth=15

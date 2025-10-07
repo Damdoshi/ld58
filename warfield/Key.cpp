@@ -25,24 +25,6 @@ t_bunny_response	Warfield::Key(t_bunny_event_state	state,
       area.h = 1000;
       ingame.selectUnit(area);
     }
-  if (sym == BKS_M)
-    {
-      const t_bunny_position *mousePos = &prog.ingamemouse;
-      t_bunny_position pos;
-
-      pos.x = 80;
-      pos.y = 80;
-      ingame.moveUnit(pos, false);
-    }
-  if (sym == BKS_L)
-    {
-      const t_bunny_position *mousePos = &prog.ingamemouse;
-      t_bunny_position pos;
-
-      pos.x = 200;
-      pos.y = 80;
-      ingame.moveUnit(pos, false);
-    }
   if (sym == BKS_ESCAPE)
     {
       prog.SetContext(Program::MAIN_MENU);

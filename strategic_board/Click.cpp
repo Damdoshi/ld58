@@ -18,6 +18,13 @@ t_bunny_response	StrategicBoard::Click(t_bunny_event_state	state,
   t_bunny_response	ret;
   t_bunny_configuration	*nod;
 
+  std::cout << "strategicboard click" << (state == GO_UP) << std::endl;
+  if (but == BMB_LEFT && state == GO_DOWN)
+    ingame.startSelecting();
+  if (but == BMB_RIGHT && state == GO_DOWN)
+    ingame.moveUnit(false);
+  if (but == BMB_LEFT && state == GO_UP)
+    ingame.endSelecting();
   if (but != BMB_LEFT || state != GO_UP)
     return (GO_ON);
   for (int i = 0; bunny_configuration_getf_node(conf, &nod, "Buttons[%d]", i); ++i)

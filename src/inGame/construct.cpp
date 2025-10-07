@@ -4,7 +4,8 @@ ef::InGame::InGame(const std::string &lvl,
 		   Program &program)
   :
   prog(program),
-  map(myUnits, enemyUnits, myProj, enemyProj)
+  map(myUnits, enemyUnits, myProj, enemyProj),
+  isSelecting(false)
 {
   LvlConf lvlconf;
   lvlconf.LoadConfFile(lvl);

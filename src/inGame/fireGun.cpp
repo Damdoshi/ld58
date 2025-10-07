@@ -12,8 +12,8 @@ void ef::InGame::fireGun()
 
 	  newProj.reset(new Projectile(tempProj));
 	  t_bunny_position mousePos = prog.ingamemouse;
-	  AcuPos target(mousePos.x/* - cameraPos.x*/,
-			mousePos.y/* - cameraPos.y*/, 0);
+	  AcuPos target(mousePos.x + cameraPos.x,
+			mousePos.y - 150, 0);
 	  newProj->setDestination(target);
 	  std::cout << "fireProj targetPos.x " << target.x << " y " << target.y << std::endl;
 	  newProj->setPos(hero->getPos());

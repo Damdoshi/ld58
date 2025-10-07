@@ -38,14 +38,17 @@ namespace ef
     bool loadLevel(const std::string &lvl);
 
     void selectUnit(t_bunny_area area);
-    void moveUnit(t_bunny_position pos,
-		  bool isHoldShift);
+    void moveUnit(bool isHoldShift);
     void produceUnit(std::shared_ptr<UnitConf> unitName);
     void resetUnitProd();
     void fireGun();
     void moveHero();
     bool spawn(t_bunny_position		pos,
 	       const std::string	&type);
+    void startSelecting();
+    void endSelecting();
+    void updateSelecting();
+
     friend Warfield;
     friend StrategicBoard;
 
@@ -68,6 +71,9 @@ namespace ef
     Program &prog;
     Map map;
     t_bunny_area cameraPos;
+    t_bunny_area selectArea;
+    t_bunny_position selectedPos[2];
+    bool isSelecting;
     std::vector<std::shared_ptr<Unit>>	myUnits;
     std::vector<std::shared_ptr<Unit>>	selectedUnits;
     std::vector<std::shared_ptr<Unit>>	enemyUnits;
