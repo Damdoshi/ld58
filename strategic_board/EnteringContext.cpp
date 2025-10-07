@@ -29,6 +29,6 @@ t_bunny_response	StrategicBoard::EnteringContext(void)
   if (!ingame.music)
     ingame.music = bunny_load_music("./res/theme.ogg");
   if (!bunny_sound_is_playing(&ingame.music->sound))
-    bunny_sound_play(&ingame.music);
+    bunny_sound_play(&ingame.music->sound);
   return (GO_ON);
 }

@@ -27,7 +27,7 @@ t_bunny_response	Warfield::Key(t_bunny_event_state	state,
     }
   if (sym == BKS_ESCAPE)
     {
-      bunny_sound_stop(&ingame.music);
+      bunny_sound_stop(&ingame.music->sound);
       prog.SetContext(Program::MAIN_MENU);
       return (SWITCH_CONTEXT);
     }
