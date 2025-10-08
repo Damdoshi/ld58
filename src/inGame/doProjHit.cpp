@@ -8,10 +8,10 @@ bool ef::InGame::doProjHit(std::shared_ptr<Projectile> proj,
     return true;
   for (int i = 0; i < (int)otherUnit.size(); i++)
     {
-      if (proj->getPos().x > otherUnit[i]->getPos().x - otherUnit[i]->getScale().x &&
-	  proj->getPos().x < otherUnit[i]->getPos().x + otherUnit[i]->getScale().x &&
-	  proj->getPos().y > otherUnit[i]->getPos().y - otherUnit[i]->getScale().y &&
-	  proj->getPos().y < otherUnit[i]->getPos().y + otherUnit[i]->getScale().y)
+      if (proj->getPos().x > otherUnit[i]->getPos().x - 10 &&
+	  proj->getPos().x < otherUnit[i]->getPos().x + 10 &&
+	  proj->getPos().y > otherUnit[i]->getPos().y - 10 &&
+	  proj->getPos().y < otherUnit[i]->getPos().y + 10)
 	{
 	  std::cout << "doProjHit damage" << std::endl;
 	  otherUnit[i]->damageUnit(proj->getDamage(), proj->getPenetration());

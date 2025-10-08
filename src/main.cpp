@@ -9,6 +9,7 @@
 // * *** * * ***  ** * ** ** ** ** * * * *** * **  **************************
 
 #include		"Program.hpp"
+#include		"TekFunction.hpp"
 
 Program			*gprog;
 
@@ -17,7 +18,7 @@ int			main(void)
   static Program	program;
 
   gprog = &program;
-  bunny_enable_full_blit(true);
+  tekinit();
   return (program());
 }
 

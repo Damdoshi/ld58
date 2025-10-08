@@ -2,8 +2,8 @@
   name = "hero"
   objType = 2
   [scale
-    x = 0.1
-    y = 0.1
+    x = 0.02
+    y = 0.02
   ]
   img = @"hero.dab"
 ]
@@ -23,17 +23,17 @@
   cost = 2
 ]
 
-'SPRITE
+'SPRITE                                                                                                                                                                                                            
 
 RessourceFile = @"barbar.jpg"
 
-Origin=0,100
+Origin=0,0
 Frequency=1
 
 ColWidth=1
 ColHeight=1
 
-Stair=3
+Stair=1
 SpeedX=0
 SpeedY=0
 
@@ -81,4 +81,3 @@ SpeedY=0
 ]
 
 InitialAnimation = "Idle"
-

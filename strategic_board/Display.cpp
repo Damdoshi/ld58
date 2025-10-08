@@ -23,7 +23,7 @@ t_bunny_response	StrategicBoard::Display(void)
   ingame.cameraPos.w = ingame.map.size.x;
   ingame.cameraPos.h = ingame.map.size.y;
   tempPtr.reset(new ef::Bpixelarray(*world_map));
-  ingame.display(tempPtr, false);
+  ingame.display(tempPtr, true);
   ingame.cameraPos = cp;
   ingame.map.tilt = tilt;
 

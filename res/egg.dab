@@ -9,7 +9,7 @@
 ]
 
 [Weapon
-  range = 500
+  range = 50
   reloadTime = 5
   rotaSpeed = 1
   projectile = "res/stuff.dab"

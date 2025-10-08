@@ -1,11 +1,14 @@
 #include "inGame.hh"
+#include "Program.hpp"
 
-void ef::InGame::moveUnit(t_bunny_position pos,
-			  bool isHoldShift)
+void ef::InGame::moveUnit(bool isHoldShift)
 {
   std::vector<AcuPos> newPos;
 
-  newPos.emplace_back(pos.x, pos.y, 0);
+  t_bunny_position mousePos = prog.ingamemouse;
+  mousePos.x = mousePos.x + cameraPos.x;
+  mousePos.y = mousePos.y - 150;
+  newPos.emplace_back(mousePos.x, mousePos.y, 0);
 
   for (int i = 0; i < (int)selectedUnits.size(); i++)
     {
