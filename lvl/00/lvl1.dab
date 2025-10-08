@@ -19,6 +19,20 @@
     [
       unit = "res/spider.dab"
       [startPos
+        x = 50
+        y = 40
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 40
+        y = 50
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
         x = 160
         y = 150
       ]

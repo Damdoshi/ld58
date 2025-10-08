@@ -22,7 +22,12 @@ t_bunny_response	StrategicBoard::Click(t_bunny_event_state	state,
   if (but == BMB_LEFT && state == GO_DOWN)
     ingame.startSelecting();
   if (but == BMB_RIGHT && state == GO_DOWN)
-    ingame.moveUnit(false);
+    {
+      if (bunny_get_keyboard()[BKS_LSHIFT])
+	ingame.moveUnit(true);
+      else
+	ingame.moveUnit(false);
+    }
   if (but == BMB_LEFT && state == GO_UP)
     ingame.endSelecting();
   if (but != BMB_LEFT || state != GO_UP)

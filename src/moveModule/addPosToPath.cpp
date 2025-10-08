@@ -7,4 +7,5 @@ void ef::MoveModule::addPosToPath(AcuPos newPos)
   newPath.push_back(newPos);
   for (int i = 0; i < (int)path.size(); i++)
     newPath.push_back(path[i]);
+  path = newPath;
 }

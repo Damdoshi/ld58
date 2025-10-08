@@ -39,7 +39,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
   for (size_t i = 0; i < units[0]->size(); ++i)
     objs[acc++] = (*units[0])[i].get();
   for (size_t i = 0; i < units[1]->size(); ++i)
-  objs[acc++] = (*units[1])[i].get();
+    objs[acc++] = (*units[1])[i].get();
   for (size_t i = 0; i < projs[0]->size(); ++i)
     objs[acc++] = (*projs[0])[i].get();
   for (size_t i = 0; i < projs[1]->size(); ++i)
