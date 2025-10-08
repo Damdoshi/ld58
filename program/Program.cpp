@@ -24,6 +24,7 @@ Program::Program(void)
   assert((conf = bunny_open_configuration("./res/program.dab", NULL)));
   assert(bunny_position_configuration("Screen", &pos, conf) == BD_OK);
   assert((screen = bunny_new_picture(pos.x, pos.y)));
+  assert((pool = bunny_new_threadpool(8)));
 
   contexts[MAIN_MENU] = new MainMenu(*this);
   contexts[WARFIELD] = new Warfield(*this, ingame);
@@ -41,5 +42,7 @@ Program::~Program(void)
     bunny_delete_configuration(conf);
   if (win)
     bunny_end(win);
+  if (pool)
+    bunny_delete_threadpool(pool);
 }
 

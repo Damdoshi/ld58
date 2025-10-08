@@ -34,6 +34,7 @@ public: // fuque
   t_bunny_window	**win;
   t_bunny_clipable	*screen;
   t_bunny_configuration	*conf;
+  t_bunny_threadpool	*pool;
   int			freq;
 
   Ctx			current_context;

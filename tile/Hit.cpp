@@ -17,17 +17,26 @@ void		Tile::Hit(int		power,
     return ;
   // Ca pourrait etre mathématiquement fait en O(1)
   // Mais mon cerveau est tout mou.
-  while (hp < power)
+  if (power > 0)
     {
-      power -= hp;
-      hp = hp_per_height;
-      if ((height -= 1) <= 0)
+      while (hp < power)
 	{
-	  height = 0;
-	  return ;
+	  power -= hp;
+	  hp = hp_per_height;
+	  if ((height -= 1) <= 0)
+	    {
+	      height = 0;
+	      return ;
+	    }
 	}
+      if (hp > power)
+	hp -= power;
     }
-  if (hp > power)
-    hp -= power;
+  else
+    {
+      power *= -1;
+      height += power / (int)hp_per_height;
+      hp += power % (int)hp_per_height;
+    }
 }
 
