@@ -29,6 +29,7 @@ StrategicBoard::StrategicBoard(Program	&p,
     }
 
   buttons["GoWarfield"].action = &StrategicBoard::GoWarfield;
+  buttons["ProduceUnit"].action = &StrategicBoard::ProduceUnit;
 }
 
 StrategicBoard::~StrategicBoard(void)

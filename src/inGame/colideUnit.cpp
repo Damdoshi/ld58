@@ -78,12 +78,12 @@ ef::AcuPos ef::InGame::colideUnit(std::shared_ptr<Unit> currUnit,
       //unitPos.x += 10;
       //unitPos.y += 10;
       //currUnit->setPos(unitPos);
-      returnVec.x = 10;
-      returnVec.y = 10;
+      returnVec.x = 1;
+      returnVec.y = 1;
     }
   else if (dist < 10 / 2 + 10 / 2)
     {
-      double ratio = (currUnit->getScale().x / 2 + otherUnit->getScale().x / 2) / dist;
+      double ratio = (1) / dist;
       //unitPos.x = otherUnitPos.x + vect.x * ratio;
       //unitPos.y = otherUnitPos.y + vect.y * ratio;
       returnVec.x = vect.x * ratio;

@@ -75,7 +75,8 @@ void ef::MoveModule::loop(AcuPos &pos,
 	pos.y = nextPosition.y;
       else if (canMove)
 	pos.y += tempPos3.y;
-      if (pos.x == nextPosition.x && pos.y == nextPosition.y)
+      if (pos.x > nextPosition.x - 10 && pos.x < nextPosition.x + 10 &&
+	  pos.y > nextPosition.y - 10 && pos.y < nextPosition.y + 10)
 	{
 	  if (path.size() != 0)
 	    {

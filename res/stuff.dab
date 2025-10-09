@@ -2,17 +2,17 @@
   name = "Stuff"
   objType = 4
   [scale
-    x = 0.01
-    y = 0.01
+    x = 0.005
+    y = 0.005
   ]
   img = @"hero.dab"
 ]
 
 [Projectile
   projType = 1
-  range = 50
-  speed = 3
-  rotaSpeed = 0.5
+  range = 100
+  speed = 0.5
+  rotaSpeed = 0
   damage = 10
   penetration = 2
   radius = 5

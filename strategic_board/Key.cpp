@@ -16,6 +16,20 @@ t_bunny_response	StrategicBoard::Key(t_bunny_event_state	state,
 {
   if (state == GO_UP)
     return (GO_ON);
+  if (sym == BKS_M)
+    ingame.Mining(true);
+  if (sym == BKS_P)
+    ingame.Posing(true);
+  if (sym == BKS_S)
+    {
+      ingame.Mining(false);
+      ingame.Posing(false);
+    }
+  if (sym == BKS_TAB)
+    {
+      prog.SetContext(Program::WARFIELD);
+      return (SWITCH_CONTEXT);
+    }
   if (sym == BKS_ESCAPE)
     {
       bunny_sound_stop(&ingame.music->sound);

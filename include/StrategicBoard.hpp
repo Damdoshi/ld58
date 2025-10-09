@@ -32,6 +32,7 @@ protected:
   t_bunny_configuration	*conf = NULL;
   std::map<std::string, ButtonProperties> buttons;
   t_bunny_response	GoWarfield(void);
+  t_bunny_response      ProduceUnit(void);
 
 public:
   t_bunny_response	EnteringContext(void);

@@ -38,9 +38,9 @@ void ef::Weapon::loop(AcuPos weaponPos, AcuPos unitPos, double unitRota)
       //setRota(getRota() + 0.001);
     }
   else if ((getRota() - (M_PI * 2) * (int)(getRota() / (M_PI * 2))) >
-	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))))
+	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))) && !isManual)
     setRota(getRota() - rotaSpeed);
   else if ((getRota() - (M_PI * 2) * (int)(getRota() / (M_PI * 2))) <
-	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))))
+	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))) && !isManual)
     setRota(getRota() + rotaSpeed);
 }

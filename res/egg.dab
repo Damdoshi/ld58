@@ -2,16 +2,16 @@
   name = "Egg"
   objType = 1
   [scale
-    x = 1
-    y = 1
+    x = 0.01
+    y = 0.01
   ]
   img = @"spider.dab"
 ]
 
 [Weapon
   range = 50
-  reloadTime = 5
-  rotaSpeed = 1
+  reloadTime = 50
+  rotaSpeed = 0.01
   projectile = "res/stuff.dab"
   isManual = false
 ]

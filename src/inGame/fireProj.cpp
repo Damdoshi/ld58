@@ -10,6 +10,7 @@ void ef::InGame::fireProj(std::shared_ptr<ProjectileConf> conf,
   newProj->setDestination(unit->getWeapon()->getTarget()->getPos());
   //std::cout << "fireProj targetPos.x " << unit->getWeapon()->getTarget()->getPos().x << " y " << unit->getWeapon()->getTarget()->getPos().y << " isMine " << isMine << std::endl;
   newProj->setPos(unit->getPos());
+  newProj->setRota(unit->getWeapon()->getRota());
   if (isMine)
     myProj.push_back(newProj);
   else

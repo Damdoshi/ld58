@@ -15,7 +15,8 @@ namespace ef
      WEAPON,
      UNIT,
      PRODUCTOR,
-     PROJECTILE
+     PROJECTILE,
+     HERO
     };
 
   struct ObjectConf

@@ -2,15 +2,15 @@
   name = "Spider"
   objType = 2
   [scale
-    x = 1
-    y = 1
+    x = 0.01
+    y = 0.01
   ]
   img = @"spider.dab"
 ]
 
 [MoveModule
-  speed = 1
-  rotaSpeed = 0.2
+  speed = 0.1
+  rotaSpeed = 0.1
   maxDivergeance = 0.5
 ]
 
@@ -20,25 +20,25 @@
   armor = 2.5
   mass = 5
   productionTime = 5
-  cost = 2
+  cost = 0
 ]
 
 'SPRITE
 
-RessourceFile = @"spider.png"
+RessourceFile = @"car.jpg"
 
-Origin=0,16
-Frequency=8
+Origin=0,0
+Frequency=1
 
-ColWidth=15
-ColHeight=9
+ColWidth=1
+ColHeight=1
 
-Stair=3
-SpeedX=3
-SpeedY=-4
+Stair=1
+SpeedX=0
+SpeedY=0
 
 [Clip
-  Size = 32, 32
+  Size = 1600, 900
 ]
 
 [Animations

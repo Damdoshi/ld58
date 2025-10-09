@@ -25,6 +25,11 @@ t_bunny_response	Warfield::Key(t_bunny_event_state	state,
       area.h = 1000;
       ingame.selectUnit(area);
     }
+  if (sym == BKS_TAB)
+    {
+      prog.SetContext(Program::STRATEGIC_BOARD);
+      return (SWITCH_CONTEXT);
+    }
   if (sym == BKS_ESCAPE)
     {
       bunny_sound_stop(&ingame.music->sound);

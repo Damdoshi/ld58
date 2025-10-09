@@ -6,10 +6,10 @@ void ef::Weapon::manualAiming(AcuPos weaponPos,
 			      AcuPos targetPos)
 {
   //std::cout << "weapon::loop : target " << target << std::endl;
+  //std::cout << "weapon manualAiming targetPos " << targetPos.x << " " << targetPos.y << std::endl;
+  unitRota = 0;
   if (isManual)
     {
-      double dist = sqrt((unitPos.x - targetPos.x) * (unitPos.x - targetPos.x) + (unitPos.y - targetPos.y) * (unitPos.y - targetPos.y));
-
       AcuPos posi;
       posi.x = weaponPos.x * cos(unitRota) - weaponPos.y * sin(unitRota);
       posi.y = weaponPos.y * cos(unitRota) + weaponPos.x * sin(unitRota);
@@ -22,19 +22,24 @@ void ef::Weapon::manualAiming(AcuPos weaponPos,
       double dist2 = tempPos2.x * tempPos2.x + tempPos2.y * tempPos2.y;
       double angle = (tempPos.x * tempPos2.x + tempPos.y * tempPos2.y) / sqrt(dist1 * dist2);
 
+      //std::cout << "weapon manualAiming before rota " << getRota() << " angle " << angle << std::endl;
       if (angle > rotaSpeed)
-	setRota(getRota() - rotaSpeed);
+	{
+	  //std::cout << "weapon manualAiming minus rota " << std::endl;
+	  setRota(getRota() - rotaSpeed);
+	}
       else if (angle < -rotaSpeed)
-	setRota(getRota() + rotaSpeed);
+	{
+	  //std::cout << "weapon manualAiming plus rota " << std::endl;
+	  setRota(getRota() + rotaSpeed);
+	}
       else
-        setRota(getRota() - angle);
+	{
+	  //std::cout << "weapon manualAiming set angle rota " << std::endl;
+	  setRota(getRota() - angle);
+	}
+      //std::cout << "weapon manualAiming after rota " << getRota() << " rotaSpeed " << rotaSpeed << std::endl;
 
       //setRota(getRota() + 0.001);
     }
-  else if ((getRota() - (M_PI * 2) * (int)(getRota() / (M_PI * 2))) >
-	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))))
-    setRota(getRota() - rotaSpeed);
-  else if ((getRota() - (M_PI * 2) * (int)(getRota() / (M_PI * 2))) <
-	   (unitRota - (M_PI * 2) * (int)(unitRota / (M_PI * 2))))
-    setRota(getRota() + rotaSpeed);
 }

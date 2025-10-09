@@ -48,6 +48,8 @@ namespace ef
     void startSelecting();
     void endSelecting();
     void updateSelecting();
+    void Mining(bool mining);
+    void Posing(bool posing);
 
     friend Warfield;
     friend StrategicBoard;
@@ -66,6 +68,7 @@ namespace ef
 		  bool isMine,
 		  std::shared_ptr<Unit> unit);
     void createUnit(std::shared_ptr<UnitConf> conf,
+		    std::shared_ptr<Unit> creator,
 		    bool isMine);
 
     Program &prog;

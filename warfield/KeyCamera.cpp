@@ -41,17 +41,17 @@ void			Warfield::KeyCamera(void)
   // return ;
   if (bunny_get_keyboard()[BKS_SUBTRACT])
     {
-      ingame.cameraPos.x -= 1;
-      ingame.cameraPos.y -= 1;
-      ingame.cameraPos.w += 2;
-      ingame.cameraPos.h += 2;
+      ingame.cameraPos.x = ingame.cameraPos.x + 1;// * 0.95;
+      ingame.cameraPos.y = ingame.cameraPos.y + 1;// * 0.95;
+      ingame.cameraPos.w = ingame.cameraPos.w - 1;// * 1.05;
+      ingame.cameraPos.h = ingame.cameraPos.h- 1;// * 1.05;
     }
   if (bunny_get_keyboard()[BKS_ADD])
     {
-      ingame.cameraPos.x += 1;
-      ingame.cameraPos.y += 1;
-      ingame.cameraPos.w -= 2;
-      ingame.cameraPos.h -= 2;
+      ingame.cameraPos.x = ingame.cameraPos.x - 1;// / 0.95;
+      ingame.cameraPos.y = ingame.cameraPos.y - 1;// / 0.95;
+      ingame.cameraPos.w = ingame.cameraPos.w + 1;// / 1.05;
+      ingame.cameraPos.h = ingame.cameraPos.h + 1;// / 1.05;
     }
 
   Move(t_bunny_position{});

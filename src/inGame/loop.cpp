@@ -1,4 +1,5 @@
 #include "inGame.hh"
+#include "Program.hpp"
 
 void ef::InGame::loop()
 {
@@ -11,12 +12,12 @@ void ef::InGame::loop()
       std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(enemyUnits);
       if (tempProj.get() != nullptr)
 	fireProj(tempProj, true, myUnits[i]);
-      if (myUnits[i]->getobjType() == PRODUCTOR)
+      if (myUnits[i]->getobjType() == PRODUCTOR || myUnits[i]->getobjType() == HERO)
 	{
 	  std::shared_ptr<Productor> prod = std::static_pointer_cast<Productor>(myUnits[i]);
 	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
 	  if (tempNewUnit.get() != nullptr)
-	    createUnit(tempNewUnit, true);
+	    createUnit(tempNewUnit, myUnits[i], true);
 	}
 
     }
@@ -31,12 +32,12 @@ void ef::InGame::loop()
 	  std::shared_ptr<Productor> prod = std::static_pointer_cast<Productor>(enemyUnits[i]);
 	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
 	  if (tempNewUnit.get() != nullptr)
-	    createUnit(tempNewUnit, true);
+	    createUnit(tempNewUnit, enemyUnits[i], true);
 	}
     }
   if (hero.get() != nullptr)
     {
-      AcuPos aimingAt(0, 0, 0);
+      AcuPos aimingAt(prog.ingamemouse.x, prog.ingamemouse.y - 150, 0);
       hero->loop(map, aimingAt);
     }
   // resolveProj
@@ -64,7 +65,7 @@ void ef::InGame::loop()
       removeUnit(i, false);
 
   //colision
-  /*
+  
   for (int i = 0; i < (int)myUnits.size(); i++)
       for (int j = 0; j < (int)myUnits.size(); j++)
 	{
@@ -73,16 +74,19 @@ void ef::InGame::loop()
 	      AcuPos vec(0, 0, 0);
 	      vec = colideUnit(myUnits[i], myUnits[j]);
 	      double totalMass = myUnits[i]->getMass() + myUnits[j]->getMass();
-	      double myRatio = myUnits[i]->getMass() / totalMass;
-	      double enemyRatio = myUnits[j]->getMass() / totalMass;
+	      
+	      if (totalMass == 0)
+		std::cout << "WARNING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+	      double myRatio = 1.0 - myUnits[i]->getMass() / totalMass;
+	      double enemyRatio = 1.0 - myUnits[j]->getMass() / totalMass;
 	      AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
 	      myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	      myUnits[j]->setPos(myUnits[j]->getPos() + enemyVec);
 	    }
 	}
-  */
-    /*
+  
+    
   for (int i = 0; i < (int)enemyUnits.size(); i++)
       for (int j = 0; j < (int)enemyUnits.size(); j++)
 	{
@@ -91,8 +95,10 @@ void ef::InGame::loop()
 	      AcuPos vec(0, 0, 0);
 	      vec = colideUnit(enemyUnits[i], enemyUnits[j]);
 	      double totalMass = enemyUnits[i]->getMass() + enemyUnits[j]->getMass();
-	      double myRatio = enemyUnits[i]->getMass() / totalMass;
-	      double enemyRatio = enemyUnits[j]->getMass() / totalMass;
+	      if (totalMass == 0)
+		std::cout << "WARNING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+	      double myRatio = 1.0 - enemyUnits[i]->getMass() / totalMass;
+	      double enemyRatio = 1.0 - enemyUnits[j]->getMass() / totalMass;
 	      AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
 	      enemyUnits[i]->setPos(enemyUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
@@ -106,12 +112,14 @@ void ef::InGame::loop()
 	  AcuPos vec(0, 0, 0);
 	  vec = colideUnit(myUnits[i], enemyUnits[j]);
 	  double totalMass = myUnits[i]->getMass() + enemyUnits[j]->getMass();
-	  double myRatio = myUnits[i]->getMass() / totalMass;
-	  double enemyRatio = enemyUnits[j]->getMass() / totalMass;
+	  if (totalMass == 0)
+	    std::cout << "WARNING !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!" << std::endl;
+	  double myRatio = 1.0 - myUnits[i]->getMass() / totalMass;
+	  double enemyRatio = 1.0 - enemyUnits[j]->getMass() / totalMass;
 	  AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
 	  myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	  AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	  enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
 	}
-  */
+  
 }

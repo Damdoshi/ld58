@@ -1,16 +1,16 @@
 [Object
   name = "hero"
-  objType = 2
+  objType = 5
   [scale
-    x = 0.02
-    y = 0.02
+    x = 0.01
+    y = 0.01
   ]
   img = @"hero.dab"
 ]
 
 [MoveModule
-  speed = 1
-  rotaSpeed = 0.2
+  speed = 0.1
+  rotaSpeed = 0.1
   maxDivergeance = 0
 ]
 
@@ -18,7 +18,7 @@
   weapon = "res/manual.dab"
   maxHp = 20
   armor = 2.5
-  mass = 5
+  mass = 1
   productionTime = 5
   cost = 2
 ]

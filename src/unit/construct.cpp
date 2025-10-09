@@ -6,7 +6,8 @@ ef::Unit::Unit(std::shared_ptr<UnitConf> conf)
   MoveModule(conf),
   maxHp(conf->maxHp),
   hp(conf->maxHp),
-  armor(conf->armor)
+  armor(conf->armor),
+  mass(conf->mass)
 {
   std::shared_ptr<WeaponConf> weaponConf;
   weaponConf.reset(new WeaponConf());

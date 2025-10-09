@@ -32,6 +32,7 @@ int ef::UnitConf::LoadConf(Bconf &conf)
       perror("WeaponConf::LoadConf : failed to get mass");
       return -1;
     }
+  std::cout << "unit mass loaded " << mass << std::endl;
   if(!bunny_configuration_getf_double(conf.Get(), &productionTime, "Unit.productionTime"))
     {
       perror("WeaponConf::LoadConf : failed to get productionTime");

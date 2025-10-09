@@ -16,6 +16,7 @@ void ef::InGame::fireGun()
 			mousePos.y - 150, 0);
 	  newProj->setDestination(target);
 	  newProj->setPos(hero->getPos());
+	  newProj->setRota(hero->getWeapon()->getRota());
 	  myProj.push_back(newProj);
 	}
     }
