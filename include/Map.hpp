@@ -79,7 +79,8 @@ public:
 			    bool				rock);
 
   void			Sand(t_bunny_area			a);
-  void			Water(t_bunny_area			b);
+  void			Water(t_bunny_area			b,
+			      int				phase);
 
   bool			LoadConf(ef::Bconf			&conf);
   bool			LoadConf(const std::string		&conf);
