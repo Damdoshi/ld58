@@ -10,10 +10,11 @@
 
 #include		"Map.hpp"
 
-void			Map::Hit(t_bunny_area		area,
+int			Map::Hit(t_bunny_area		area,
 				 int			power,
 				 bool			rock)
 {
+  int			opower = 0;
   int			i;
   int			j;
 
@@ -23,15 +24,17 @@ void			Map::Hit(t_bunny_area		area,
 	int		x = i + area.x;
 	int		y = j + area.y;
 
-	tiles[x + y * size.x].Hit(power, rock);
+	opower += tiles[x + y * size.x].Hit(power, rock);
       }
+  return (opower);
 }
 
-void			Map::Hit(t_bunny_position	area,
+int			Map::Hit(t_bunny_position	area,
 				 double			rad,
 				 int			power,
 				 bool			rock)
 {
+  int			opower = 0;
   int			i;
   int			j;
 
@@ -48,7 +51,9 @@ void			Map::Hit(t_bunny_position	area,
 	d = sqrt(d);
 	d = 1 - d / rad;
 	d *= power;
-	tiles[x + y * size.x].Hit(d, rock);
+	opower += tiles[x + y * size.x].Hit(d, rock);
       }
+  // Ca serait chouette d'envoyer des particules de sable partout
+  return (opower);
 }
 

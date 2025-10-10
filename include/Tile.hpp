@@ -41,7 +41,7 @@ public:
 
   double		Height(void) const;
 
-  virtual void		Hit(int				power,
+  virtual int		Hit(int				power,
 			    bool			rock = true);
 
   virtual bool		CanGoOver(void) const;

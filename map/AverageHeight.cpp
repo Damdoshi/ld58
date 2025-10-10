@@ -16,6 +16,10 @@ double			Map::AverageHeight(t_bunny_area	area)
   int			x;
   int			y;
 
+  if (area.w <= 0)
+    area.w = 1;
+  if (area.h <= 0)
+    area.h = 1;
   for (y = area.y; y < area.h + area.y; ++y)
     for (x = area.x; x < area.w + area.x; ++x)
       avgh += (*this)[y][x].Height();

@@ -53,6 +53,14 @@ public:
 
   bool			IsStableEnough(t_bunny_area		area,
 				       double			max_divergeance);
+
+  // Top left rect
+  bool			IsMoveLegal(t_bunny_area		from,
+				    t_bunny_area		to,
+				    double			max_divergeance);
+  bool			IsMoveLegal(t_bunny_area		from,
+				    t_bunny_position		to,
+				    double			max_divergeance);
   double		AverageHeight(t_bunny_area		area);
 
   int			SandTop(int				x,
@@ -70,10 +78,10 @@ public:
 				   int				y,
 				   int				z_head);
 
-  void			Hit(t_bunny_area			area,
+  int			Hit(t_bunny_area			area,
 			    int					power,
 			    bool				rock);
-  void			Hit(t_bunny_position			pos,
+  int			Hit(t_bunny_position			pos,
 			    double				rad,
 			    int					power,
 			    bool				rock);
