@@ -10,7 +10,7 @@
   ]
   {startingUnit
     [
-      unit = "res/spider.dab"
+      unit = "res/productor.dab"
       [startPos
         x = 40
         y = 40
@@ -24,7 +24,7 @@
       ]
     ],
     [
-      unit = "res/spider.dab"
+      unit = "res/turret.dab"
       [startPos
         x = 40
         y = 50
@@ -61,7 +61,7 @@
       ]
     ],
     [
-      unit = "res/spider.dab"
+      unit = "res/turret.dab"
       [startPos
         x = 140
         y = 120

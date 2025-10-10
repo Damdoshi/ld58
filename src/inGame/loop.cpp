@@ -18,6 +18,8 @@ void ef::InGame::loop()
 	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
 	  if (tempNewUnit.get() != nullptr)
 	    createUnit(tempNewUnit, myUnits[i], true);
+	  prod->collectResource(map);
+	  prod->placeResource(map);
 	}
 
     }
@@ -33,6 +35,8 @@ void ef::InGame::loop()
 	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
 	  if (tempNewUnit.get() != nullptr)
 	    createUnit(tempNewUnit, enemyUnits[i], true);
+	  prod->collectResource(map);
+	  prod->placeResource(map);
 	}
     }
   if (hero.get() != nullptr)

@@ -26,6 +26,61 @@ RessourceFile = "./res/strategic_board.png"
     HorizontalAlign = "Center"
     VerticalAlign = "Center"
     Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "StartDig"
+    Text = "Dig"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 100, 0
+    Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "EndDig"
+    Text = "stopDig"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 100, 10
+    Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "StartPlace"
+    Text = "place"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 160, 0
+    Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "EndPlace"
+    Text = "stopPlace"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 160, 10
+    Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "ResetProd"
+    Text = "resetProd"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 210, 0
+    Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
   ]
 }
 

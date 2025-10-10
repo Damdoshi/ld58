@@ -1,11 +1,11 @@
 [Object
-  name = "Spider"
-  objType = 2
+  name = "Productor"
+  objType = 3
   [scale
     x = 0.01
     y = 0.01
   ]
-  img = @"spider.dab"
+  img = @"productor.dab"
 ]
 
 [MoveModule
@@ -20,12 +20,12 @@
   armor = 2.5
   mass = 5
   productionTime = 5
-  cost = 5
+  cost = 0
 ]
 
 'SPRITE
 
-RessourceFile = @"car.jpg"
+RessourceFile = @"barbar.jpg"
 
 Origin=0,0
 Frequency=1
@@ -38,7 +38,7 @@ SpeedX=0
 SpeedY=0
 
 [Clip
-  Size = 1600, 900
+  Size = 1923, 1643
 ]
 
 [Animations
@@ -81,4 +81,3 @@ SpeedY=0
 ]
 
 InitialAnimation = "Idle"
-

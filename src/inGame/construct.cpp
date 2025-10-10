@@ -16,9 +16,19 @@ ef::InGame::InGame(const std::string &lvl,
       newUnitConf.reset(new UnitConf());
       newUnitConf->LoadConfFile(lvlconf.startingUnit[i].unit);
       std::shared_ptr<Unit> newUnit;
-      newUnit.reset(new Unit(newUnitConf));
-      newUnit->setPos(lvlconf.startingUnit[i].startPos);
-      myUnits.push_back(newUnit);
+      if (newUnitConf->objType == PRODUCTOR)
+	{
+	  std::shared_ptr<Productor> prod;
+	  prod.reset(new Productor(newUnitConf));
+	  newUnit = prod;
+	}
+      else if (newUnitConf->objType == UNIT)
+	newUnit.reset(new Unit(newUnitConf));
+      if (newUnit.get() != nullptr)
+	{
+	  newUnit->setPos(lvlconf.startingUnit[i].startPos);
+	  myUnits.push_back(newUnit);
+	}
     }
   for (int i = 0; i < (int)lvlconf.startingEnemy.size(); i++)
     {
@@ -26,9 +36,19 @@ ef::InGame::InGame(const std::string &lvl,
       newUnitConf.reset(new UnitConf());
       newUnitConf->LoadConfFile(lvlconf.startingEnemy[i].unit);
       std::shared_ptr<Unit> newUnit;
-      newUnit.reset(new Unit(newUnitConf));
-      newUnit->setPos(lvlconf.startingEnemy[i].startPos);
-      enemyUnits.push_back(newUnit);
+      if (newUnitConf->objType == PRODUCTOR)
+	{
+	  std::shared_ptr<Productor> prod;
+	  prod.reset(new Productor(newUnitConf));
+	  newUnit = prod;
+	}
+      else if (newUnitConf->objType == UNIT)
+	newUnit.reset(new Unit(newUnitConf));
+      if (newUnit.get() != nullptr)
+	{
+	  newUnit->setPos(lvlconf.startingEnemy[i].startPos);
+	  enemyUnits.push_back(newUnit);
+	}
     }
   std::shared_ptr<UnitConf> newUnitConf;
   newUnitConf.reset(new UnitConf());

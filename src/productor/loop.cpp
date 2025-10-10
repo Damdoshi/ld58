@@ -6,10 +6,10 @@ std::shared_ptr<ef::UnitConf> ef::Productor::produce()
 
   if ((int)prodQueue.size() >= 1)
     {
-      std::cout << "Productor produce timeLeftProd " << timeLeftProd << std::endl;
+      //std::cout << "Productor produce timeLeftProd " << timeLeftProd << std::endl;
       if (timeLeftProd <= 0)
 	{
-	  std::cout << "Productor produce hasProduce" << std::endl;
+	  //std::cout << "Productor produce hasProduce" << std::endl;
 	  std::vector<std::shared_ptr<UnitConf>> tempQueue;
 	  for (int i = 1; i < (int)prodQueue.size(); i++)
 	    tempQueue.push_back(prodQueue[i]);

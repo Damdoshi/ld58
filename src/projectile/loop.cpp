@@ -36,13 +36,16 @@ void ef::Projectile::loop(Map &map)
 	{
 	  AcuPos oldPos = pos;
 	  //std::cout << "projectile::loop : posx " << pos.x + tempPos3.x << " posy " << pos.y + tempPos3.y << " targetx " << lockTarget->getPos().x << " targety " << lockTarget->getPos().y << std::endl;
-	  double maxDivergeance = 10;
-	  t_bunny_area tempArea;
-	  tempArea.x = pos.x + tempPos3.x - scale.x / 2;
-	  tempArea.y = pos.y + tempPos3.y - scale.y / 2;
-	  tempArea.w = scale.x;
-	  tempArea.h = scale.y;
-	  bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
+	  double maxDivergeance = 2;
+	  t_bunny_area startArea;
+	  startArea.x = pos.x;
+	  startArea.y = pos.y;
+	  startArea.w = 1;
+	  startArea.h = 1;
+	  t_bunny_position endArea;
+	  endArea.x = pos.x + tempPos3.x;
+	  endArea.y = pos.y + tempPos3.y;
+	  bool canMove = map.IsMoveLegal(startArea, endArea, maxDivergeance);
 	  //std::cout << "projectile loop canMove" << canMove << std::endl;
 
 	  if (pos.x + tempPos3.x < target.x + 1 &&

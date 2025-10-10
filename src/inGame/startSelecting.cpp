@@ -14,7 +14,7 @@ void ef::InGame::startSelecting()
   double ratioy = (double)map.size.y / (prog.GetScreen().buffer.height - prog.GetScreen().buffer.height * 0.25);
   selectArea.x = (mousePos.x - map.size.x * 0.065) * ratiox;
   selectArea.y = (mousePos.y - map.size.y * 0.065) * ratioy;
-  std::cout << "ingame startSelecting selectArea x " << selectArea.x << " y " << selectArea.y << std::endl;
+  //std::cout << "ingame startSelecting selectArea x " << selectArea.x << " y " << selectArea.y << std::endl;
 
   isSelecting = true;
 }

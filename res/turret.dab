@@ -1,31 +1,31 @@
 [Object
-  name = "Spider"
+  name = "Turret"
   objType = 2
   [scale
-    x = 0.01
-    y = 0.01
+    x = 0.008
+    y = 0.008
   ]
-  img = @"spider.dab"
+  img = @"turret.dab"
 ]
 
 [MoveModule
-  speed = 0.1
-  rotaSpeed = 0.1
-  maxDivergeance = 2
+  speed = 0
+  rotaSpeed = 0
+  maxDivergeance = 0
 ]
 
 [Unit
-  weapon = "res/egg.dab"
-  maxHp = 20
-  armor = 2.5
-  mass = 5
-  productionTime = 5
-  cost = 5
+  weapon = "res/cannon.dab"
+  maxHp = 100
+  armor = 20
+  mass = 9999
+  productionTime = 6
+  cost = 200
 ]
 
 'SPRITE
 
-RessourceFile = @"car.jpg"
+RessourceFile = @"tower.jpg"
 
 Origin=0,0
 Frequency=1
@@ -38,7 +38,7 @@ SpeedX=0
 SpeedY=0
 
 [Clip
-  Size = 1600, 900
+  Size = 2304, 3072
 ]
 
 [Animations

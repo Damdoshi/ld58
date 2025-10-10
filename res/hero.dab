@@ -11,7 +11,7 @@
 [MoveModule
   speed = 0.1
   rotaSpeed = 0.1
-  maxDivergeance = 0
+  maxDivergeance = 10
 ]
 
 [Unit

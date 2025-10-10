@@ -30,6 +30,11 @@ StrategicBoard::StrategicBoard(Program	&p,
 
   buttons["GoWarfield"].action = &StrategicBoard::GoWarfield;
   buttons["ProduceUnit"].action = &StrategicBoard::ProduceUnit;
+  buttons["StartDig"].action = &StrategicBoard::StartDig;
+  buttons["EndDig"].action = &StrategicBoard::EndDig;
+  buttons["StartPlace"].action = &StrategicBoard::StartPlace;
+  buttons["EndPlace"].action = &StrategicBoard::EndPlace;
+  buttons["ResetProd"].action = &StrategicBoard::ResetProd;
 }
 
 StrategicBoard::~StrategicBoard(void)

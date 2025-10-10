@@ -13,10 +13,8 @@ namespace ef
 
     void collectResource(Map &map);
     void placeResource(Map &map);
-    void setCollecting(bool value)
-    { isCollecting = value; isPlacing = !value; };
-    void setPlacing(bool value)
-    { isPlacing = value; isCollecting = !value; };
+    void setCollecting(bool value);
+    void setPlacing(bool value);
 
     std::shared_ptr<UnitConf> produce();
     void addUnitToQueue(std::shared_ptr<UnitConf> newUnit);
@@ -28,6 +26,7 @@ namespace ef
 
   private:
     double collectCooldown;
+    double placingCooldown;
     bool isCollecting;
     bool isPlacing;
 

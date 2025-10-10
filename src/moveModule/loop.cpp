@@ -56,13 +56,17 @@ void ef::MoveModule::loop(AcuPos &pos,
   if (angle < rotaSpeed * dist && angle > -rotaSpeed * dist)
     {
       // test map
-      t_bunny_area tempArea;
-      tempArea.x = pos.x + tempPos3.x - unitSize.x / 2;
-      tempArea.y = pos.y + tempPos3.y - unitSize.y / 2;
-      tempArea.w = unitSize.x;
-      tempArea.h = unitSize.y;
-      bool canMove = map.IsStableEnough(tempArea, maxDivergeance);
+      t_bunny_area startArea;
+      startArea.x = pos.x;
+      startArea.y = pos.y;
+      startArea.w = 1;
+      startArea.h = 1;
+      t_bunny_position endArea;
+      endArea.x = pos.x + tempPos3.x;
+      endArea.y = pos.y + tempPos3.y;
+      bool canMove = map.IsMoveLegal(startArea, endArea, maxDivergeance);
       //std::cout << "movemodule loop canMove" << canMove << std::endl;
+      //std::cout << "movemodule loop startArea.x " << startArea.x << " y " << startArea.y << std::endl;
       //std::cout << "movemodule loop tempPos3.x " << tempPos3.x << " y " << tempPos3.y << std::endl;
       //std::cout << "movemodule loop speed " << speed << std::endl;
       if ((tempPos3.x > 0 && nextPosition.x > pos.x && pos.x + tempPos3.x > nextPosition.x) ||

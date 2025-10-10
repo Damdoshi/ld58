@@ -17,6 +17,7 @@ bool		Map::IsMoveLegal(t_bunny_area		from,
   double	favg = AverageHeight(from);
   double	tavg = AverageHeight(to);
 
+  //std::cout << "map ismovelegal favg " << favg << " tavg " << tavg << " max_divergeance " << max_divergeance << std::endl;
   return (fabs(favg - tavg) < max_divergeance);
 }
 
@@ -24,7 +25,7 @@ bool		Map::IsMoveLegal(t_bunny_area		from,
 				 t_bunny_position	to,
 				 double			max_divergeance)
 {
-  t_bunny_area	area {to.x, to.y, from.w, from.y};
+  t_bunny_area	area {to.x, to.y, from.w, from.h};
 
   return (IsMoveLegal(from, area, max_divergeance));
 }

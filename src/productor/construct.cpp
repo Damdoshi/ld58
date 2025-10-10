@@ -4,6 +4,7 @@ ef::Productor::Productor(std::shared_ptr<UnitConf> conf)
   :
   Unit(conf),
   collectCooldown(0),
+  placingCooldown(0),
   isCollecting(false),
   isPlacing(false),
   resources(0),
