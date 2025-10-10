@@ -56,7 +56,7 @@ void		Map::Display(ef::Bpixelarray	&screen,
       std::cout << objs[acc]->getPos().x << " " << objs[acc]->getPos().y << std::endl;
     }
   */
-  
+
   std::sort(objs.begin(), objs.end(), comp);
   std::shared_ptr<ef::Bpixelarray> lmap(std::make_shared<ef::Bpixelarray>(*mappx));
   //std::cout << " size " << objs.size() << std::endl;
