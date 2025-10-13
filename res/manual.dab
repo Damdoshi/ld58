@@ -9,9 +9,9 @@
 ]
 
 [Weapon
-  range = 500
+  range = 100
   reloadTime = 50
   rotaSpeed = 0.05
-  projectile = "res/stuff.dab"
+  projectile = "res/turretBullet.dab"
   isManual = true
 ]

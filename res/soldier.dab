@@ -1,31 +1,31 @@
 [Object
-  name = "Turret"
+  name = "Soldier"
   objType = 2
   [scale
-    x = 0.008
-    y = 0.008
+    x = 0.03
+    y = 0.03
   ]
-  img = @"turret.dab"
+  img = @"soldier.dab"
 ]
 
 [MoveModule
-  speed = 0
-  rotaSpeed = 0
-  maxDivergeance = 0
+  speed = 0.1
+  rotaSpeed = 0.3
+  maxDivergeance = 3
 ]
 
 [Unit
-  weapon = "res/turretGun.dab"
-  maxHp = 800
-  armor = 80
-  mass = 9999
-  productionTime = 6
-  cost = 500
+  weapon = "res/rifle.dab"
+  maxHp = 100
+  armor = 10
+  mass = 1
+  productionTime = 1
+  cost = 100
 ]
 
 'SPRITE
 
-RessourceFile = @"tower.jpg"
+RessourceFile = @"soldier.jpg"
 
 Origin=0,0
 Frequency=1
@@ -38,7 +38,7 @@ SpeedX=0
 SpeedY=0
 
 [Clip
-  Size = 2304, 3072
+  Size = 512, 512
 ]
 
 [Animations
@@ -81,4 +81,3 @@ SpeedY=0
 ]
 
 InitialAnimation = "Idle"
-

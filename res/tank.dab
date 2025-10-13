@@ -1,31 +1,31 @@
 [Object
-  name = "Turret"
+  name = "Tank"
   objType = 2
   [scale
-    x = 0.008
-    y = 0.008
+    x = 0.025
+    y = 0.05
   ]
-  img = @"turret.dab"
+  img = @"tank.dab"
 ]
 
 [MoveModule
-  speed = 0
-  rotaSpeed = 0
-  maxDivergeance = 0
+  speed = 0.15
+  rotaSpeed = 0.03
+  maxDivergeance = 2
 ]
 
 [Unit
-  weapon = "res/turretGun.dab"
-  maxHp = 800
-  armor = 80
-  mass = 9999
-  productionTime = 6
-  cost = 500
+  weapon = "res/cannon.dab"
+  maxHp = 1000
+  armor = 100
+  mass = 10
+  productionTime = 10
+  cost = 1000
 ]
 
 'SPRITE
 
-RessourceFile = @"tower.jpg"
+RessourceFile = @"tank.png"
 
 Origin=0,0
 Frequency=1
@@ -38,7 +38,7 @@ SpeedX=0
 SpeedY=0
 
 [Clip
-  Size = 2304, 3072
+  Size = 1200, 676
 ]
 
 [Animations
@@ -81,4 +81,3 @@ SpeedY=0
 ]
 
 InitialAnimation = "Idle"
-

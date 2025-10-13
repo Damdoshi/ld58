@@ -17,17 +17,6 @@ RessourceFile = "./res/strategic_board.png"
     Color = 255, 255, 255, 255
   ],
   [
-    Action = "ProduceUnit"
-    Text = "produceUnit"
-    GlyphSize = 5, 7
-    RessourceFile = "./res/font.png"
-    Position = 50, 0
-    Size = 15 * 5 + 4, 10
-    HorizontalAlign = "Center"
-    VerticalAlign = "Center"
-    Color = 255, 255, 255, 255
-  ],
-  [
     Action = "StartDig"
     Text = "Dig"
     GlyphSize = 5, 7
@@ -78,6 +67,50 @@ RessourceFile = "./res/strategic_board.png"
     RessourceFile = "./res/font.png"
     Position = 210, 0
     Size = 15 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "ProduceSoldier"
+    Text = "produceSoldier"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 10, 210
+    Size = 14 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "ProduceTank"
+    Text = "produceTank"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 90, 210
+    Size = 11 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "ProduceProductor"
+    Text = "produceProductor"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 150, 210
+    Size = 16 * 5 + 4, 10
+    HorizontalAlign = "Center"
+    VerticalAlign = "Center"
+    Color = 255, 255, 255, 255
+  ],
+  [
+    Action = "ProduceTurret"
+    Text = "produceTurret"
+    GlyphSize = 5, 7
+    RessourceFile = "./res/font.png"
+    Position = 240, 210
+    Size = 16 * 5 + 4, 10
     HorizontalAlign = "Center"
     VerticalAlign = "Center"
     Color = 255, 255, 255, 255

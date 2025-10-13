@@ -1,0 +1,17 @@
+[Object
+  name = "TurretGun"
+  objType = 1
+  [scale
+    x = 0.008
+    y = 0.008
+  ]
+  img = @"turret.dab"
+]
+
+[Weapon
+  range = 100
+  reloadTime = 10
+  rotaSpeed = 0.02
+  projectile = "res/turretBullet.dab"
+  isManual = false
+]

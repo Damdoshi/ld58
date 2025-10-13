@@ -1,0 +1,19 @@
+[Object
+  name = "RifleBullet"
+  objType = 4
+  [scale
+    x = 0.005
+    y = 0.005
+  ]
+  img = @"hero.dab"
+]
+
+[Projectile
+  projType = 1
+  range = 50
+  speed = 0.7
+  rotaSpeed = 0
+  damage = 40
+  penetration = 0
+  radius = 5
+]

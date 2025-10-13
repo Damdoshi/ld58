@@ -3,6 +3,7 @@
 ef::InGame::InGame(const std::string &lvl,
 		   Program &program)
   :
+  waveCount(0),
   prog(program),
   map(myUnits, enemyUnits, myProj, enemyProj),
   isSelecting(false)

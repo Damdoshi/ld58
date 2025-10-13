@@ -54,6 +54,7 @@ void ef::Projectile::loop(Map &map)
 	      pos.y + tempPos3.y > target.y - 1)
 	    {
 	      pos = target;
+	      range = 0;
 	      //std::cout << "projectile loop set pos.x " << pos.x << " y " << pos.y << std::endl;
 	    }
 	  else if (canMove)

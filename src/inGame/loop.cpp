@@ -32,13 +32,35 @@ void ef::InGame::loop()
       if (enemyUnits[i]->getobjType() == PRODUCTOR)
 	{
 	  std::shared_ptr<Productor> prod = std::static_pointer_cast<Productor>(enemyUnits[i]);
+	  prod->setCollecting(true);
+	  if ((int)prod->getQueue().size() == 0)
+	    {
+	      std::shared_ptr<UnitConf> newConf;
+	      newConf.reset(new UnitConf());
+	      std::string unitName = "res/soldier.dab";
+	      if (waveCount % 20 == 0)
+		unitName = "res/tank.dab";
+	      newConf->LoadConfFile(unitName);
+	      prod->addUnitToQueue(newConf);
+	    }
 	  std::shared_ptr<UnitConf> tempNewUnit = prod->produce();
 	  if (tempNewUnit.get() != nullptr)
-	    createUnit(tempNewUnit, enemyUnits[i], true);
+	    {
+	      createUnit(tempNewUnit, enemyUnits[i], false);
+	      waveCount++;
+	    }
 	  prod->collectResource(map);
 	  prod->placeResource(map);
 	}
+      else if ((enemyUnits[i]->getName() == "Soldier" || enemyUnits[i]->getName() == "Tank") && waveCount > 50)
+	{
+	  std::vector<AcuPos> path;
+	  path.emplace_back(hero->getPos());
+	  enemyUnits[i]->setNewPath(path);
+	}
     }
+  if (waveCount > 50)
+    waveCount = 0;
   if (hero.get() != nullptr)
     {
       AcuPos aimingAt(prog.ingamemouse.x, prog.ingamemouse.y - 150, 0);
@@ -73,7 +95,7 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)myUnits.size(); i++)
       for (int j = 0; j < (int)myUnits.size(); j++)
 	{
-	  if (i != j)
+	  if (i != j && ((myUnits[i]->getobjType() == PRODUCTOR && myUnits[j]->getobjType() == PRODUCTOR) || (myUnits[i]->getobjType() != PRODUCTOR && myUnits[j]->getobjType() != PRODUCTOR)))
 	    {
 	      AcuPos vec(0, 0, 0);
 	      vec = colideUnit(myUnits[i], myUnits[j]);
@@ -84,8 +106,16 @@ void ef::InGame::loop()
 	      double myRatio = 1.0 - myUnits[i]->getMass() / totalMass;
 	      double enemyRatio = 1.0 - myUnits[j]->getMass() / totalMass;
 	      AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
+	      if (myUnits[i]->getPos().x + myVec.x < 0)
+		myVec.x = 0;
+	      if (myUnits[i]->getPos().y + myVec.y < 0)
+		myVec.y = 0;
 	      myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
+	      if (myUnits[j]->getPos().x + enemyVec.x < 0)
+		enemyVec.x = 0;
+	      if (myUnits[j]->getPos().y + enemyVec.y < 0)
+		enemyVec.y = 0;
 	      myUnits[j]->setPos(myUnits[j]->getPos() + enemyVec);
 	    }
 	}
@@ -94,7 +124,7 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)enemyUnits.size(); i++)
       for (int j = 0; j < (int)enemyUnits.size(); j++)
 	{
-	  if (i != j)
+	  if (i != j && ((enemyUnits[i]->getobjType() == PRODUCTOR && enemyUnits[j]->getobjType() == PRODUCTOR) || (enemyUnits[i]->getobjType() != PRODUCTOR && enemyUnits[j]->getobjType() != PRODUCTOR)))
 	    {
 	      AcuPos vec(0, 0, 0);
 	      vec = colideUnit(enemyUnits[i], enemyUnits[j]);
@@ -104,8 +134,16 @@ void ef::InGame::loop()
 	      double myRatio = 1.0 - enemyUnits[i]->getMass() / totalMass;
 	      double enemyRatio = 1.0 - enemyUnits[j]->getMass() / totalMass;
 	      AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
+	      if (enemyUnits[i]->getPos().x + myVec.x < 0)
+		myVec.x = 0;
+	      if (enemyUnits[i]->getPos().y + myVec.y < 0)
+		myVec.y = 0;
 	      enemyUnits[i]->setPos(enemyUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
+	      if (enemyUnits[j]->getPos().x + enemyVec.x < 0)
+		enemyVec.x = 0;
+	      if (enemyUnits[j]->getPos().y + enemyVec.y < 0)
+	        enemyVec.y = 0;
 	      enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
 	    }
 	}
@@ -121,8 +159,16 @@ void ef::InGame::loop()
 	  double myRatio = 1.0 - myUnits[i]->getMass() / totalMass;
 	  double enemyRatio = 1.0 - enemyUnits[j]->getMass() / totalMass;
 	  AcuPos myVec(vec.x * myRatio, vec.y * myRatio, 0);
+	  if (myUnits[i]->getPos().x + myVec.x < 0)
+	    myVec.x = 0;
+	  if (myUnits[i]->getPos().y + myVec.y < 0)
+	    myVec.y = 0;
 	  myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	  AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
+	  if (enemyUnits[j]->getPos().x + enemyVec.x < 0)
+	    enemyVec.x = 0;
+	  if (enemyUnits[j]->getPos().y + enemyVec.y < 0)
+	    enemyVec.y = 0;
 	  enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
 	}
   

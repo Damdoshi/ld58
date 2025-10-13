@@ -104,6 +104,18 @@ t_bunny_response Warfield::Loop()
 
   KeyCamera();
   ingame.loop();
+  if (ingame.hasLoose())
+    {
+      bunny_sound_stop(&ingame.music->sound);
+      prog.SetContext(Program::MAIN_MENU);
+      return (SWITCH_CONTEXT);
+    }
+  if (ingame.hasWin())
+    {
+      bunny_sound_stop(&ingame.music->sound);
+      prog.SetContext(Program::MAIN_MENU);
+      return (SWITCH_CONTEXT);
+    }
   return GO_ON;
 }
 

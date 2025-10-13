@@ -36,6 +36,8 @@ namespace ef
     void loop();
 
     bool loadLevel(const std::string &lvl);
+    bool hasLoose();
+    bool hasWin();
 
     void selectUnit(t_bunny_area area);
     void moveUnit(bool isHoldShift);
@@ -71,6 +73,7 @@ namespace ef
 		    std::shared_ptr<Unit> creator,
 		    bool isMine);
 
+    int waveCount;
     Program &prog;
     Map map;
     t_bunny_area cameraPos;

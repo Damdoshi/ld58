@@ -32,12 +32,16 @@ protected:
   t_bunny_configuration	*conf = NULL;
   std::map<std::string, ButtonProperties> buttons;
   t_bunny_response	GoWarfield(void);
-  t_bunny_response      ProduceUnit(void);
   t_bunny_response	StartDig(void);
   t_bunny_response	EndDig(void);
   t_bunny_response	StartPlace(void);
   t_bunny_response	EndPlace(void);
   t_bunny_response      ResetProd(void);
+
+  t_bunny_response      ProduceSoldier(void);
+  t_bunny_response      ProduceTank(void);
+  t_bunny_response      ProduceTurret(void);
+  t_bunny_response      ProduceProductor(void);
 
 public:
   t_bunny_response	EnteringContext(void);

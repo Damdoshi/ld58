@@ -2,16 +2,16 @@
   name = "Cannon"
   objType = 1
   [scale
-    x = 0.008
-    y = 0.008
+    x = 0.03
+    y = 0.06
   ]
-  img = @"turret.dab"
+  img = @"tank.dab"
 ]
 
 [Weapon
-  range = 100
-  reloadTime = 10
+  range = 70
+  reloadTime = 100
   rotaSpeed = 0.02
-  projectile = "res/stuff.dab"
+  projectile = "res/tankShell.dab"
   isManual = false
 ]

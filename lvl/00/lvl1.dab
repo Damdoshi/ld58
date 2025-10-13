@@ -4,44 +4,16 @@
   [hero
     unit = "res/hero.dab"
     [startPos
-      x = 220
-      y = 220
+      x = 10
+      y = 10
     ]
   ]
   {startingUnit
     [
-      unit = "res/productor.dab"
+      unit = "res/soldier.dab"
       [startPos
-        x = 40
-        y = 40
-      ]
-    ],
-    [
-      unit = "res/spider.dab"
-      [startPos
-        x = 50
-        y = 40
-      ]
-    ],
-    [
-      unit = "res/turret.dab"
-      [startPos
-        x = 40
-        y = 50
-      ]
-    ],
-    [
-      unit = "res/spider.dab"
-      [startPos
-        x = 160
-        y = 150
-      ]
-    ],
-    [
-      unit = "res/spider.dab"
-      [startPos
-        x = 150
-        y = 160
+        x = 20
+        y = 20
       ]
     ]
   }
@@ -50,21 +22,49 @@
       unit = "res/spider.dab"
       [startPos
         x = 120
-        y = 100
+        y = 160
       ]
     ],
     [
       unit = "res/spider.dab"
       [startPos
-        x = 130
-        y = 110
+        x = 520
+        y = 460
+      ]
+    ],
+    [
+      unit = "res/spider.dab"
+      [startPos
+        x = 500
+        y = 400
+      ]
+    ],
+    [
+      unit = "res/productor.dab"
+      [startPos
+        x = 550
+        y = 450
+      ]
+    ],
+    [
+      unit = "res/productor.dab"
+      [startPos
+        x = 550
+        y = 400
+      ]
+    ],
+    [
+      unit = "res/productor.dab"
+      [startPos
+        x = 550
+        y = 350
       ]
     ],
     [
       unit = "res/turret.dab"
       [startPos
-        x = 140
-        y = 120
+        x = 600
+        y = 440
       ]
     ]
   }

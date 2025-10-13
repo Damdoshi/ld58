@@ -11,14 +11,14 @@
 [MoveModule
   speed = 0.1
   rotaSpeed = 0.1
-  maxDivergeance = 10
+  maxDivergeance = 3
 ]
 
 [Unit
   weapon = "res/manual.dab"
-  maxHp = 20
-  armor = 2.5
-  mass = 1
+  maxHp = 500
+  armor = 50
+  mass = 5
   productionTime = 5
   cost = 2
 ]
