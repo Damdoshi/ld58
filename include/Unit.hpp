@@ -46,7 +46,6 @@ namespace ef
     void loop(Map &map);
     virtual void display(std::shared_ptr<Bpixelarray> screen,
 			 AcuPos cameraPos);
-    void displayPath(std::shared_ptr<Bpixelarray> screen);
     std::shared_ptr<ProjectileConf> makeTargeting(std::vector<std::shared_ptr<Unit>> otherUnit);
 
     double getMaxHp()

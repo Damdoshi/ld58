@@ -4,6 +4,7 @@ ef::Object::Object(std::shared_ptr<ObjectConf>	conf)
   :
   name(conf->name),
   objType(conf->objType),
+  team(0),
   pos(0, 0, 0),
   scale(conf->scale),
   rota(0),

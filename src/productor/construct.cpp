@@ -8,6 +8,7 @@ ef::Productor::Productor(std::shared_ptr<UnitConf> conf)
   isCollecting(false),
   isPlacing(false),
   resources(0),
+  maxResources(500),
   timeLeftProd(0)
 {
 }

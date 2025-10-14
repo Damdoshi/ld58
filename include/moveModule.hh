@@ -35,6 +35,8 @@ namespace ef
     { return speed; };
     double getRotaSpeed()
     { return rotaSpeed; };
+    double getMaxDivergeance()
+    { return maxDivergeance; };
 
     void setSpeed(double newSpeed)
     { speed = newSpeed; };

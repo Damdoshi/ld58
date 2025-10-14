@@ -17,7 +17,7 @@ Tile::Tile(double	h,
     hp(hpph)
 {
   random_col.argb[ALPHA_CMP] = 255;
-  random_col.argb[RED_CMP] = rand() % 32;
+  random_col.argb[RED_CMP] = rand() % 16;
   random_col.argb[GREEN_CMP] = random_col.argb[RED_CMP];
   random_col.argb[BLUE_CMP] = random_col.argb[RED_CMP];
 }

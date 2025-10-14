@@ -82,6 +82,11 @@ void		Map::Display(ef::Bpixelarray	&screen,
 	Tile	&water = y < size.y ? waters[x + y * size.x] : border;
 
 	hs = sand.Height() * tilt + 1;
+	if (sand.Height() < 0)
+	  {
+	    hs = 1;
+	    std::cout << "map display AAAAAAAAAAAAAAAAAAAAAA" << std::endl;
+	  }
 	ef::AcuPos line[2] = {
 	  {(double)x, y + hs    + 5 * (Tile::MaxHeight + 5), 0},
 	  {(double)x, (double)y + 5 * (Tile::MaxHeight + 5), 0}
@@ -90,8 +95,8 @@ void		Map::Display(ef::Bpixelarray	&screen,
 
 	if ((int)(x + y * 1.5) % 20 == 0 || (int)(x - y * 1.5) % 20 == 0)
 	  color |= COLOR(0, 127, 127, 127);
-	if (!((int)((x + y * 1.5) / 20) % 2 || ((int)(x - y * 1.5) / 20) % 2))
-	  color |= COLOR(0, 31, 31, 31);
+	//if (!((int)((x + y * 1.5) / 20) % 2 || ((int)(x - y * 1.5) / 20) % 2))
+	//  color |= COLOR(0, 31, 31, 31);
 	lmap->setLine(line[0], line[1], color);
 
 	/*if (x == 160 && y == 150)

@@ -13,7 +13,13 @@ void ef::InGame::createUnit(std::shared_ptr<UnitConf> conf,
     newUnit.reset(new Unit(conf));
   newUnit->setPos(creator->getPos());
   if (isMine)
-    myUnits.push_back(newUnit);
+    {
+      newUnit->setTeam(1);
+      myUnits.push_back(newUnit);
+    }
   else
-    enemyUnits.push_back(newUnit);
+    {
+      newUnit->setTeam(2);
+      enemyUnits.push_back(newUnit);
+    }
 }

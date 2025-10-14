@@ -15,5 +15,5 @@
   rotaSpeed = 0
   damage = 30
   penetration = 5
-  radius = 5
+  radius = 50
 ]

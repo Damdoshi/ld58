@@ -23,11 +23,23 @@ unsigned int		Tile::GetDisplayColor(void) const
     }
   else
     {
-      appreciation *= appreciation;
-      col.argb[RED_CMP] *= appreciation * 0.8 + 0.1;
-      col.argb[GREEN_CMP] *= appreciation * 0.8 + 0.1;
-      col.argb[BLUE_CMP] *= appreciation * 0.8 + 0.1;
-      col.full |= random_col.full;
+      //appreciation *= appreciation;
+      col.argb[RED_CMP] *= appreciation; //* 0.8 + 0.1;
+      col.argb[GREEN_CMP] *= appreciation;// * 0.8 + 0.1;
+      col.argb[BLUE_CMP] *= appreciation; //* 0.8 + 0.1;
+      if (col.argb[RED_CMP] + random_col.argb[RED_CMP] > 255)
+	col.argb[RED_CMP] = 255;
+      else
+	col.argb[RED_CMP] += random_col.argb[RED_CMP];
+      if (col.argb[GREEN_CMP] + random_col.argb[GREEN_CMP] > 255)
+	col.argb[GREEN_CMP] = 255;
+      else
+	col.argb[GREEN_CMP] += random_col.argb[GREEN_CMP];
+      if (col.argb[BLUE_CMP] + random_col.argb[BLUE_CMP] > 255)
+	col.argb[BLUE_CMP] = 255;
+      else
+	col.argb[BLUE_CMP] += random_col.argb[BLUE_CMP];
+      //col.full |= random_col.full;
     }
   return (col.full);
 }

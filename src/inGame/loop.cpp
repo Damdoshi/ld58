@@ -110,13 +110,31 @@ void ef::InGame::loop()
 		myVec.x = 0;
 	      if (myUnits[i]->getPos().y + myVec.y < 0)
 		myVec.y = 0;
-	      myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
+	      t_bunny_area startArea;
+	      startArea.x = myUnits[i]->getPos().x;
+	      startArea.y = myUnits[i]->getPos().y;
+	      startArea.w = 1;
+	      startArea.h = 1;
+	      t_bunny_position endArea;
+	      endArea.x = myUnits[i]->getPos().x + myVec.x;
+	      endArea.y = myUnits[i]->getPos().y + myVec.y;
+	      bool canMove = map.IsMoveLegal(startArea, endArea, myUnits[i]->getMaxDivergeance());
+	      if (canMove)
+		myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	      if (myUnits[j]->getPos().x + enemyVec.x < 0)
 		enemyVec.x = 0;
 	      if (myUnits[j]->getPos().y + enemyVec.y < 0)
 		enemyVec.y = 0;
-	      myUnits[j]->setPos(myUnits[j]->getPos() + enemyVec);
+	      startArea.x = myUnits[j]->getPos().x;
+	      startArea.y = myUnits[j]->getPos().y;
+	      startArea.w = 1;
+	      startArea.h = 1;
+	      endArea.x = myUnits[j]->getPos().x + enemyVec.x;
+	      endArea.y = myUnits[j]->getPos().y + enemyVec.y;
+	      canMove = map.IsMoveLegal(startArea, endArea, myUnits[j]->getMaxDivergeance());
+	      if (canMove)
+		myUnits[j]->setPos(myUnits[j]->getPos() + enemyVec);
 	    }
 	}
   
@@ -138,13 +156,31 @@ void ef::InGame::loop()
 		myVec.x = 0;
 	      if (enemyUnits[i]->getPos().y + myVec.y < 0)
 		myVec.y = 0;
-	      enemyUnits[i]->setPos(enemyUnits[i]->getPos() + myVec);
+	      t_bunny_area startArea;
+	      startArea.x = enemyUnits[i]->getPos().x;
+	      startArea.y = enemyUnits[i]->getPos().y;
+	      startArea.w = 1;
+	      startArea.h = 1;
+	      t_bunny_position endArea;
+	      endArea.x = enemyUnits[i]->getPos().x + myVec.x;
+	      endArea.y = enemyUnits[i]->getPos().y + myVec.y;
+	      bool canMove = map.IsMoveLegal(startArea, endArea, enemyUnits[i]->getMaxDivergeance());
+	      if (canMove)
+		enemyUnits[i]->setPos(enemyUnits[i]->getPos() + myVec);
 	      AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	      if (enemyUnits[j]->getPos().x + enemyVec.x < 0)
 		enemyVec.x = 0;
 	      if (enemyUnits[j]->getPos().y + enemyVec.y < 0)
 	        enemyVec.y = 0;
-	      enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
+	      startArea.x = enemyUnits[j]->getPos().x;
+	      startArea.y = enemyUnits[j]->getPos().y;
+	      startArea.w = 1;
+	      startArea.h = 1;
+	      endArea.x = enemyUnits[j]->getPos().x + enemyVec.x;
+	      endArea.y = enemyUnits[j]->getPos().y + enemyVec.y;
+	      canMove = map.IsMoveLegal(startArea, endArea, enemyUnits[j]->getMaxDivergeance());
+	      if (canMove)
+		enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
 	    }
 	}
   
@@ -163,13 +199,31 @@ void ef::InGame::loop()
 	    myVec.x = 0;
 	  if (myUnits[i]->getPos().y + myVec.y < 0)
 	    myVec.y = 0;
-	  myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
+	  t_bunny_area startArea;
+	  startArea.x = myUnits[i]->getPos().x;
+	  startArea.y = myUnits[i]->getPos().y;
+	  startArea.w = 1;
+	  startArea.h = 1;
+	  t_bunny_position endArea;
+	  endArea.x = myUnits[i]->getPos().x + myVec.x;
+	  endArea.y = myUnits[i]->getPos().y + myVec.y;
+	  bool canMove = map.IsMoveLegal(startArea, endArea, myUnits[i]->getMaxDivergeance());
+	  if (canMove)
+	    myUnits[i]->setPos(myUnits[i]->getPos() + myVec);
 	  AcuPos enemyVec(vec.x * -enemyRatio, vec.y * -enemyRatio, 0);
 	  if (enemyUnits[j]->getPos().x + enemyVec.x < 0)
 	    enemyVec.x = 0;
 	  if (enemyUnits[j]->getPos().y + enemyVec.y < 0)
 	    enemyVec.y = 0;
-	  enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
+	  startArea.x = enemyUnits[j]->getPos().x;
+	  startArea.y = enemyUnits[j]->getPos().y;
+	  startArea.w = 1;
+	  startArea.h = 1;
+	  endArea.x = enemyUnits[j]->getPos().x + enemyVec.x;
+	  endArea.y = enemyUnits[j]->getPos().y + enemyVec.y;
+	  canMove = map.IsMoveLegal(startArea, endArea, enemyUnits[j]->getMaxDivergeance());
+	  if (canMove)
+	    enemyUnits[j]->setPos(enemyUnits[j]->getPos() + enemyVec);
 	}
   
 }

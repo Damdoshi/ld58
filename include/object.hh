@@ -53,17 +53,22 @@ namespace ef
     { return scale; };
     double getRota()
     { return rota; };
+    int getTeam()
+    { return team; };
 
     void setPos(AcuPos newPos)
     { pos = newPos; };
     void setRota(double newRota)
     { rota = newRota; };
+    void setTeam(int newTeam)
+    { team = newTeam; };
 
   protected:
     std::string name;
     ObjectType objType;
 
     // gameplay
+    int team;
     std::vector<std::shared_ptr<Object>> isTargeted;
 
     // display

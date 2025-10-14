@@ -8,7 +8,7 @@ void ef::Productor::placeResource(Map &map)
       t_bunny_position posi;
       posi.x = pos.x;
       posi.y = pos.y;
-      resources += map.Hit(posi, 5, -5, true);
+      resources += map.Hit(posi, 5, -5, false);
       std::cout << "Productor placeResource resources " << resources << std::endl;
       placingCooldown = 1;
     }

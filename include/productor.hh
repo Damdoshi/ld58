@@ -11,6 +11,8 @@ namespace ef
     Productor() = default;
     Productor(std::shared_ptr<UnitConf> conf);
 
+    virtual void display(std::shared_ptr<Bpixelarray> screen,
+			 AcuPos cameraPos);
     void collectResource(Map &map);
     void placeResource(Map &map);
     void setCollecting(bool value);
@@ -31,6 +33,7 @@ namespace ef
     bool isPlacing;
 
     double resources;
+    double maxResources;
     double timeLeftProd;
     std::vector<std::shared_ptr<UnitConf>> prodQueue;
   };

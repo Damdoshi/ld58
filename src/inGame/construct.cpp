@@ -28,6 +28,7 @@ ef::InGame::InGame(const std::string &lvl,
       if (newUnit.get() != nullptr)
 	{
 	  newUnit->setPos(lvlconf.startingUnit[i].startPos);
+	  newUnit->setTeam(1);
 	  myUnits.push_back(newUnit);
 	}
     }
@@ -48,6 +49,7 @@ ef::InGame::InGame(const std::string &lvl,
       if (newUnit.get() != nullptr)
 	{
 	  newUnit->setPos(lvlconf.startingEnemy[i].startPos);
+	  newUnit->setTeam(2);
 	  enemyUnits.push_back(newUnit);
 	}
     }
