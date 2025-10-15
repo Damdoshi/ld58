@@ -9,7 +9,7 @@
 ]
 
 [Weapon
-  range = 100
+  range = 80
   reloadTime = 10
   rotaSpeed = 0.02
   projectile = "res/turretBullet.dab"

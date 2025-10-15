@@ -1,0 +1,17 @@
+[Object
+  name = "ArtilleryCannon"
+  objType = 1
+  [scale
+    x = 0.04
+    y = 0.04
+  ]
+  img = @"artillery.dab"
+]
+
+[Weapon
+  range = 142
+  reloadTime = 300
+  rotaSpeed = 0.02
+  projectile = "res/artilleryShell.dab"
+  isManual = false
+]

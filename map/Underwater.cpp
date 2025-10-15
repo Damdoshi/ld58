@@ -18,6 +18,7 @@ bool			Map::Underwater(int		x,
 
   if (t.Height() > z)
     return (true);
+  //std::cout << "map underwater water height " << waters[y * size.x + x].Height() << " vs height " << z + t.Height() << std::endl;
   return (waters[y * size.x + x].Height() > z + t.Height());
 }
 

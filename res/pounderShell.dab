@@ -1,5 +1,5 @@
 [Object
-  name = "Stuff"
+  name = "PounderShell"
   objType = 4
   [scale
     x = 0.005
@@ -9,13 +9,12 @@
 ]
 
 [Projectile
-  projType = 1
-  range = 100
-  speed = 0.5
+  projType = 0
+  range = 63
+  speed = 2
   rotaSpeed = 0
-  damage = 10
-  penetration = 2
+  damage = 318
+  penetration = 5
   radius = 5
-  explosionRadius = 5
+  explosionRadius = 25
 ]
-

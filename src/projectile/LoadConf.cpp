@@ -54,5 +54,10 @@ int ef::ProjectileConf::LoadConf(Bconf &conf)
       perror("ProjectileConf::LoadConf : failed to get radius");
       return -1;
     }
+  if(!bunny_configuration_getf_double(conf.Get(), &explosionRadius, "Projectile.explosionRadius"))
+    {
+      perror("ProjectileConf::LoadConf : failed to get explosionRadius");
+      return -1;
+    }
   return 1;
 }

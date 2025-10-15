@@ -9,7 +9,9 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)myUnits.size(); i++)
     {
       myUnits[i]->loop(map);
-      std::shared_ptr<ProjectileConf> tempProj = myUnits[i]->makeTargeting(enemyUnits);
+      std::shared_ptr<ProjectileConf> tempProj;
+      //if (!map.Underwater(myUnits[i]->getPos().x, myUnits[i]->getPos().y, myUnits[i]->getPos().z))
+      tempProj = myUnits[i]->makeTargeting(enemyUnits);
       if (tempProj.get() != nullptr)
 	fireProj(tempProj, true, myUnits[i]);
       if (myUnits[i]->getobjType() == PRODUCTOR || myUnits[i]->getobjType() == HERO)
@@ -26,7 +28,9 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)enemyUnits.size(); i++)
     {
       enemyUnits[i]->loop(map);
-      std::shared_ptr<ProjectileConf> tempProj = enemyUnits[i]->makeTargeting(myUnits);
+      std::shared_ptr<ProjectileConf> tempProj;
+      //if (!map.Underwater(enemyUnits[i]->getPos().x, enemyUnits[i]->getPos().y, enemyUnits[i]->getPos().z))
+      tempProj = enemyUnits[i]->makeTargeting(myUnits);
       if (tempProj.get() != nullptr)
 	fireProj(tempProj, false, enemyUnits[i]);
       if (enemyUnits[i]->getobjType() == PRODUCTOR)
@@ -70,15 +74,15 @@ void ef::InGame::loop()
   for (int i = 0; i < (int)myProj.size(); i++)
     {
       //std::cout << "ingame loop range " << myProj[i]->lifeTime << std::endl;
-      myProj[i]->loop(map);
-      if (doProjHit(myProj[i], enemyUnits) || myProj[i]->lifeTime <= 0 || myProj[i]->getRange() <= 0)
+      bool isBlocked = myProj[i]->loop(map);
+      if (doProjHit(myProj[i], enemyUnits) || myProj[i]->lifeTime <= 0 || myProj[i]->getRange() <= 0 || isBlocked)
 	removeProj(i, true);
     }
   for (int i = 0; i < (int)enemyProj.size(); i++)
     {
       //std::cout << "ingame loop range " << enemyProj[i]->lifeTime << std::endl;
-      enemyProj[i]->loop(map);
-      if (doProjHit(enemyProj[i], myUnits) || enemyProj[i]->lifeTime <= 0 || enemyProj[i]->getRange() <= 0)
+      bool isBlocked = enemyProj[i]->loop(map);
+      if (doProjHit(enemyProj[i], myUnits) || enemyProj[i]->lifeTime <= 0 || enemyProj[i]->getRange() <= 0 || isBlocked)
 	removeProj(i, false);
     }
 

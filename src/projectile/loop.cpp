@@ -1,7 +1,7 @@
 #include "projectile.hh"
 #include "Map.hpp"
 
-void ef::Projectile::loop(Map &map)
+bool ef::Projectile::loop(Map &map)
 {
   //std::cout << "projectile loop lockTarget " << (lockTarget == nullptr) << std::endl;
   AcuPos target(0, 0, 0);
@@ -57,16 +57,25 @@ void ef::Projectile::loop(Map &map)
 	      range = 0;
 	      //std::cout << "projectile loop set pos.x " << pos.x << " y " << pos.y << std::endl;
 	    }
-	  else if (canMove)
+	  else if (canMove || projType == ARC)
 	    {
 	      //std::cout << "projectile loop before pos.x " << pos.x << " y " << pos.y << std::endl;
 	      pos.x += tempPos3.x;
 	      pos.y += tempPos3.y;
+	      if (projType == ARC)
+		{
+		  //std::cout << "projectile loop distToGo " << distToGo << std::endl;
+		  pos.z = sin(M_PI / distToGo * currDistToGo) * -distToGo;
+		}
 	      //std::cout << "projectile loop after pos.x " << pos.x << " y " << pos.y << std::endl;
 	    }
+	  else
+	    return true;
 	  double dist = sqrt((pos.x - oldPos.x) * (pos.x - oldPos.x) + (pos.y - oldPos.y) * (pos.y - oldPos.y));
 	  range -= dist;
+	  currDistToGo -= dist;
 	}
     }
   lifeTime -= 1;
+  return false;
 }

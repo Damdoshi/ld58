@@ -1,17 +1,17 @@
 [Object
-  name = "Cannon"
+  name = "PounderCannon"
   objType = 1
   [scale
     x = 0.04
     y = 0.04
   ]
-  img = @"tank.dab"
+  img = @"pounder.dab"
 ]
 
 [Weapon
-  range = 70
+  range = 63
   reloadTime = 180
   rotaSpeed = 0.02
-  projectile = "res/tankShell.dab"
+  projectile = "res/pounderShell.dab"
   isManual = false
 ]

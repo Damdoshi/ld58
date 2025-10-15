@@ -9,11 +9,12 @@
 ]
 
 [Projectile
-  projType = 1
-  range = 50
-  speed = 0.7
+  projType = 0
+  range = 46
+  speed = 2
   rotaSpeed = 0
-  damage = 40
+  damage = 100
   penetration = 0
   radius = 5
+  explosionRadius = 5
 ]

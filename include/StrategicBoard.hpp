@@ -42,6 +42,8 @@ protected:
   t_bunny_response      ProduceTank(void);
   t_bunny_response      ProduceTurret(void);
   t_bunny_response      ProduceProductor(void);
+  t_bunny_response      ProducePounder(void);
+  t_bunny_response      ProduceArtillery(void);
 
 public:
   t_bunny_response	EnteringContext(void);

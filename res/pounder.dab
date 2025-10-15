@@ -1,31 +1,31 @@
 [Object
-  name = "Soldier"
+  name = "Pounder"
   objType = 2
   [scale
     x = 0.04
     y = 0.04
   ]
-  img = @"soldier.dab"
+  img = @"pounder.dab"
 ]
 
 [MoveModule
-  speed = 0.172
-  rotaSpeed = 0.3
-  maxDivergeance = 3
+  speed = 0.08
+  rotaSpeed = 0.03
+  maxDivergeance = 2
 ]
 
 [Unit
-  weapon = "res/rifle.dab"
-  maxHp = 820
-  armor = 10
-  mass = 1
-  productionTime = 1
-  cost = 100
+  weapon = "res/pounderCannon.dab"
+  maxHp = 1490
+  armor = 30
+  mass = 10
+  productionTime = 3
+  cost = 200
 ]
 
 'SPRITE
 
-RessourceFile = @"soldier.jpg"
+RessourceFile = @"pounder.jpg"
 
 Origin=0,0
 Frequency=1

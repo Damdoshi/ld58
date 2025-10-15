@@ -39,6 +39,8 @@ StrategicBoard::StrategicBoard(Program	&p,
   buttons["ProduceTank"].action = &StrategicBoard::ProduceTank;
   buttons["ProduceTurret"].action = &StrategicBoard::ProduceTurret;
   buttons["ProduceProductor"].action = &StrategicBoard::ProduceProductor;
+  buttons["ProducePounder"].action = &StrategicBoard::ProducePounder;
+  buttons["ProduceArtillery"].action = &StrategicBoard::ProduceArtillery;
 }
 
 StrategicBoard::~StrategicBoard(void)

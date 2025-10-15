@@ -1,5 +1,5 @@
 [Object
-  name = "Stuff"
+  name = "ArtilleryShell"
   objType = 4
   [scale
     x = 0.005
@@ -10,12 +10,11 @@
 
 [Projectile
   projType = 1
-  range = 100
+  range = 142
   speed = 0.5
   rotaSpeed = 0
-  damage = 10
-  penetration = 2
+  damage = 220
+  penetration = 10
   radius = 5
-  explosionRadius = 5
+  explosionRadius = 25
 ]
-

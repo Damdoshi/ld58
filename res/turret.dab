@@ -16,11 +16,11 @@
 
 [Unit
   weapon = "res/turretGun.dab"
-  maxHp = 800
+  maxHp = 4000
   armor = 80
   mass = 9999
   productionTime = 6
-  cost = 500
+  cost = 350
 ]
 
 'SPRITE

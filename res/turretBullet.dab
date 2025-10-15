@@ -1,5 +1,5 @@
 [Object
-  name = "RifleBullet"
+  name = "turretBullet"
   objType = 4
   [scale
     x = 0.005
@@ -9,11 +9,12 @@
 ]
 
 [Projectile
-  projType = 1
-  range = 100
-  speed = 1.2
+  projType = 0
+  range = 80
+  speed = 2
   rotaSpeed = 0
-  damage = 30
+  damage = 33
   penetration = 5
-  radius = 50
+  radius = 5
+  explosionRadius = 5
 ]

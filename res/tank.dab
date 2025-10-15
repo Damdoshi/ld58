@@ -2,30 +2,30 @@
   name = "Tank"
   objType = 2
   [scale
-    x = 0.025
-    y = 0.05
+    x = 0.04
+    y = 0.04
   ]
   img = @"tank.dab"
 ]
 
 [MoveModule
-  speed = 0.15
+  speed = 0.08
   rotaSpeed = 0.03
   maxDivergeance = 2
 ]
 
 [Unit
   weapon = "res/cannon.dab"
-  maxHp = 1000
-  armor = 100
+  maxHp = 1920
+  armor = 30
   mass = 10
-  productionTime = 10
-  cost = 1000
+  productionTime = 3
+  cost = 200
 ]
 
 'SPRITE
 
-RessourceFile = @"tank.png"
+RessourceFile = @"tank.jpg"
 
 Origin=0,0
 Frequency=1
@@ -38,7 +38,7 @@ SpeedX=0
 SpeedY=0
 
 [Clip
-  Size = 1200, 676
+  Size = 400, 400
 ]
 
 [Animations

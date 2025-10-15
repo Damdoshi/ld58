@@ -17,6 +17,7 @@ void ef::InGame::fireGun()
 	  newProj->setDestination(target);
 	  newProj->setPos(hero->getPos());
 	  newProj->setRota(hero->getWeapon()->getRota());
+	  newProj->setDistToGo(sqrt((target.x - hero->getPos().x) * (target.x - hero->getPos().x) + (target.y - hero->getPos().y) * (target.y - hero->getPos().y)));
 	  myProj.push_back(newProj);
 	}
     }

@@ -10,7 +10,7 @@ void ef::Object::display(std::shared_ptr<Bpixelarray> screen,
   tempPos.x -= siz.x / 2.0;
   tempPos.y -= siz.y / 2.0;
   tempPos.x += cameraPos.x;
-  tempPos.y += cameraPos.y;
+  tempPos.y += cameraPos.y + tempPos.z;
   
   if (img.get())
     screen->Blit(*img.get(), tempPos, siz, rota);

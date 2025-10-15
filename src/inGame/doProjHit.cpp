@@ -11,10 +11,17 @@ bool ef::InGame::doProjHit(std::shared_ptr<Projectile> proj,
       if (proj->getPos().x > otherUnit[i]->getPos().x - proj->getRadius() &&
 	  proj->getPos().x < otherUnit[i]->getPos().x + proj->getRadius() &&
 	  proj->getPos().y > otherUnit[i]->getPos().y - proj->getRadius() &&
-	  proj->getPos().y < otherUnit[i]->getPos().y + proj->getRadius())
+	  proj->getPos().y < otherUnit[i]->getPos().y + proj->getRadius() &&
+	  proj->getPos().z > otherUnit[i]->getPos().z - proj->getRadius() &&
+	  proj->getPos().z < otherUnit[i]->getPos().z + proj->getRadius())
 	{
-	  std::cout << "doProjHit damage" << std::endl;
-	  otherUnit[i]->damageUnit(proj->getDamage(), proj->getPenetration());
+	  //std::cout << "doProjHit damage" << std::endl;
+	  for (int j = 0; j < (int)otherUnit.size(); j++)
+	    if (proj->getPos().x > otherUnit[j]->getPos().x - proj->getExplosionRadius() &&
+		proj->getPos().x < otherUnit[j]->getPos().x + proj->getExplosionRadius() &&
+		proj->getPos().y > otherUnit[j]->getPos().y - proj->getExplosionRadius() &&
+		proj->getPos().y < otherUnit[j]->getPos().y + proj->getExplosionRadius())
+	      otherUnit[j]->damageUnit(proj->getDamage(), proj->getPenetration());
 	  return true;
 	}
     }

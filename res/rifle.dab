@@ -9,8 +9,8 @@
 ]
 
 [Weapon
-  range = 50
-  reloadTime = 25
+  range = 46
+  reloadTime = 60
   rotaSpeed = 0.07
   projectile = "res/rifleBullet.dab"
   isManual = false

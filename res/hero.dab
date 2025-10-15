@@ -16,7 +16,7 @@
 
 [Unit
   weapon = "res/manual.dab"
-  maxHp = 500
+  maxHp = 5000
   armor = 50
   mass = 5
   productionTime = 5
