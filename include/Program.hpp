@@ -26,6 +26,7 @@ public:
       STRATEGIC_BOARD,
       GAME_OVER,
       CREDITS,
+      EDITOR,
       LAST_CONTEXT,
       INITIAL_CONTEXT	= WARFIELD
     };
